@@ -32,7 +32,7 @@ Checklist này đối chiếu README/rubric gốc và các mục người học 
 
 ## Đối chiếu thang điểm
 
-Điểm dưới đây là trọng số tiêu chí của đề, **không phải điểm tự chấm hoặc cam kết được giảng viên cho**. Các bằng chứng chưa commit/push vẫn chỉ nằm local.
+Điểm dưới đây là trọng số tiêu chí của đề, **không phải điểm tự chấm hoặc cam kết được giảng viên cho**. Code và bằng chứng core đã được commit/push trong `c4fd136` lên nhánh `main`; trọng số vẫn chỉ nằm local theo quy định.
 
 | Tiêu chí | Điểm của đề | Bằng chứng / trạng thái |
 |---|---:|---|
@@ -70,7 +70,7 @@ Không tự khẳng định đạt 100/100. Model 0.6B thay cho 4B, judge NF4 ch
 
 - [x] Kiểm tra lại GitHub API: repo Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment đang public.
 - [x] Đủ năm notebook có output, bốn PNG, raw/summary eval, JSON DPO và REFLECTION trên đĩa; các artifact bắt buộc không bị Git ignore. `make verify` đã exit 0.
-- [ ] Commit/push nội dung Day22: người học đã yêu cầu; đang kiểm tra file nộp trước khi thực hiện.
+- [x] Commit/push nội dung Day22 theo yêu cầu ngày 2026-10-08: commit bài làm `c4fd136` đã lên `origin/main`, hash remote khớp local. Repo: https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment.
 - [ ] Nộp link repo public vào LMS: người học thực hiện, không đồng nghĩa với push GitHub.
 - [ ] Giữ repo public đến khi có điểm: người học duy trì; không thể xác nhận hoàn thành việc trong tương lai.
 - [ ] NB3b, GGUF, benchmark, GRPO, beta-sweep, API cross-judge, HF Hub: chưa chạy, không tự nhận điểm bonus.

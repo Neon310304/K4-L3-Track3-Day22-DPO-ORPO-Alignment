@@ -166,7 +166,7 @@ Không train GRPO, không có accuracy trước/sau hay đường reward của G
 
 ## Kiểm tra, tái lập và nộp bài
 
-Các notebook NB0–NB4 giữ execution/output thật; manifest lưu cả lượt NB3 lỗi và lượt thành công. Các trọng số SFT/reference/DPO được giữ local và bị ignore; clone mới phải chạy pipeline để tái tạo trước `make verify`. Chưa upload adapter lên HF Hub và chưa tự push hoặc nộp LMS. README/rubric yêu cầu repo public, không áp đặt mẫu tên riêng.
+Các notebook NB0–NB4 giữ execution/output thật; manifest lưu cả lượt NB3 lỗi và lượt thành công. Các trọng số SFT/reference/DPO được giữ local và bị ignore; clone mới phải chạy pipeline để tái tạo trước `make verify`. Code và bằng chứng core đã commit/push lên GitHub trong `c4fd136` ngày 2026-10-08 theo yêu cầu người học; chưa upload adapter lên HF Hub và chưa nộp LMS. README/rubric yêu cầu repo public, không áp đặt mẫu tên riêng.
 
 CPU tests, Colab sync, `make verify` và audit được lưu trong `submission/evidence/`; trạng thái cuối đối chiếu tại [CHECKLIST.md](CHECKLIST.md). Audit tính lại summary từ verdict/raw output và kiểm hash/split/source; không thay thế đánh giá ngữ nghĩa hoặc bảo đảm mọi RM đúng.
 
