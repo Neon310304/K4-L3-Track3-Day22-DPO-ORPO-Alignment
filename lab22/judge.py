@@ -287,9 +287,22 @@ def make_rm_scorer(name: str | Path, max_length: int = 4096) -> Scorer:
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
     dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16  # T4: fp16
+    max_length = int(os.environ.get("JUDGE_RM_MAX_LENGTH", str(max_length)))
+    if max_length < 1:
+        raise ValueError("JUDGE_RM_MAX_LENGTH must be positive")
+    model_kwargs = {}
+    if os.environ.get("JUDGE_RM_4BIT", "0") == "1":
+        from transformers import BitsAndBytesConfig
+
+        model_kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_compute_dtype=dtype,
+        )
     tok = AutoTokenizer.from_pretrained(name)
     rm = AutoModelForSequenceClassification.from_pretrained(
-        name, dtype=dtype, device_map="cuda:0", attn_implementation="sdpa", num_labels=1
+        name, dtype=dtype, device_map="cuda:0", attn_implementation="sdpa", num_labels=1, **model_kwargs
     ).eval()
 
     def score(prompt: str, answer: str) -> float:

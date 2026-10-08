@@ -23,6 +23,9 @@
 
 # %%
 import sys
+import time
+import os
+from contextlib import nullcontext
 from pathlib import Path
 
 ROOT = next(p for p in (Path.cwd(), *Path.cwd().parents) if (p / "lab22" / "config.py").exists())
@@ -76,7 +79,12 @@ trainer = DPOTrainer(
     eval_dataset=eval_ds,
     processing_class=tokenizer,
 )
-result = trainer.train()
+torch.cuda.reset_peak_memory_stats()
+training_started = time.perf_counter()
+save_on_cpu = os.environ.get("DPO_SAVE_ON_CPU", "0") == "1"
+with torch.autograd.graph.save_on_cpu(pin_memory=True) if save_on_cpu else nullcontext():
+    result = trainer.train()
+train_seconds = time.perf_counter() - training_started
 final_eval = trainer.evaluate()
 print(f"train loss {result.training_loss:.4f} · held-out reward accuracy "
       f"{final_eval.get('eval_rewards/accuracies', float('nan')):.3f}")
@@ -127,6 +135,15 @@ metrics = {
     "lr": C.DPO_LR,
     "loss_type": C.DPO_LOSS,
     "epochs": C.DPO_EPOCHS,
+    "train_pairs": len(train_ds),
+    "eval_pairs": len(eval_ds),
+    "max_length": C.MAX_LEN,
+    "seed": C.SEED,
+    "train_seconds": train_seconds,
+    "peak_vram_gb": torch.cuda.max_memory_allocated() / 1024**3,
+    "optimizer_steps": trainer.state.global_step,
+    "saved_tensors_on_cpu": save_on_cpu,
+    "log_history": trainer.state.log_history,
     "final_train_loss": float(result.training_loss),
     "first_logged_loss": first_loss,
     "end_chosen_reward": last(train_hist, "rewards/chosen"),

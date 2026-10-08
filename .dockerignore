@@ -1,0 +1,11 @@
+.git
+.env
+.env.local
+.venv
+.cache
+models
+adapters
+data
+submission
+colab
+__pycache__

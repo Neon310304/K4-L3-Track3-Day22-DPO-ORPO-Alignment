@@ -1,5 +1,7 @@
 # Hướng dẫn phần cứng — chọn tier phù hợp
 
+**Bài local của sinh viên:** RTX 3050 Ti 4 GiB không đủ cho model 4B mặc định. Thí nghiệm cá nhân dùng `BASE_MODEL=Qwen/Qwen3-0.6B`, batch sinh 1, hai judge NF4 nạp lần lượt; giữ số mẫu T4. Đây là override ngoài cấu hình được ước lượng trong bảng, không phải tier T4 thực chạy trên Colab. Cách cài, cấu hình và giới hạn: [`submission/REPRODUCE.md`](submission/REPRODUCE.md).
+
 ## 1. VRAM cho DPO với LoRA
 
 Khi mô hình đang học dùng PEFT/LoRA, TRL **không** nạp bản sao thứ hai của mô hình làm tham chiếu. Lab này

@@ -19,6 +19,8 @@
 
 # %%
 import sys
+import json
+import time
 from pathlib import Path
 
 ROOT = next(p for p in (Path.cwd(), *Path.cwd().parents) if (p / "lab22" / "config.py").exists())
@@ -103,7 +105,13 @@ trainer = train_on_responses_only(
     instruction_part="<|im_start|>user\n",
     response_part="<|im_start|>assistant\n",
 )
+supervised_tokens = sum(sum(label != -100 for label in row["labels"]) for row in trainer.train_dataset)
+total_tokens = sum(len(row["labels"]) for row in trainer.train_dataset)
+assert 0 < supervised_tokens < total_tokens
+torch.cuda.reset_peak_memory_stats()
+training_started = time.perf_counter()
 result = trainer.train()
+train_seconds = time.perf_counter() - training_started
 print(f"Final SFT loss: {result.training_loss:.4f}")
 
 # %%
@@ -128,6 +136,23 @@ plt.show()
 model.save_pretrained(str(C.SFT_ADAPTER))
 tokenizer.save_pretrained(str(C.SFT_ADAPTER))
 model.save_pretrained_merged(str(C.SFT_MERGED), tokenizer, save_method="merged_16bit")
+metrics = {
+    "base_model": C.BASE_MODEL,
+    "dataset": C.SFT_DATASET,
+    "samples": len(ds),
+    "max_length": C.MAX_LEN,
+    "seed": C.SEED,
+    "epochs": 1,
+    "train_seconds": train_seconds,
+    "peak_vram_gb": torch.cuda.max_memory_allocated() / 1024**3,
+    "mean_train_loss": float(result.training_loss),
+    "optimizer_steps": trainer.state.global_step,
+    "supervised_tokens": supervised_tokens,
+    "total_tokens": total_tokens,
+    "supervised_fraction": supervised_tokens / total_tokens,
+    "log_history": trainer.state.log_history,
+}
+(C.SFT_ADAPTER / "sft_metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
 print(f"Saved adapter → {C.SFT_ADAPTER}\nSaved merged 16-bit → {C.SFT_MERGED}")
 
 # %%

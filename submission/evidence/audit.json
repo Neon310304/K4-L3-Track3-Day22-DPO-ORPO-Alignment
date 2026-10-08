@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "checks": {
+    "required_stages_completed": true,
+    "executed_sources_unchanged": true,
+    "notebooks_keep_successful_outputs": true,
+    "full_preference_split": true,
+    "no_train_eval_prompt_overlap": true,
+    "adapter_matches_saved_split": true,
+    "full_sft_sample_count": true,
+    "response_only_sft_loss": true,
+    "sft_loss_decreases": true,
+    "dpo_reference_is_sft": true,
+    "one_full_dpo_epoch": true,
+    "train_and_heldout_rewards_saved": true,
+    "diagnosis_matches_reward_history": true,
+    "heldout_evaluated_every_25_steps": true,
+    "dpo_same_data_and_config": true,
+    "eight_fixed_and_fifty_heldout": true,
+    "generation_uses_unseen_distinct_prompts": true,
+    "judge_matches_exact_outputs": true,
+    "judge_records_preserve_answers": true,
+    "judge_summary_recomputed": true,
+    "two_real_judges_recorded": true,
+    "panel_obeys_sanity_filter": true,
+    "rm_verdicts_match_saved_scores": true,
+    "per_judge_summary_recomputed": true,
+    "judge_agreement_recomputed": true
+  },
+  "artifacts_sha256": {
+    "adapters/sft-mini/sft_metrics.json": "f28a8704ee9f4cd4af0dda50e6fb5e12682d98b45ab73ef596ece0547654fb49",
+    "adapters/dpo/dpo_metrics.json": "831b806c06568975f90f40702222a6e5653c4e304510d243aefabb1a0fa8ea37",
+    "adapters/dpo/split.json": "e2f6c3e0274793bae3b6b1d1ecfdbd0c608569a7646002d36fedd981c8873454",
+    "data/pref/train.parquet": "7ae95172dc55471194568ac353fc6d69ae9b2c14db70166f680f1a360f2d227b",
+    "data/pref/eval.parquet": "f63853289b01c4b396109312cb7a1e95b5bfe5409c14f2f113f76b6875c623de",
+    "data/eval/side_by_side.jsonl": "d0d9353595a10b88f3a4a31ce33b36ad8069b60ef0c284c2b0703707ba134af5",
+    "data/eval/judge_results_rm.json": "8c8ee907f0743bc01966b227c26c227434dead0e37bbfccf4997640dc21a26fa",
+    "data/eval/judge_summary.json": "7477284463aab70435c96cb524206c24eb8a779cd13a835f8db999a616e90298"
+  }
+}

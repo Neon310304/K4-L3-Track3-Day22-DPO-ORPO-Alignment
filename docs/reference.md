@@ -2,6 +2,8 @@
 
 Các chi tiết kỹ thuật được tách khỏi README. Học viên chỉ cần mở khi gặp lỗi hoặc muốn tuỳ biến.
 
+Thí nghiệm cá nhân của repo này: [`submission/REPRODUCE.md`](../submission/REPRODUCE.md) ghi override cho GPU 4 GiB, pin môi trường CUDA 11.8 và cách giữ output khi chạy NB0–NB4. Các bảng T4/BigGPU dưới đây vẫn mô tả cấu hình gốc, không phải số đo của model nhỏ.
+
 ## Hai tier (T4 / BigGPU)
 
 | Tier | Tài nguyên tính toán | Mô hình gốc | SFT | Dữ liệu sở thích (huấn luyện / held-out) | Khi nào dùng |

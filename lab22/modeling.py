@@ -7,6 +7,7 @@ patch them; these helpers import lazily for the same reason.
 from __future__ import annotations
 
 import gc
+import os
 from pathlib import Path
 
 from . import config as C
@@ -66,6 +67,9 @@ def generate(
     from unsloth import FastLanguageModel
 
     FastLanguageModel.for_inference(model)
+    batch_size = int(os.environ.get("GEN_BATCH_SIZE", str(batch_size)))
+    if batch_size < 1:
+        raise ValueError("GEN_BATCH_SIZE must be positive")
     old_side = tokenizer.padding_side
     tokenizer.padding_side = "left"
     outputs: list[str] = []

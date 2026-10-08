@@ -2,6 +2,15 @@
 
 Lab cho học phần **AICB-P2T3 · Ngày 22 · DPO/ORPO Alignment — từ SFT đến học theo sở thích**.
 
+## Bài làm cá nhân — Trần Quốc Vương / 2A202602522
+
+- Đặc tả triển khai: [`IMPLEMENTATION_PROMPT.md`](IMPLEMENTATION_PROMPT.md).
+- Phản tư và kết quả đo: [`submission/REFLECTION.md`](submission/REFLECTION.md).
+- Tái lập trên máy local 4 GiB: [`submission/REPRODUCE.md`](submission/REPRODUCE.md).
+- Checklist theo bằng chứng: [`submission/CHECKLIST.md`](submission/CHECKLIST.md).
+- Pipeline local dùng Qwen3-0.6B và hai reward model NF4, không phải kết quả của Qwen3-4B mặc định. Notebook NB0–NB4 có output ở `notebooks/`; log/cấu hình nằm trong `submission/evidence/`.
+- Kết quả: win rate DPO held-out 57%, CI95% [47%, 67%], chưa đủ bằng chứng thắng SFT. Judge Qwen trượt sanity (7/12) và bị loại; judge Llama (12/12) chấm kết quả chính. Xem phản tư để đọc các hạn chế thay vì chỉ nhìn loss.
+
 > Bản K4 cập nhật tháng 10/2026 (xem [`CHANGELOG.md`](CHANGELOG.md)). Mọi thời gian trong tài liệu này là
 > ước tính trên Colab T4 miễn phí; máy của bạn có thể nhanh hoặc chậm hơn.
 

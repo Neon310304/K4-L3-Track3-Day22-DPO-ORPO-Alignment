@@ -2,6 +2,8 @@
 
 Các notebook **tự lưu** ảnh vào thư mục này. `make verify` kiểm tra 4 ảnh bắt buộc.
 
+Trong bài làm cá nhân, bốn PNG lấy từ số đo/output local thật. Riêng bảng NB4 được dàn lại từ `data/eval/side_by_side.jsonl` bằng `scripts/render_comparison_table.py` để xuống dòng, không sửa dữ liệu. Biểu đồ reward giữ nhãn tier cấu hình T4 nhưng model thực là Qwen3-0.6B như phần phản tư khai báo; không phải số đo trên Colab T4/model 4B.
+
 ## Bắt buộc
 
 | File | Notebook | Nội dung |
