@@ -22,6 +22,7 @@ similar length, so length hacking shows.
 from __future__ import annotations
 
 import json
+import math
 import os
 import random
 import re
@@ -210,6 +211,12 @@ Scorer = Callable[[str, str], float]  # (prompt, answer) -> scalar reward
 
 def rm_record(sft_score: float, dpo_score: float) -> dict:
     """Judged fields for one pair scored by a reward model; equal scores tie."""
+    if not all(isinstance(score, (int, float)) and math.isfinite(score) for score in (sft_score, dpo_score)):
+        return {
+            "sft_score": sft_score if isinstance(sft_score, (int, float)) and math.isfinite(sft_score) else None,
+            "dpo_score": dpo_score if isinstance(dpo_score, (int, float)) and math.isfinite(dpo_score) else None,
+            "winner": "failed", "position_consistent": None, "error": "nonfinite reward score",
+        }
     winner = "dpo" if dpo_score > sft_score else "sft" if sft_score > dpo_score else "tie"
     return {"sft_score": sft_score, "dpo_score": dpo_score, "winner": winner, "position_consistent": None}
 
@@ -278,7 +285,13 @@ SANITY_PAIRS = [
 
 def sanity_accuracy(score: Scorer) -> float:
     """Fraction of SANITY_PAIRS where the good answer gets the higher score."""
-    return sum(score(p, good) > score(p, bad) for p, good, bad in SANITY_PAIRS) / len(SANITY_PAIRS)
+    correct = 0
+    for prompt, good, bad in SANITY_PAIRS:
+        good_score, bad_score = score(prompt, good), score(prompt, bad)
+        if not math.isfinite(good_score) or not math.isfinite(bad_score):
+            raise ValueError("Nonfinite reward score in sanity check; this is not a valid judge verdict")
+        correct += good_score > bad_score
+    return correct / len(SANITY_PAIRS)
 
 
 def make_rm_scorer(name: str | Path, max_length: int = 4096) -> Scorer:
@@ -286,11 +299,26 @@ def make_rm_scorer(name: str | Path, max_length: int = 4096) -> Scorer:
     import torch
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-    dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16  # T4: fp16
+    dtype_name = os.environ.get("JUDGE_RM_DTYPE", "auto")
+    dtypes = {"float32": torch.float32, "bfloat16": torch.bfloat16, "float16": torch.float16}
+    if dtype_name not in {"auto", *dtypes}:
+        raise ValueError("JUDGE_RM_DTYPE must be auto, float32, bfloat16 or float16")
+    dtype = dtypes.get(dtype_name, torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float32)
     max_length = int(os.environ.get("JUDGE_RM_MAX_LENGTH", str(max_length)))
     if max_length < 1:
         raise ValueError("JUDGE_RM_MAX_LENGTH must be positive")
     model_kwargs = {}
+    device_map = os.environ.get("JUDGE_RM_DEVICE_MAP", "auto" if dtype == torch.float32 else "cuda:0")
+    if device_map == "auto" and torch.cuda.is_available():
+        free_bytes, _total_bytes = torch.cuda.mem_get_info()
+        default_budget = max(1, int((free_bytes - 2 * 1024**3) / 1024**3))
+        gpu_gib = float(os.environ.get("JUDGE_RM_MAX_GPU_GIB", str(default_budget)))
+        cpu_gib = float(os.environ.get("JUDGE_RM_MAX_CPU_GIB", "6"))
+        if gpu_gib <= 0 or cpu_gib <= 0:
+            raise ValueError("Reward-model memory budgets must be positive")
+        model_kwargs["max_memory"] = {0: int(gpu_gib * 1024**3), "cpu": int(cpu_gib * 1024**3)}
+    if device_map == "auto":
+        model_kwargs["offload_folder"] = os.environ.get("JUDGE_RM_OFFLOAD_DIR", ".cache/reward-offload")
     if os.environ.get("JUDGE_RM_4BIT", "0") == "1":
         from transformers import BitsAndBytesConfig
 
@@ -302,7 +330,7 @@ def make_rm_scorer(name: str | Path, max_length: int = 4096) -> Scorer:
         )
     tok = AutoTokenizer.from_pretrained(name)
     rm = AutoModelForSequenceClassification.from_pretrained(
-        name, dtype=dtype, device_map="cuda:0", attn_implementation="sdpa", num_labels=1, **model_kwargs
+        name, dtype=dtype, device_map=device_map, attn_implementation="sdpa", num_labels=1, **model_kwargs
     ).eval()
 
     def score(prompt: str, answer: str) -> float:
@@ -312,8 +340,15 @@ def make_rm_scorer(name: str | Path, max_length: int = 4096) -> Scorer:
             text = text[len(tok.bos_token):]  # the tokenizer adds it again
         batch = tok(text, return_tensors="pt", truncation=True, max_length=max_length).to(rm.device)
         with torch.no_grad():
-            return float(rm(**batch).logits[0][0])
+            value = float(rm(**batch).logits[0][0])
+        if not math.isfinite(value):
+            raise ValueError(f"{name}: nonfinite reward score with {dtype}; do not count it as a tie")
+        return value
 
+    score.metadata = {
+        "model": str(name), "dtype": str(dtype), "device_map": device_map,
+        "nf4": os.environ.get("JUDGE_RM_4BIT", "0") == "1", "max_length": max_length,
+    }
     return score
 
 

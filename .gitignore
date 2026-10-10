@@ -15,7 +15,11 @@ unsloth_compiled_cache/
 
 # Lab artifacts: weights stay local. The small evidence files below ARE committed,
 # because the auto-grader reads only what is in the repo.
-models/
+models/*
+!models/sft-merged/
+models/sft-merged/*
+!models/sft-merged/config.json
+!models/sft-merged/generation_config.json
 adapters/*
 !adapters/.gitkeep
 !adapters/*/

@@ -123,6 +123,10 @@ def audit():
         measured = J.summarize([row for row in saved["records"] if row["category"] == category], seed=seed)
         checks["judge_summary_recomputed"] &= same_values(measured, summary[category])
     checks["two_real_judges_recorded"] = len(saved["per_judge"]) == 2 and len(summary["sanity"]) == 2
+    checks["reward_model_scores_are_finite"] = all(
+        isinstance(row.get(key), (int, float)) and math.isfinite(row[key])
+        for rows in saved["per_judge"].values() for row in rows for key in ("sft_score", "dpo_score")
+    )
     panel = [name for name in saved["per_judge"] if summary["sanity"][name] >= 0.8] or list(saved["per_judge"])
     checks["panel_obeys_sanity_filter"] = summary["judge"] == saved["judge"] == "rm-panel:" + "+".join(panel)
     checks["panel_obeys_sanity_filter"] &= all(
