@@ -32,6 +32,8 @@ def test_clean_colab_uses_4b_unquantized_judges_and_exports_no_weights():
     assert "scripts/run_clean_pipeline.py" in cells[1]
     assert "value >= 0.8" in cells[2]
     assert '"*.safetensors"' not in cells[2]
+    assert '"models/sft-merged": ["config.json", "generation_config.json"]' in cells[2]
+    assert '"weights_exported": False' in cells[2]
     assert "both_judges_pass" in cells[2]
 
 

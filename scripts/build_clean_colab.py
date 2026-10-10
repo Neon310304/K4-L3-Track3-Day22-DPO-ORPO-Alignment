@@ -8,7 +8,7 @@ from build_colab import code, md
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / "colab/Lab22_T4_CLEAN_RUN.ipynb"
-SOURCE_COMMIT = "4212d5dc6eae204cbd0121c29ccbc9ef6491ba1b"
+SOURCE_COMMIT = "15888659a4639ae92f81bf181219dfc96531f529"
 REPOSITORY = "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment.git"
 
 
@@ -106,10 +106,29 @@ for folder, patterns in {
     "submission/evidence": ["*"], "data/eval": ["*.json", "*.jsonl"],
     "data/pref": ["*.parquet", "*.json"], "adapters/dpo": ["*.json"],
     "adapters/sft-mini": ["adapter_config.json", "sft_metrics.json"],
+    "models/sft-merged": ["config.json", "generation_config.json"],
 }.items():
     for pattern in patterns:
         paths.extend(path for path in Path(folder).glob(pattern) if path.is_file())
 paths = sorted(set(paths))
+reference = Path("models/sft-merged")
+if (reference / "config.json").exists():
+    weights = []
+    for weight in sorted(reference.iterdir()):
+        if weight.suffix not in {".safetensors", ".bin"}:
+            continue
+        digest = hashlib.sha256()
+        with weight.open("rb") as stream:
+            for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+                digest.update(chunk)
+        weights.append({"name": weight.name, "bytes": weight.stat().st_size, "sha256": digest.hexdigest()})
+    reference_evidence = Path("submission/evidence/sft-reference.json")
+    reference_evidence.write_text(json.dumps({
+        "path": str(reference.resolve()),
+        "config_sha256": hashlib.sha256((reference / "config.json").read_bytes()).hexdigest(),
+        "weight_files": weights, "weights_exported": False,
+    }, indent=2) + "\\n")
+    paths.append(reference_evidence)
 hashes = {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
 manifest_path = Path("submission/evidence/export-sha256.json")
 manifest_path.write_text(json.dumps(hashes, indent=2) + "\\n")
