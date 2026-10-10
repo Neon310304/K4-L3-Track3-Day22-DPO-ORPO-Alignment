@@ -1,0 +1,30 @@
+{
+  "observed_at_utc": "2026-10-10T23:57:09Z",
+  "observed_at_bangkok": "2026-10-11T06:57:09+07:00",
+  "status": "incomplete_gpu_quota_blocked",
+  "fresh_run_source_commit": "9fd6e21afddab86b1b2d92cef80329bcb47974dc",
+  "visible_completed_notebook_writes": [
+    "00_dpo_loss_from_scratch.ipynb",
+    "01_sft_mini.ipynb",
+    "02_preference_data.ipynb",
+    "03_dpo_train.ipynb"
+  ],
+  "last_visible_stage": "04_compare_and_eval.ipynb",
+  "nb4_completion_observed": false,
+  "pipeline_final_exit_code_observed": false,
+  "both_judges_preflight_accuracy": 1.0,
+  "final_nb4_sanity_or_scores_observed": false,
+  "colab_message": "Cannot connect to GPU backend due to Colab usage limits",
+  "active_sessions_list_empty": true,
+  "artifact": {
+    "path": "launcher-interrupted.ipynb",
+    "bytes": 97855,
+    "sha256": "0060d0477bd4b3cff057f5dbd237ed8804c04213f21390e8a8a6da83709c5e6a"
+  },
+  "limitations": [
+    "Launcher cell 8 retains the previous 2026-10-09 export output; it is not evidence that this run completed.",
+    "Launcher cell 9 contains an earlier diagnostic result, not a fresh inspection of the missing runtime.",
+    "Fresh runtime training artifacts were not exported before the connection was lost.",
+    "No visible traceback establishes an NB4 code failure."
+  ]
+}
