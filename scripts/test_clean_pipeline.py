@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pytest
 from build_clean_colab import render
-from run_clean_pipeline import execution_record, existing_artifacts, pipeline_command
+from run_clean_pipeline import execution_record, existing_artifacts, pipeline_command, pipeline_environment
 
 
 def test_clean_run_refuses_preexisting_training_or_evaluation_artifacts(tmp_path):
@@ -36,7 +36,9 @@ def test_clean_colab_uses_4b_unquantized_judges_and_exports_no_weights():
     assert '"weights_exported": False' in cells[2]
     assert "both_judges_pass" in cells[2]
     assert "scripts/setup_t4_environment.py" in cells[0]
-    assert 'subprocess.run([LAB_PY, "scripts/run_clean_pipeline.py"])' in cells[1]
+    assert '[LAB_PY, "-u", "scripts/run_clean_pipeline.py"]' in cells[1]
+    assert '"JUDGE_RM_DTYPE": "float32"' in cells[0]
+    assert 'assert preflight[name] >= 0.8' in cells[0]
 
 
 def test_clean_colab_file_matches_generator():
@@ -61,7 +63,7 @@ def test_pipeline_command_preserves_interpreter_paths_with_spaces():
 
 
 @pytest.mark.skipif(shutil.which("make") is None, reason="GNU make is required")
-def test_module_launchers_execute_a_notebook_through_original_makefile(tmp_path):
+def test_module_launchers_execute_a_notebook_through_original_makefile(tmp_path, monkeypatch):
     root = Path(__file__).resolve().parents[1]
     shutil.copyfile(root / "Makefile", tmp_path / "Makefile")
     notebooks = tmp_path / "notebooks"
@@ -71,7 +73,14 @@ def test_module_launchers_execute_a_notebook_through_original_makefile(tmp_path)
     )
     command = pipeline_command(sys.executable)
     command[-1] = "nb0"
-    subprocess.run(command, cwd=tmp_path, check=True, capture_output=True, text=True, timeout=120)
+    inherited = tmp_path / "host-ipython/profile_default"
+    inherited.mkdir(parents=True)
+    (inherited / "ipython_kernel_config.py").write_text(
+        "c = get_config()\nc.IPKernelApp.kernel_class = 'host_only.missing.Kernel'\n",
+    )
+    monkeypatch.setenv("IPYTHONDIR", str(inherited.parent))
+    subprocess.run(command, cwd=tmp_path, env=pipeline_environment(sys.executable, tmp_path),
+                   check=True, capture_output=True, text=True, timeout=120)
     notebook = json.loads((notebooks / "00_dpo_loss_from_scratch.ipynb").read_text(encoding="utf-8"))
     cells = [cell for cell in notebook["cells"] if cell["cell_type"] == "code"]
     assert cells[0]["execution_count"] == 1

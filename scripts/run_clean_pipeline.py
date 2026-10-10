@@ -63,6 +63,24 @@ def pipeline_command(python):
     ]
 
 
+def pipeline_environment(python, root):
+    """Keep Jupyter subcommands and kernels inside the selected environment."""
+    environment = os.environ.copy()
+    environment["PATH"] = str(Path(python).parent) + os.pathsep + environment.get("PATH", "")
+    config = root / ".cache/jupyter-config"
+    profile = root / ".cache/ipython/profile_default"
+    config.mkdir(parents=True, exist_ok=True)
+    profile.mkdir(parents=True, exist_ok=True)
+    (profile / "ipython_kernel_config.py").write_text(
+        "c = get_config()\nc.IPKernelApp.kernel_class = 'ipykernel.ipkernel.IPythonKernel'\n",
+        encoding="utf-8",
+    )
+    environment["JUPYTER_CONFIG_DIR"] = str(config)
+    environment["JUPYTER_CONFIG_PATH"] = str(config)
+    environment["IPYTHONDIR"] = str(profile.parent)
+    return environment
+
+
 def main():
     leftovers = existing_artifacts(ROOT)
     if leftovers:
@@ -92,8 +110,6 @@ def main():
             "judge_device_map": os.environ.get("JUDGE_RM_DEVICE_MAP", "auto"),
             "judge_gpu_gib": os.environ.get("JUDGE_RM_MAX_GPU_GIB"),
             "judge_cpu_gib": os.environ.get("JUDGE_RM_MAX_CPU_GIB", "6"),
-            "judge_dtype": os.environ.get("JUDGE_RM_DTYPE", "auto"),
-            "judge_device_map": os.environ.get("JUDGE_RM_DEVICE_MAP", "auto"),
             "judge_max_length": os.environ.get("JUDGE_RM_MAX_LENGTH", "4096"),
             "generation_batch": os.environ.get("GEN_BATCH_SIZE", "8"),
             "generation_max_new_tokens": C.GEN_MAX_NEW_TOKENS,
@@ -105,7 +121,8 @@ def main():
     command = pipeline_command(sys.executable)
     print("Running", " ".join(command), flush=True)
     with (evidence / "clean-pipeline.log").open("w", encoding="utf-8") as destination:
-        process = subprocess.Popen(command, cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        process = subprocess.Popen(command, cwd=ROOT, env=pipeline_environment(sys.executable, ROOT),
+                                   text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         for line in process.stdout:
             destination.write(line)
             destination.flush()

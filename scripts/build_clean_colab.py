@@ -8,7 +8,7 @@ from build_colab import code, md
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / "colab/Lab22_T4_CLEAN_RUN.ipynb"
-SOURCE_COMMIT = "15888659a4639ae92f81bf181219dfc96531f529"
+SOURCE_COMMIT = "53a00376e779fbf06471dfeb42032027bfd56653"
 REPOSITORY = "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment.git"
 
 
@@ -39,6 +39,8 @@ os.environ.update({{
     "DPO_BETA": "0.1", "DPO_LR": "5e-6", "DPO_EPOCHS": "1", "SEED": "42",
     "GEN_MAX_NEW_TOKENS": "384", "GEN_BATCH_SIZE": "1", "JUDGE_PROMPTS": "50",
     "JUDGE_PROVIDER": "rm", "JUDGE_RM_4BIT": "0", "JUDGE_RM_MAX_LENGTH": "4096",
+    "JUDGE_RM_DTYPE": "float32", "JUDGE_RM_DEVICE_MAP": "auto",
+    "JUDGE_RM_MAX_GPU_GIB": "11", "JUDGE_RM_MAX_CPU_GIB": "6",
     "JUDGE_RM_MODELS": "Skywork/Skywork-Reward-V2-Qwen3-4B,Skywork/Skywork-Reward-V2-Llama-3.2-3B",
     "DPO_SAVE_ON_CPU": "0", "MPLBACKEND": "Agg", "TOKENIZERS_PARALLELISM": "false",
     "HF_HOME": "/content/day22-hf-cache", "HF_HUB_DISABLE_XET": "1",
@@ -68,13 +70,35 @@ subprocess.run([LAB_PY, "-c", "import torch; assert torch.cuda.is_available(); "
 subprocess.run([LAB_PY, "scripts/capture_environment.py"], check=True)
 with open("submission/evidence/pip-freeze.txt", "w") as stream:
     subprocess.run([LAB_PY, "-m", "pip", "freeze"], stdout=stream, check=True)
-subprocess.run([LAB_PY, "scripts/verify.py", "--smoke"], check=True)
-print("Setup passed. Next cell runs only NB0-NB4; no bonus and no reuse of artifacts.")
+smoke = subprocess.run([LAB_PY, "scripts/verify.py", "--smoke"], capture_output=True, text=True)
+Path("submission/evidence/smoke.log").write_text(smoke.stdout + smoke.stderr, encoding="utf-8")
+print(smoke.stdout, smoke.stderr, flush=True)
+smoke.check_returncode()
+preflight = {}
+for label, name in zip(("qwen", "llama"), os.environ["JUDGE_RM_MODELS"].split(",")):
+    output = Path(f"submission/evidence/judge-preflight-{label}.json")
+    command = [LAB_PY, "-u", "scripts/diagnose_reward_model.py", "--model", name, "--output", str(output)]
+    with Path(f"submission/evidence/judge-preflight-{label}.log").open("w", encoding="utf-8") as log:
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        for line in process.stdout:
+            print(line, end="", flush=True)
+            log.write(line)
+            log.flush()
+        if process.wait():
+            raise RuntimeError(f"Judge preflight failed: {name}; inspect saved log.")
+    import json
+    preflight[name] = json.loads(output.read_text(encoding="utf-8"))["sanity_accuracy"]
+    assert preflight[name] >= 0.8, "Judge sanity must pass the unchanged 80% threshold before training."
+print("Setup and both judge preflights passed:", preflight, flush=True)
 '''
-    run = '''result = subprocess.run([LAB_PY, "scripts/run_clean_pipeline.py"])
-PIPELINE_EXIT_CODE = result.returncode
-print("make pipeline exit code:", PIPELINE_EXIT_CODE)
-print("Continue to the export cell even if a stage failed, so the actual log is kept.")
+    run = '''assert len(preflight) == 2 and all(value >= 0.8 for value in preflight.values())
+process = subprocess.Popen([LAB_PY, "-u", "scripts/run_clean_pipeline.py"],
+                           stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+for line in process.stdout:
+    print(line, end="", flush=True)
+PIPELINE_EXIT_CODE = process.wait()
+print("make pipeline exit code:", PIPELINE_EXIT_CODE, flush=True)
+print("Continue to the export cell even if a stage failed, so the actual log is kept.", flush=True)
 '''
     export = '''import hashlib
 import json
@@ -143,7 +167,7 @@ print("Also save this executed launcher notebook via File > Download > .ipynb.")
             md("# Day22 — chạy sạch Qwen3-4B trên Colab T4\n\n"
                "Chọn **Runtime → Change runtime type → T4 GPU**, rồi **Run all**. "
                "Notebook chỉ chạy NB0–NB4 bằng `make pipeline` gốc, giữ 1.000 SFT và 800/100 preference. "
-               "Hai judge chạy không NF4; ngưỡng sanity vẫn 80%. Không đảm bảo judge sẽ qua trước khi đo.\n\n"
+               "Hai judge chạy FP32/offload, không NF4; setup kiểm score hữu hạn và sanity 80% trước training.\n\n"
                "Không nhập API key. Kết quả mới được giữ riêng, không dùng báo cáo/số liệu 0.6B cũ. "
                "Sau khi chạy, tải ZIP và gửi về để cập nhật REFLECTION, kiểm tra gatekeeper và hoàn thiện bài. "
                "Nếu runtime bị ngắt, giữ log; khởi tạo session mới để chứng minh lượt chạy sạch."),
