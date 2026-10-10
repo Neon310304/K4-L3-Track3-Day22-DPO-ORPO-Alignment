@@ -47,35 +47,31 @@ os.environ.update({{
 Path(os.environ["HF_HOME"], "hub").mkdir(parents=True, exist_ok=True)
 print("Fresh source-only checkout:", WORK, "at", SOURCE_COMMIT)
 '''
-    for relative in ("scripts/run_clean_pipeline.py", "scripts/diagnose_reward_model.py", "lab22/judge.py"):
+    for relative in ("scripts/run_clean_pipeline.py", "scripts/diagnose_reward_model.py", "lab22/judge.py",
+                     "scripts/setup_t4_environment.py"):
         body = (ROOT / relative).read_text(encoding="utf-8")
         setup += f"\n(WORK / {relative!r}).write_text({body!r}, encoding='utf-8')\n"
     setup += '''
-from importlib import metadata
-print("Colab torch:", metadata.version("torch"))
-requirements = [
-    "torch==2.7.0+cu118", "torchvision==0.22.0+cu118", "xformers==0.0.30", "torchao==0.13.0",
-    "unsloth==2026.10.2", "unsloth_zoo==2026.10.2", "trl==1.13.0", "transformers==5.17.0",
-    "peft>=0.18,<1", "accelerate>=1.10,<2", "bitsandbytes>=0.48,<1", "datasets>=4.7,<5",
-    "matplotlib>=3.9,<4", "pandas>=2.2,<4", "pyarrow>=17", "jupytext>=1.16,<2",
-    "nbconvert>=7,<8", "ipykernel>=6,<8", "pytest>=8.3,<10", "lm-eval[ifeval,math]==0.4.13",
-]
-subprocess.run([
-    sys.executable, "-m", "pip", "install", "-q",
-    "--extra-index-url", "https://download.pytorch.org/whl/cu118", *requirements,
-], check=True)
-subprocess.run([sys.executable, "-m", "ipykernel", "install", "--user", "--name", "python3"], check=True)
-import torch
-assert torch.cuda.is_available(), "Choose T4 GPU before running."
-gpu = torch.cuda.get_device_properties(0)
-assert "T4" in gpu.name and gpu.total_memory >= 14 * 1024**3, f"Expected T4 GPU, got {gpu.name}"
-subprocess.run([sys.executable, "scripts/capture_environment.py"], check=True)
+LAB_PY = "/content/day22-venv/bin/python"
+command = [sys.executable, "-u", "scripts/setup_t4_environment.py"]
+with Path("submission/evidence/setup.log").open("w", encoding="utf-8") as log:
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    for line in process.stdout:
+        print(line, end="", flush=True)
+        log.write(line)
+        log.flush()
+    if process.wait():
+        raise RuntimeError("T4 environment setup failed; inspect submission/evidence/setup.log")
+subprocess.run([LAB_PY, "-c", "import torch; assert torch.cuda.is_available(); "
+                "gpu = torch.cuda.get_device_properties(0); "
+                "assert 'T4' in gpu.name and gpu.total_memory >= 14 * 1024**3; print(gpu)"], check=True)
+subprocess.run([LAB_PY, "scripts/capture_environment.py"], check=True)
 with open("submission/evidence/pip-freeze.txt", "w") as stream:
-    subprocess.run([sys.executable, "-m", "pip", "freeze"], stdout=stream, check=True)
-subprocess.run([sys.executable, "scripts/verify.py", "--smoke"], check=True)
+    subprocess.run([LAB_PY, "-m", "pip", "freeze"], stdout=stream, check=True)
+subprocess.run([LAB_PY, "scripts/verify.py", "--smoke"], check=True)
 print("Setup passed. Next cell runs only NB0-NB4; no bonus and no reuse of artifacts.")
 '''
-    run = '''result = subprocess.run([sys.executable, "scripts/run_clean_pipeline.py"])
+    run = '''result = subprocess.run([LAB_PY, "scripts/run_clean_pipeline.py"])
 PIPELINE_EXIT_CODE = result.returncode
 print("make pipeline exit code:", PIPELINE_EXIT_CODE)
 print("Continue to the export cell even if a stage failed, so the actual log is kept.")
@@ -84,7 +80,7 @@ print("Continue to the export cell even if a stage failed, so the actual log is 
 import json
 import zipfile
 
-subprocess.run([sys.executable, "scripts/capture_environment.py"], check=True)
+subprocess.run([LAB_PY, "scripts/capture_environment.py"], check=True)
 pipeline = json.loads(Path("submission/evidence/pipeline.json").read_text())
 summary_path = Path("data/eval/judge_summary.json")
 sanity = json.loads(summary_path.read_text()).get("sanity", {}) if summary_path.exists() else {}

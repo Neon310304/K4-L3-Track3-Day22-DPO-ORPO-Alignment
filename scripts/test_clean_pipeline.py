@@ -35,6 +35,8 @@ def test_clean_colab_uses_4b_unquantized_judges_and_exports_no_weights():
     assert '"models/sft-merged": ["config.json", "generation_config.json"]' in cells[2]
     assert '"weights_exported": False' in cells[2]
     assert "both_judges_pass" in cells[2]
+    assert "scripts/setup_t4_environment.py" in cells[0]
+    assert 'subprocess.run([LAB_PY, "scripts/run_clean_pipeline.py"])' in cells[1]
 
 
 def test_clean_colab_file_matches_generator():
