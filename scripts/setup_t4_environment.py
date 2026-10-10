@@ -42,10 +42,10 @@ def main():
     # is unavailable in this isolated interpreter. CLI arguments take priority.
     specification = args.venv / "share/jupyter/kernels/python3/kernel.json"
     kernel = json.loads(specification.read_text(encoding="utf-8"))
-    kernel["argv"].insert(1, "--IPKernelApp.kernel_class=ipykernel.ipkernel.IPythonKernel")
-    # The option belongs to ipykernel, not the Python interpreter.
-    kernel["argv"].remove("--IPKernelApp.kernel_class=ipykernel.ipkernel.IPythonKernel")
-    kernel["argv"].append("--IPKernelApp.kernel_class=ipykernel.ipkernel.IPythonKernel")
+    kernel["argv"].extend([
+        "--IPKernelApp.kernel_class=ipykernel.ipkernel.IPythonKernel",
+        "--IPKernelApp.extensions=[]", "--IPKernelApp.extra_extensions=[]",
+    ])
     specification.write_text(json.dumps(kernel, indent=2) + "\n", encoding="utf-8")
     print("T4 interpreter:", python, flush=True)
     return 0
