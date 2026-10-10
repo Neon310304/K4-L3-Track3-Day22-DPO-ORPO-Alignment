@@ -7,6 +7,7 @@ run in this environment. The CUDA 11.8 wheel comes from the PyTorch index.
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -35,7 +36,17 @@ def main():
         python, "-m", "pip", "install", "--only-binary=xformers",
         "--extra-index-url", "https://download.pytorch.org/whl/cu118", *REQUIREMENTS,
     ], check=True)
-    subprocess.run([python, "-m", "ipykernel", "install", "--user", "--name", "python3"], check=True)
+    subprocess.run([python, "-m", "ipykernel", "install", "--prefix", str(args.venv), "--name", "python3"],
+                   check=True)
+    # Colab's system IPython config selects google.colab._kernel.Kernel, which
+    # is unavailable in this isolated interpreter. CLI arguments take priority.
+    specification = args.venv / "share/jupyter/kernels/python3/kernel.json"
+    kernel = json.loads(specification.read_text(encoding="utf-8"))
+    kernel["argv"].insert(1, "--IPKernelApp.kernel_class=ipykernel.ipkernel.IPythonKernel")
+    # The option belongs to ipykernel, not the Python interpreter.
+    kernel["argv"].remove("--IPKernelApp.kernel_class=ipykernel.ipkernel.IPythonKernel")
+    kernel["argv"].append("--IPKernelApp.kernel_class=ipykernel.ipkernel.IPythonKernel")
+    specification.write_text(json.dumps(kernel, indent=2) + "\n", encoding="utf-8")
     print("T4 interpreter:", python, flush=True)
     return 0
 
