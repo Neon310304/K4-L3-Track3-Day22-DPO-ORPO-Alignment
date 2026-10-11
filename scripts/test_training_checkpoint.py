@@ -56,6 +56,30 @@ def test_existing_backup_is_preserved(tmp_path):
     assert output.read_bytes() == b'prior'
 
 
+def test_manifest_hashes_exact_copied_bytes_when_pipeline_log_changes(tmp_path, monkeypatch):
+    trained(tmp_path)
+    log = tmp_path / 'submission/evidence/clean-pipeline.log'
+    log.parent.mkdir(parents=True)
+    log.write_bytes(b'NB3 finished\n')
+    original_open = zipfile.ZipFile.open
+
+    def open_with_concurrent_log_update(archive, name, mode='r', *args, **kwargs):
+        filename = name.filename if isinstance(name, zipfile.ZipInfo) else name
+        if mode == 'w' and filename == 'submission/evidence/clean-pipeline.log':
+            log.write_bytes(b'NB3 finished\nNB4 has started\n')
+        return original_open(archive, name, mode, *args, **kwargs)
+
+    monkeypatch.setattr(zipfile.ZipFile, 'open', open_with_concurrent_log_update)
+    output = tmp_path / 'backup.zip'
+    manifest = export_checkpoint(tmp_path, output)
+    with zipfile.ZipFile(output) as archive:
+        payload = archive.read('submission/evidence/clean-pipeline.log')
+        assert payload == b'NB3 finished\nNB4 has started\n'
+        assert manifest['files']['submission/evidence/clean-pipeline.log'] == {
+            'bytes': len(payload), 'sha256': hashlib.sha256(payload).hexdigest(),
+        }
+
+
 def test_missing_training_weights_does_not_create_a_false_backup(tmp_path):
     trained(tmp_path)
     (tmp_path / 'adapters/dpo/adapter_model.safetensors').unlink()

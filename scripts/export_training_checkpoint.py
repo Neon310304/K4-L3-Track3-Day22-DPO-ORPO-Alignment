@@ -21,14 +21,6 @@ PATTERNS = {
 }
 
 
-def digest(path):
-    result = hashlib.sha256()
-    with path.open("rb") as stream:
-        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
-            result.update(chunk)
-    return result.hexdigest()
-
-
 def export_checkpoint(root, destination):
     root, destination = Path(root).resolve(), Path(destination).resolve()
     if destination.exists():
@@ -44,10 +36,7 @@ def export_checkpoint(root, destination):
     for path in paths:
         if path.is_symlink() or not path.resolve().is_relative_to(root):
             raise ValueError(f"Backup path escapes workspace: {path}")
-    files = {
-        path.relative_to(root).as_posix(): {"bytes": path.stat().st_size, "sha256": digest(path)}
-        for path in sorted(paths)
-    }
+    files = {}
     manifest = {
         "created_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "purpose": "Private local recovery backup after NB3, before final NB4 results",
@@ -62,7 +51,17 @@ def export_checkpoint(root, destination):
         # Exclusive creation prevents a concurrent process from replacing a prior backup.
         with destination.open("xb") as stream, zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_STORED) as archive:
             for path in sorted(paths):
-                archive.write(path, arcname=path.relative_to(root).as_posix())
+                name = path.relative_to(root).as_posix()
+                digest = hashlib.sha256()
+                size = 0
+                # Logs may still grow as NB4 starts. Hash exactly the bytes copied,
+                # rather than hashing the path earlier and reopening it for ZIP.
+                with path.open("rb") as source, archive.open(name, "w", force_zip64=True) as target:
+                    for chunk in iter(lambda: source.read(1024 * 1024), b""):
+                        target.write(chunk)
+                        digest.update(chunk)
+                        size += len(chunk)
+                files[name] = {"bytes": size, "sha256": digest.hexdigest()}
             archive.writestr("training-backup-manifest.json", json.dumps(manifest, indent=2) + "\n")
     except FileExistsError:
         raise
