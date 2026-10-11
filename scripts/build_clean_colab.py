@@ -141,7 +141,7 @@ for folder, patterns in {
 }.items():
     for pattern in patterns:
         paths.extend(path for path in Path(folder).glob(pattern) if path.is_file())
-paths = sorted(set(paths))
+paths = sorted({path for path in paths if path.name != "export-sha256.json"})
 reference = Path("models/sft-merged")
 if (reference / "config.json").exists():
     weights = []
@@ -160,6 +160,7 @@ if (reference / "config.json").exists():
         "weight_files": weights, "weights_exported": False,
     }, indent=2) + "\\n")
     paths.append(reference_evidence)
+paths = sorted(set(paths))
 hashes = {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
 manifest_path = Path("submission/evidence/export-sha256.json")
 manifest_path.write_text(json.dumps(hashes, indent=2) + "\\n")

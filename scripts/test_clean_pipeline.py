@@ -50,6 +50,52 @@ def test_clean_colab_file_matches_generator():
     assert json.loads(path.read_text(encoding="utf-8")) == render()
 
 
+def test_export_can_repeat_without_duplicate_files_or_hashing_its_old_manifest(tmp_path, monkeypatch):
+    import hashlib
+    import types
+    import zipfile
+
+    monkeypatch.chdir(tmp_path)
+    evidence = tmp_path / "submission/evidence"
+    reference = tmp_path / "models/sft-merged"
+    evidence.mkdir(parents=True)
+    reference.mkdir(parents=True)
+    (evidence / "pipeline.json").write_text(json.dumps({
+        "exit_code": 0, "fresh_artifacts": True,
+        "settings": {"model": "test-model", "judge_4bit": "0"},
+    }))
+    (reference / "config.json").write_text('{"model_type":"qwen3"}')
+    (reference / "model.safetensors").write_bytes(b"private weight fixture")
+    (tmp_path / ".env").write_text("PRIVATE_FIXTURE=do-not-export")
+    downloads = []
+    colab = types.ModuleType("google.colab")
+    colab.files = types.SimpleNamespace(download=downloads.append)
+    monkeypatch.setitem(sys.modules, "google.colab", colab)
+    # Redirect the Colab archive path to the isolated fixture directory.
+    source = "".join(render()["cells"][6]["source"]).replace(
+        'Path("/content/day22-t4-evidence.zip")', 'Path("day22-t4-evidence.zip")',
+    )
+    context = {
+        "Path": Path, "LAB_PY": sys.executable,
+        "subprocess": types.SimpleNamespace(run=lambda *args, **kwargs: None),
+    }
+    for _ in range(2):
+        exec(source, context)
+        with zipfile.ZipFile(tmp_path / "day22-t4-evidence.zip") as archive:
+            assert archive.testzip() is None
+            names = archive.namelist()
+            assert len(names) == len(set(names))
+            assert not any(name.endswith(".safetensors") or name == ".env" for name in names)
+            manifest = json.loads(archive.read("submission/evidence/export-sha256.json"))
+            assert set(manifest) == set(names) - {"submission/evidence/export-sha256.json"}
+            assert all(hashlib.sha256(archive.read(name)).hexdigest() == digest
+                       for name, digest in manifest.items())
+            saved = json.loads(archive.read("submission/evidence/sft-reference.json"))
+            assert saved["weight_files"][0]["sha256"] == hashlib.sha256(b"private weight fixture").hexdigest()
+            assert saved["weights_exported"] is False
+    assert downloads == ["day22-t4-evidence.zip"] * 2
+
+
 def test_pipeline_command_does_not_assume_tools_are_beside_python():
     python = "/usr/bin/python3"
     values = dict(argument.split("=", 1) for argument in pipeline_command(python)[1:-1])
