@@ -65,6 +65,7 @@ def main():
         "outputs_sha256": answers_sha, "original_pipeline_sha256": hashlib.sha256(original_bytes).hexdigest(),
         "original_history": history.relative_to(ROOT).as_posix(),
         "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+        "overlay_source_commit": os.environ.get("NB4_RECOVERY_SOURCE_COMMIT"),
         "nb4_source_sha256": hashlib.sha256((ROOT / "notebooks/04_compare_and_eval.py").read_bytes()).hexdigest(),
         "script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
     }
