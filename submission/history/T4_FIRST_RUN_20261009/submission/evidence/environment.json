@@ -1,0 +1,43 @@
+{
+  "python": "3.13.15",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "gpu": "Tesla T4",
+  "vram_bytes": 15637086208,
+  "cuda_runtime": "11.8",
+  "versions": {
+    "torch": "2.7.0+cu118",
+    "torchao": "0.13.0",
+    "unsloth": "2026.10.2",
+    "unsloth_zoo": "2026.10.2",
+    "trl": "1.13.0",
+    "transformers": "5.17.0",
+    "peft": "0.21.1",
+    "bitsandbytes": "0.50.2",
+    "datasets": "4.8.5",
+    "accelerate": "1.15.0",
+    "matplotlib": "3.10.0",
+    "jupytext": "1.19.5",
+    "nbconvert": "7.17.1"
+  },
+  "base_model_requested": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+  "cached_revisions": {
+    "datasets--saillab--alpaca-vietnamese-cleaned": {
+      "main": "a64ef441c9b10445d957a404d9ce6f5fd4d84254"
+    },
+    "datasets--sailor2--sea-ultrafeedback-onpolicy": {
+      "main": "2455efe501c1da03a01a2bcad9f2f769c50f5c03"
+    },
+    "models--Skywork--Skywork-Reward-V2-Llama-3.2-3B": {
+      "main": "beafe5f2e6a275ce8c556f68f2d82de7fefbc3d8"
+    },
+    "models--Skywork--Skywork-Reward-V2-Qwen3-4B": {
+      "main": "fd958fef475f323f4e6b195930e3dd918485c668"
+    },
+    "models--unsloth--Qwen3-4B-Instruct-2507": {
+      "main": "992063681dc2f7de4ee976110199552935cad284"
+    },
+    "models--unsloth--Qwen3-4B-Instruct-2507-unsloth-bnb-4bit": {
+      "main": "7744afa8566e264af1a92a806d8d9aae00cc7c78"
+    }
+  }
+}
