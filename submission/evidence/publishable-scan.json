@@ -1,12 +1,12 @@
 {
-  "checked_utc": "2026-10-11T02:14:29.224738+00:00",
-  "scanned_index_tree": "5361aeda516afec15f036dcc38a5825666b2741a",
-  "tracked_files_scanned": 185,
-  "tracked_bytes": 6523693,
+  "checked_utc": "2026-10-11T02:21:14.839273+00:00",
+  "scanned_index_tree": "74ae0a787b40fab73cbd5b0ea72e8ea85f235087",
+  "tracked_files_scanned": 188,
+  "tracked_bytes": 6530259,
   "forbidden_paths": [],
   "suspicious_credential_paths": [],
   "files_over_25_mib": [],
   "env_content_read": false,
   "passed": true,
-  "scope": "Entire staged Git index before this generated receipt is added; local caches and private downloads are excluded."
+  "scope": "Entire staged Git index before the generated scan receipt is updated."
 }

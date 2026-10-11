@@ -1,0 +1,82 @@
+{
+  "completed_utc": "2026-10-11T02:20:26.3902801Z",
+  "user_requested_cleanup": true,
+  "github_main_verified_before_cleanup": "6deb7bd",
+  "uploaded_archives": [
+    {
+      "name": "day22-training-checkpoint-20261011T010258Z.zip",
+      "bytes": 301890306,
+      "sha256": "a08ea843b628c79fa2c157797a70df5548e4a3a2950ecab39e37022fc0b3c595",
+      "remote_digest": "sha256:a08ea843b628c79fa2c157797a70df5548e4a3a2950ecab39e37022fc0b3c595",
+      "asset_id": 629529980,
+      "url": "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment/releases/download/lab22-t4-20261011/day22-training-checkpoint-20261011T010258Z.zip",
+      "remote_sha256_matches": true
+    },
+    {
+      "name": "Lab22_history_artifacts_20261011.zip",
+      "bytes": 1059972440,
+      "sha256": "12a585e616bee6cfe0561ebc1e36b55507dde2f86a3891c1c81e39a56df6addf",
+      "remote_digest": "sha256:12a585e616bee6cfe0561ebc1e36b55507dde2f86a3891c1c81e39a56df6addf",
+      "asset_id": 629532768,
+      "url": "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment/releases/download/lab22-t4-20261011/Lab22_history_artifacts_20261011.zip",
+      "remote_sha256_matches": true
+    },
+    {
+      "name": "day22-t4-final-20261011.zip",
+      "bytes": 3621386,
+      "sha256": "8b59f5c3e5c675e4bd670a61425ddf084504b81fc80b7bfcd6a03b70b216e7b0",
+      "remote_digest": "sha256:8b59f5c3e5c675e4bd670a61425ddf084504b81fc80b7bfcd6a03b70b216e7b0",
+      "asset_id": 629537233,
+      "url": "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment/releases/download/lab22-t4-20261011/day22-t4-final-20261011.zip",
+      "remote_sha256_matches": true
+    },
+    {
+      "name": "Lab22_local_helpers_20261011.zip",
+      "bytes": 220121,
+      "sha256": "649788a1242507b034b8f29796c1eac18a16e8db6bfdc06444f22e24e05a608a",
+      "remote_digest": "sha256:649788a1242507b034b8f29796c1eac18a16e8db6bfdc06444f22e24e05a608a",
+      "asset_id": 629542226,
+      "url": "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment/releases/download/lab22-t4-20261011/Lab22_local_helpers_20261011.zip",
+      "remote_sha256_matches": true
+    },
+    {
+      "name": "Lab22_submission_20261011.zip",
+      "bytes": 2085754,
+      "sha256": "e0614fcd7a5b4e5d2e4b9f919824e604d60f43a80eeeefa6deedd36dbe96f296",
+      "remote_digest": "sha256:e0614fcd7a5b4e5d2e4b9f919824e604d60f43a80eeeefa6deedd36dbe96f296",
+      "asset_id": 629540308,
+      "url": "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment/releases/download/lab22-t4-20261011/Lab22_submission_20261011.zip",
+      "remote_sha256_matches": true
+    }
+  ],
+  "permanently_removed_task_directories": [
+    "D:\\Python\\K4-L3-Track3-Day22-DPO-ORPO-Alignment\\.cache",
+    "D:\\Python\\K4-L3-Track3-Day22-DPO-ORPO-Alignment\\.pytest_cache",
+    "D:\\Python\\K4-L3-Track3-Day22-DPO-ORPO-Alignment\\.ruff_cache",
+    "D:\\Python\\K4-L3-Track3-Day22-DPO-ORPO-Alignment\\unsloth_compiled_cache",
+    "D:\\Python\\K4-L3-Track3-Day22-DPO-ORPO-Alignment\\notebooks\\unsloth_compiled_cache",
+    "D:\\Python\\K4-L3-Track3-Day22-DPO-ORPO-Alignment\\lab22\\__pycache__",
+    "D:\\Python\\K4-L3-Track3-Day22-DPO-ORPO-Alignment\\scripts\\__pycache__",
+    "D:\\Python\\day22-reproduction-20261009"
+  ],
+  "removed_download_files": 11,
+  "remaining_lab22_downloads": [],
+  "temporary_directories_sent_to_recycle_bin": [
+    "C:\\Users\\neont\\Documents\\Codex\\2026-10-10\\new-chat-4\\work",
+    "C:\\Users\\neont\\Documents\\Codex\\2026-10-10\\new-chat-4\\outputs"
+  ],
+  "recycle_bin_emptied": false,
+  "main_repository_retained": "D:\\Python\\K4-L3-Track3-Day22-DPO-ORPO-Alignment",
+  "env_preserved": true,
+  "unrelated_downloads_untouched": true,
+  "helper_containers_removed": [
+    "day22-lab",
+    "day22-clean-20261009"
+  ],
+  "helper_image_removed": "day22-lab:local",
+  "owned_keep_awake_helpers_stopped": [
+    51904,
+    43468
+  ],
+  "note": "All unique lab artifacts uploaded and SHA256 verified first. Initial cleanup stopped on a log locked by the previous owned keep-awake helper; that helper was stopped. Permanent removal of the remaining two temporary folders was rejected by automatic approval review, so they were sent to Recycle Bin instead."
+}

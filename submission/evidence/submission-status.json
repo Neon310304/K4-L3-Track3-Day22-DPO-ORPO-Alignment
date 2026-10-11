@@ -1,6 +1,6 @@
 {
-  "checked_utc": "2026-10-11T02:06:12.676382+00:00",
-  "status": "mandatory_lab_complete_ready_for_publish",
+  "checked_utc": "2026-10-11T09:06:12.676382+07:00",
+  "status": "mandatory_lab_complete_published",
   "gpu": "Tesla T4",
   "model": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
   "execution": "NB0-NB3 original make pipeline; NB4 exact-answer make eval recovery",
@@ -40,5 +40,5 @@
     "tests-current-code.json": "83a887cf584131a61f6edcb439d4eda59c98156afb60c9993f38536dccf3a0b9",
     "private-backup-receipt.json": "630f2cc8d3bb576d55de34838282e26e6cbe915bd67484e652629fc75430e264"
   },
-  "publication_note": "Push confirmation is recorded in the final delivery receipt after the actual push."
+  "publication_note": "Main and five GitHub Release assets published; remote SHA256 verified before cleanup. See local-cleanup.json and release receipts."
 }

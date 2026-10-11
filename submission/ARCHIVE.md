@@ -8,7 +8,10 @@ Theo yêu cầu lưu toàn bộ dữ liệu Lab22 trước khi xóa tệp tải 
 | `day22-training-checkpoint-20261011T010258Z.zip` | 46 tệp checkpoint SFT/DPO LoRA và tokenizer/template của lượt T4 mới; không chứa merged weights |
 | `Lab22_history_artifacts_20261011.zip` | 148 tệp lịch sử local 0.6B, trọng số merged/LoRA cũ và artifact trung gian/thất bại; không dùng làm kết quả chính |
 | `Lab22_submission_20261011.zip` | Bộ nguồn và bài nộp từ Git đã kiểm tra, không chứa weights |
+| `Lab22_local_helpers_20261011.zip` | 61 tệp nguồn của thư mục tái lập cũ và công cụ hoàn thiện, lưu trước khi dọn |
 
 Metadata xác nhận upload ở `evidence/release-*-receipt.json`. `private-backup-receipt.json` và `backup-source.json` ghi ý định lưu riêng ban đầu; yêu cầu lưu lên GitHub sau đó được thực hiện bằng Release, ngoài Git tree. Cache model công khai và môi trường Python được loại khỏi archive vì có thể tải/cài lại.
 
 Bài chính vẫn có đủ năm notebook chạy thật, báo cáo, bốn biểu đồ gốc và ảnh Colab cuối. Thư mục bài làm chính được giữ. Chi tiết dọn local ghi trong `evidence/local-cleanup.json`; không xóa `.env` hoặc các tệp ngoài phạm vi Lab22. Chưa nộp LMS.
+
+Đã dọn 11 tệp Lab22 khỏi Downloads, cache model/môi trường tạm trong repo, thư mục tái lập cũ và hai container/image Docker riêng của lab. Hai thư mục tạm `work`/`outputs` trong workspace Codex được chuyển vào Thùng rác sau khi hệ thống chặn xóa vĩnh viễn; Thùng rác chưa bị xóa. Bài nộp và ảnh bằng chứng giữ trong repo, các ZIP/checkpoint tải lại từ Release. ZIP bài nộp tương ứng commit `6deb7bd`; các receipt xác nhận dọn máy được commit bổ sung sau đó.

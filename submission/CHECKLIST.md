@@ -18,6 +18,7 @@ Trạng thái 2026-10-11. Kết quả chính là Qwen3-4B trên Tesla T4; giữ 
 - [x] `make verify`, audit và kiểm đồng bộ cả ba builder đều exit 0; kiểm riêng 13 hash nguồn và lịch sử phục hồi đều đạt.
 - [x] ZIP Colab gồm 61 tệp qua CRC và toàn bộ SHA; bản sao LoRA riêng gồm 46 tệp cũng đã kiểm hash.
 - [x] Bộ nguồn và bằng chứng chuẩn bị xuất bản không chứa `.env`, token, cache hoặc weights; receipt quét toàn bộ Git index lưu riêng.
+- [x] Push bài lên `main`, upload năm archive/checkpoint vào GitHub Release và kiểm SHA256 trên server trước khi dọn Downloads/cache. Chi tiết tại [ARCHIVE.md](ARCHIVE.md).
 - [ ] Người học đọc lại phản tư và nộp link repo vào LMS; chưa nộp LMS.
 
 GitHub: [Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment](https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment). Kết quả push và commit được kiểm trực tiếp với remote sau khi các kiểm tra trên hoàn tất.
