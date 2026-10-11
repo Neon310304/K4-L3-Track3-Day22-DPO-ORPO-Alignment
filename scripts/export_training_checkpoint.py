@@ -11,9 +11,9 @@ from pathlib import Path
 
 
 PATTERNS = {
-    "adapters/sft-mini": ("*.json", "*.safetensors", "*.model", "*.txt"),
-    "adapters/dpo": ("*.json", "*.safetensors", "*.model", "*.txt"),
-    "models/sft-merged": ("*.json", "*.model", "*.txt"),
+    "adapters/sft-mini": ("*.json", "*.safetensors", "*.model", "*.txt", "*.jinja"),
+    "adapters/dpo": ("*.json", "*.safetensors", "*.model", "*.txt", "*.jinja"),
+    "models/sft-merged": ("*.json", "*.model", "*.txt", "*.jinja"),
     "notebooks": ("0[0-3]_*.ipynb",),
     "data/pref": ("*.parquet", "*.json"),
     "submission/screenshots": ("*.png",),

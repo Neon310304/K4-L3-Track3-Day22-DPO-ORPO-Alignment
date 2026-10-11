@@ -13,9 +13,11 @@ def trained(root):
         folder.mkdir(parents=True)
         (folder / "adapter_config.json").write_text('{}')
         (folder / "adapter_model.safetensors").write_bytes(b'actual-adapter-' + adapter.encode())
+        (folder / "chat_template.jinja").write_text('{{ messages }}')
     merged = root / "models/sft-merged"
     merged.mkdir(parents=True)
     (merged / "config.json").write_text('{}')
+    (merged / "chat_template.jinja").write_text('{{ messages }}')
     (merged / "model.safetensors").write_bytes(b'large-policy-excluded')
     (root / '.env').write_text('PRIVATE=excluded')
     (root / 'adapters/dpo/.env').write_text('PRIVATE=excluded')
@@ -33,6 +35,9 @@ def test_backup_recovers_exact_adapter_bytes_without_cache_secrets_or_merged_wei
         assert json.loads(archive.read('training-backup-manifest.json')) == manifest
         assert set(archive.namelist()) == set(manifest['files']) | {'training-backup-manifest.json'}
         assert 'models/sft-merged/config.json' in archive.namelist()
+        assert {f'{folder}/chat_template.jinja' for folder in (
+            'adapters/sft-mini', 'adapters/dpo', 'models/sft-merged',
+        )} <= set(archive.namelist())
         assert not any('.env' in name or '.cache' in name or name == 'models/sft-merged/model.safetensors' for name in archive.namelist())
         for name, record in manifest['files'].items():
             payload = archive.read(name)
