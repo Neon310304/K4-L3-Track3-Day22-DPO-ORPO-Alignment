@@ -10,6 +10,8 @@ Commit core được pin trong launcher; wrapper và bản sửa `lab22/judge.py
 
 Colab host có thể dùng Python 3.13; không cài GPU stack trực tiếp vào host. Các job dùng `/content/day22-venv/bin/python`, torch 2.7.0+cu118 và wheel xformers chính thức cho Python 3.12. Wrapper đặt PATH của venv, cấu hình Jupyter/IPython riêng và kernelspec `IPythonKernel` với danh sách startup extensions rỗng, tránh nạp kernel/extension chỉ có trong host Colab. Cấu hình và phiên bản thực được lưu trong bằng chứng; giữ log nếu setup hoặc khởi động kernel thất bại.
 
+Ngay khi NB3 ghi xong notebook, launcher tạo và yêu cầu tải `day22-training-checkpoint-*.zip`: hai LoRA adapter có trọng số, tokenizer, cấu hình merged thật, preference split và bằng chứng đã có. Đây là bản sao khôi phục riêng ở máy, **không đưa vào GitHub hoặc ZIP nộp**. Nó không chứa trọng số merged 16-bit; nếu phải đổi runtime, cần nạp lại base model đã pin và SFT LoRA, tạo lại `merged_16bit` với môi trường đã ghi trước khi nạp DPO. Manifest có hash từng file và ghi rõ NB4 chưa hoàn tất. Kiểm tra tải về đã xong trước khi đóng runtime; hạn mức hoặc mất kết nối vẫn có thể ngắt Colab.
+
 ## Chỉ sửa và chấm lại NB4, không train lại
 
 Trên **notebook T4 cũ đang giữ `/content/day22-clean-t4`**, thêm một cell code cuối, dán toàn bộ nội dung `colab/Lab22_REJUDGE_CELL.txt` và chỉ chạy cell mới. Không Run all hoặc xoá runtime. Bản chia ba cell để tham khảo là `colab/Lab22_REJUDGE_ONLY.ipynb`; mở notebook mới có thể tạo runtime khác không giữ workspace hiện tại. Scorer chạy trong subprocess Transformers vanilla, không import Unsloth. Nó giữ nguyên 58 prompt/answer, lưu JSON strict không NaN, kiểm sanity cùng 12 cặp và ngưỡng 80%, lưu dữ liệu mới vào `data/eval/rechecked/` thay vì ghi đè lượt trước.

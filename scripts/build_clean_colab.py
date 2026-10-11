@@ -50,7 +50,7 @@ Path(os.environ["HF_HOME"], "hub").mkdir(parents=True, exist_ok=True)
 print("Fresh source-only checkout:", WORK, "at", SOURCE_COMMIT)
 '''
     for relative in ("scripts/run_clean_pipeline.py", "scripts/diagnose_reward_model.py", "lab22/judge.py",
-                     "scripts/setup_t4_environment.py"):
+                     "scripts/setup_t4_environment.py", "scripts/export_training_checkpoint.py"):
         body = (ROOT / relative).read_text(encoding="utf-8")
         setup += f"\n(WORK / {relative!r}).write_text({body!r}, encoding='utf-8')\n"
     setup += '''
@@ -96,6 +96,17 @@ process = subprocess.Popen([LAB_PY, "-u", "scripts/run_clean_pipeline.py"],
                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
 for line in process.stdout:
     print(line, end="", flush=True)
+    if "Writing " in line and line.rstrip().endswith("to notebooks/03_dpo_train.ipynb"):
+        import datetime
+        from google.colab import files
+        checkpoint = Path("/content") / ("day22-training-checkpoint-" +
+                     datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%SZ") + ".zip")
+        backup = subprocess.run([LAB_PY, "scripts/export_training_checkpoint.py", "--output", str(checkpoint)])
+        if backup.returncode == 0:
+            files.download(str(checkpoint))
+            print("Private LoRA recovery backup requested for download. Keep outside GitHub.", flush=True)
+        else:
+            print("WARNING: checkpoint backup failed; retain the runtime and inspect the log.", flush=True)
 PIPELINE_EXIT_CODE = process.wait()
 print("make pipeline exit code:", PIPELINE_EXIT_CODE, flush=True)
 print("Continue to the export cell even if a stage failed, so the actual log is kept.", flush=True)
