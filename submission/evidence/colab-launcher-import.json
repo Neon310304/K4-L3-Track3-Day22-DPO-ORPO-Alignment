@@ -1,0 +1,32 @@
+{
+  "checked_utc": "2026-10-11T04:57:49.008006+00:00",
+  "source_download_name": "Lab22_T4_FINAL_RUN_20261011 (1).ipynb",
+  "destination": "submission/evidence/colab-launcher-executed-20261011.ipynb",
+  "bytes": 269463,
+  "sha256": "6ae7cf123d4f8096714b492c037621debd0fbc8ece1dc4f5e94a6f8246388c0f",
+  "preserved_byte_for_byte": true,
+  "role": "Supplementary snapshot of the live Colab launcher after final NB4 recovery; canonical executed NB0-NB4 notebooks remain under notebooks/.",
+  "cells": 15,
+  "output_types": {
+    "stream": 15,
+    "display_data": 10
+  },
+  "execution_count_final_cell": 7,
+  "validation": {
+    "json_and_nbformat4_structure": "passed; nbformat package unavailable, structure checked without running cells",
+    "cell12_heldout_exactly_matches_canonical_summary": true,
+    "cell12_sanity_exactly_matches_canonical_summary": true,
+    "cell14_completion_and_metrics_match": true,
+    "cell11_original_cuda_failure_preserved": true,
+    "canonical_pipeline_and_recovery_exit_codes": 0,
+    "answers_sha256": "f37541d4f21577008cd6183e6a788522bfd95726de50d43d92b0d65a946fc78e",
+    "credential_pattern_scan": "passed; no matches"
+  },
+  "limitations": [
+    "Earlier cached code cells retain null execution_count values in this download; they are not a fresh run of the entire launcher.",
+    "The original NB4 failure and subsequent successful recovery are both retained.",
+    "The final cell records the GitHub commit available at its execution time, 7bfe017; subsequent archive and cleanup commits are separate.",
+    "The GitHub Release submission ZIP predates this supplementary snapshot; this notebook is published in the current Git tree."
+  ],
+  "source_cleanup_policy": "Remove only the supplied Downloads copy after verifying the pushed commit and remote file SHA256; retain this repository copy."
+}

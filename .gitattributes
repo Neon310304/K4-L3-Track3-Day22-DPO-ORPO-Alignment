@@ -7,3 +7,4 @@
 *.parquet binary
 *.png binary
 submission/evidence/*.log -text -whitespace
+submission/evidence/colab-launcher-executed-20261011.ipynb -text
