@@ -50,6 +50,66 @@ def test_clean_colab_file_matches_generator():
     assert json.loads(path.read_text(encoding="utf-8")) == render()
 
 
+def test_pipeline_wait_yields_to_frontend_callbacks_before_child_output_arrives(tmp_path):
+    import time
+    import uuid
+    from jupyter_client import KernelManager
+
+    folder = tmp_path / "scripts"
+    folder.mkdir()
+    (folder / "run_clean_pipeline.py").write_text(
+        "import time\nprint('CHILD_PIPE_STARTED', flush=True)\ntime.sleep(3)\n"
+        "print('CHILD_PIPE_FINISHED', flush=True)\n",
+    )
+    manager = KernelManager(kernel_name="python3")
+    manager.kernel_spec.argv = [
+        sys.executable, "-m", "ipykernel_launcher", "-f", "{connection_file}",
+        "--IPKernelApp.kernel_class=ipykernel.ipkernel.IPythonKernel",
+        "--IPKernelApp.extensions=[]", "--IPKernelApp.extra_extensions=[]",
+    ]
+    client = None
+    try:
+        manager.start_kernel(cwd=str(tmp_path), env=pipeline_environment(sys.executable, tmp_path))
+        client = manager.client()
+        client.start_channels()
+        client.wait_for_ready(timeout=30)
+        setup = client.execute(
+            "import sys, subprocess\nfrom pathlib import Path\n"
+            "LAB_PY = sys.executable\npreflight = {'qwen':1.0, 'llama':1.0}\n"
+            "def frontend_callback(comm, message):\n"
+            "    print('FRONTEND_COMM_SERVED', flush=True)\n"
+            "get_ipython().kernel.comm_manager.register_target('frontend_probe', frontend_callback)\n",
+        )
+        while client.get_shell_msg(timeout=30)["parent_header"].get("msg_id") != setup:
+            pass
+        client.execute("".join(render()["cells"][4]["source"]))
+        deadline = time.monotonic() + 15
+        while time.monotonic() < deadline:
+            message = client.get_iopub_msg(timeout=15)
+            if message["msg_type"] == "stream" and "CHILD_PIPE_STARTED" in message["content"]["text"]:
+                break
+        else:
+            pytest.fail("Child process did not start")
+        client.session.send(client.shell_channel.socket, "comm_open", {
+            "comm_id": uuid.uuid4().hex, "target_name": "frontend_probe", "data": {},
+        })
+        deadline = time.monotonic() + 2
+        while time.monotonic() < deadline:
+            message = client.get_iopub_msg(timeout=2)
+            if message["msg_type"] != "stream":
+                continue
+            text = message["content"]["text"]
+            assert "CHILD_PIPE_FINISHED" not in text, "Frontend callback waited until the pipeline ended"
+            if "FRONTEND_COMM_SERVED" in text:
+                break
+        else:
+            pytest.fail("Frontend Comm callback was blocked by the pipeline wait")
+    finally:
+        if client is not None:
+            client.stop_channels()
+        manager.shutdown_kernel(now=True)
+
+
 def test_export_can_repeat_without_duplicate_files_or_hashing_its_old_manifest(tmp_path, monkeypatch):
     import hashlib
     import types

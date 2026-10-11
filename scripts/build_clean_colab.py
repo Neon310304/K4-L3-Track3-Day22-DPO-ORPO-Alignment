@@ -8,7 +8,7 @@ from build_colab import code, md
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / "colab/Lab22_T4_CLEAN_RUN.ipynb"
-SOURCE_COMMIT = "53a00376e779fbf06471dfeb42032027bfd56653"
+SOURCE_COMMIT = "9e5576aa8e8da885b17ca07761531810b73a1a8f"
 REPOSITORY = "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment.git"
 
 
@@ -91,10 +91,17 @@ for label, name in zip(("qwen", "llama"), os.environ["JUDGE_RM_MODELS"].split(",
     assert preflight[name] >= 0.8, "Judge sanity must pass the unchanged 80% threshold before training."
 print("Setup and both judge preflights passed:", preflight, flush=True)
 '''
-    run = '''assert len(preflight) == 2 and all(value >= 0.8 for value in preflight.values())
+    run = '''import asyncio
+
+assert len(preflight) == 2 and all(value >= 0.8 for value in preflight.values())
 process = subprocess.Popen([LAB_PY, "-u", "scripts/run_clean_pipeline.py"],
                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-for line in process.stdout:
+while True:
+    # Colab downloads use kernel Comm callbacks. Yield while waiting for the
+    # child process, otherwise the private checkpoint waits until NB4 ends.
+    line = await asyncio.to_thread(process.stdout.readline)
+    if not line:
+        break
     print(line, end="", flush=True)
     if "Writing " in line and line.rstrip().endswith("to notebooks/03_dpo_train.ipynb"):
         import datetime
@@ -107,7 +114,7 @@ for line in process.stdout:
             print("Private LoRA recovery backup requested for download. Keep outside GitHub.", flush=True)
         else:
             print("WARNING: checkpoint backup failed; retain the runtime and inspect the log.", flush=True)
-PIPELINE_EXIT_CODE = process.wait()
+PIPELINE_EXIT_CODE = await asyncio.to_thread(process.wait)
 print("make pipeline exit code:", PIPELINE_EXIT_CODE, flush=True)
 print("Continue to the export cell even if a stage failed, so the actual log is kept.", flush=True)
 '''
@@ -141,6 +148,9 @@ for folder, patterns in {
 }.items():
     for pattern in patterns:
         paths.extend(path for path in Path(folder).glob(pattern) if path.is_file())
+for history in Path("submission/history").glob("T4_NB4_FAILED_*"):
+    paths.extend(path for path in history.glob("*")
+                 if path.is_file() and path.suffix in {".json", ".log", ".md", ".ipynb"})
 paths = sorted({path for path in paths if path.name != "export-sha256.json"})
 reference = Path("models/sft-merged")
 if (reference / "config.json").exists():
