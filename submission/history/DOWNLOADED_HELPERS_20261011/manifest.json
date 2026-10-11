@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Lab22_REJUDGE_CELL_20261009.txt",
+    "bytes": 31141,
+    "sha256": "0eb56e579563d7cc69dc5453a2bc3273171ca280ebd62ee61bcee50e0944adae",
+    "role": "Downloaded historical helper/launcher; not the canonical executed NB0-NB4 evidence"
+  },
+  {
+    "name": "Lab22_REJUDGE_ONLY_20261009.ipynb",
+    "bytes": 35394,
+    "sha256": "8779874a5fce39edc09a57e755e6eede0e7578afbbdfa63669f69578e2cb2c0c",
+    "role": "Downloaded historical helper/launcher; not the canonical executed NB0-NB4 evidence"
+  },
+  {
+    "name": "Lab22_T4_CLEAN_RUN_20261009.ipynb",
+    "bytes": 38997,
+    "sha256": "d9366ca662111feb6e8e428981a444c1079623192950e18be2e55e7d90dd7b9b",
+    "role": "Downloaded historical helper/launcher; not the canonical executed NB0-NB4 evidence"
+  },
+  {
+    "name": "Lab22_T4_FINAL_RUN_20261011.ipynb",
+    "bytes": 97855,
+    "sha256": "0060d0477bd4b3cff057f5dbd237ed8804c04213f21390e8a8a6da83709c5e6a",
+    "role": "Downloaded historical helper/launcher; not the canonical executed NB0-NB4 evidence"
+  }
+]

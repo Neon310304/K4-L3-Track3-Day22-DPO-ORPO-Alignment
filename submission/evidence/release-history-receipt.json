@@ -1,0 +1,15 @@
+{
+  "verified_utc": "2026-10-11T02:12:16.242740+00:00",
+  "release_url": "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment/releases/tag/lab22-t4-20261011",
+  "release_id": 409338919,
+  "tag": "lab22-t4-20261011",
+  "asset": {
+    "name": "Lab22_history_artifacts_20261011.zip",
+    "bytes": 1059972440,
+    "sha256": "12a585e616bee6cfe0561ebc1e36b55507dde2f86a3891c1c81e39a56df6addf",
+    "remote_digest": "sha256:12a585e616bee6cfe0561ebc1e36b55507dde2f86a3891c1c81e39a56df6addf",
+    "asset_id": 629532768,
+    "url": "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment/releases/download/lab22-t4-20261011/Lab22_history_artifacts_20261011.zip",
+    "remote_sha256_matches": true
+  }
+}

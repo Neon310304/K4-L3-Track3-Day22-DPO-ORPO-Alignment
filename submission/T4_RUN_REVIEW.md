@@ -9,3 +9,7 @@ SFT 1.000 mẫu/125 bước; DPO 800/100 split/100 bước; seed 42, β=0,1, LR 
 Bản sao riêng LoRA đã tải về và kiểm CRC, 46 file và mọi checksum khớp; receipt chỉ chứa metadata, weights ở `.cache/private-training-backup-20261011/`. Nó không chứa weights merged và không tự là bài nộp hoàn chỉnh.
 
 Kiểm cuối: `tests-current-code.json`, `final-checks.json`, `audit.json`, `final-export-validation.json`, `publishable-scan.json`, `submission-status.json`. Không dùng file lịch sử để chứng nhận lượt mới. Bonus chưa chạy; LMS chưa nộp.
+
+Theo yêu cầu lưu trước khi dọn máy, checkpoint và các artifact lịch sử đã được upload lên GitHub Release, kiểm SHA256 trên server. Xem [ARCHIVE.md](ARCHIVE.md); đường dẫn `.cache` trong receipt gốc là vị trí trước khi dọn.
+
+![Colab hoàn tất](screenshots/05-colab-complete.jpg)

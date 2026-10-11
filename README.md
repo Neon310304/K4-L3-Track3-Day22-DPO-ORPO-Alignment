@@ -10,7 +10,8 @@ Lab cho học phần **AICB-P2T3 · Ngày 22 · DPO/ORPO Alignment — từ SFT 
 - Checklist theo bằng chứng: [`submission/CHECKLIST.md`](submission/CHECKLIST.md).
 - Kết quả chính: **Qwen3-4B / Tesla T4 ngày 2026-10-11**, đủ NB0–NB4 với phục hồi NB4 được ghi rõ; giữ lịch sử thất bại.
 - Hội đồng hai judge đạt **12/12 sanity mỗi model**; DPO held-out **44.00%, CI95% [37.00%; 50.00%]**. Chưa đủ bằng chứng DPO tốt hơn SFT.
-- 1.000 SFT, 800/100 preference, 100 bước DPO, 58 câu chấm thật; weights giữ riêng. Xem [`submission/T4_RUN_REVIEW.md`](submission/T4_RUN_REVIEW.md) và [`submission/COLAB_CLEAN.md`](submission/COLAB_CLEAN.md).
+- 1.000 SFT, 800/100 preference, 100 bước DPO, 58 câu chấm thật; weights được lưu ở GitHub Release ngoài Git tree. Xem [`submission/T4_RUN_REVIEW.md`](submission/T4_RUN_REVIEW.md) và [`submission/COLAB_CLEAN.md`](submission/COLAB_CLEAN.md).
+- Archive/checkpoint trước khi dọn máy: [`submission/ARCHIVE.md`](submission/ARCHIVE.md) và [GitHub Release](https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment/releases/tag/lab22-t4-20261011).
 - Dùng launcher mới [`colab/Lab22_T4_CLEAN_RUN.ipynb`](colab/Lab22_T4_CLEAN_RUN.ipynb) để tái lập; không Run all notebook Drive cũ có cell lịch sử. Reward model chạy subprocess riêng, không import Unsloth.
 
 > Bản K4 cập nhật tháng 10/2026 (xem [`CHANGELOG.md`](CHANGELOG.md)). Mọi thời gian trong tài liệu này là

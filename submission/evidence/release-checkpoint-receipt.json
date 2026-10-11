@@ -1,0 +1,15 @@
+{
+  "verified_utc": "2026-10-11T02:09:31.230957+00:00",
+  "release_url": "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment/releases/tag/lab22-t4-20261011",
+  "release_id": 409338919,
+  "tag": "lab22-t4-20261011",
+  "asset": {
+    "name": "day22-training-checkpoint-20261011T010258Z.zip",
+    "bytes": 301890306,
+    "sha256": "a08ea843b628c79fa2c157797a70df5548e4a3a2950ecab39e37022fc0b3c595",
+    "remote_digest": "sha256:a08ea843b628c79fa2c157797a70df5548e4a3a2950ecab39e37022fc0b3c595",
+    "asset_id": 629529980,
+    "url": "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment/releases/download/lab22-t4-20261011/day22-training-checkpoint-20261011T010258Z.zip",
+    "remote_sha256_matches": true
+  }
+}
