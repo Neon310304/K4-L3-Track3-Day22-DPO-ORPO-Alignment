@@ -121,6 +121,7 @@ def render(tier: str) -> dict:
             "from pathlib import Path\n"
             f'WORK = Path("{WORKDIR}")\n'
             '(WORK / "lab22").mkdir(parents=True, exist_ok=True)\n'
+            '(WORK / "scripts").mkdir(parents=True, exist_ok=True)\n'
             "os.chdir(WORK)\n"
             "print(Path.cwd())"
         ),
@@ -129,6 +130,9 @@ def render(tier: str) -> dict:
     for module in sorted((REPO / "lab22").glob("*.py")):
         body = module.read_text(encoding="utf-8")
         cells.append(code(f"%%writefile {WORKDIR}/lab22/{module.name}\n{body}"))
+    judge_worker = REPO / "scripts/rejudge_outputs.py"
+    cells.append(code(f"%%writefile {WORKDIR}/scripts/rejudge_outputs.py\n"
+                      + judge_worker.read_text(encoding="utf-8")))
     for i, (stem, kind) in enumerate(STAGES):
         if i:
             # One Colab kernel runs every stage, so drop the previous stage's GPU objects.

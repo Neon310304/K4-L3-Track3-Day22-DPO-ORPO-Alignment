@@ -80,28 +80,38 @@ print(f"{len(FIXED_PROMPTS)} fixed + {len(heldout)} held-out prompts")
 # ## 1. Sinh câu trả lời (greedy, tức giải mã tham lam, cùng cấu hình cho cả hai mô hình)
 
 # %%
-texts = [p["prompt"] for p in PROMPTS]
+# Resume only when the caller supplies the exact SHA-256 of the saved answers.
+# Ordinary runs still generate both policies with the same original settings.
+resume_sha = os.environ.get("NB4_RESUME_OUTPUTS_SHA256")
+if resume_sha:
+    from scripts.rejudge_outputs import load_outputs
+    records, OUTPUTS_SHA = load_outputs(C.EVAL_DIR / "side_by_side.jsonl")
+    assert OUTPUTS_SHA == resume_sha, "Saved answers changed before recovery"
+    assert [{key: row[key] for key in ("id", "category", "prompt")} for row in records] == PROMPTS
+    sft_out, dpo_out = [r["sft"] for r in records], [r["dpo"] for r in records]
+    print("Recovered exact saved answers:", OUTPUTS_SHA, "; no policy retraining or regeneration")
+else:
+    texts = [p["prompt"] for p in PROMPTS]
 
-model, tokenizer = MD.load_model(C.SFT_MERGED)
-sft_out = MD.generate(model, tokenizer, texts)
-del model
-MD.cleanup()
+    model, tokenizer = MD.load_model(C.SFT_MERGED)
+    sft_out = MD.generate(model, tokenizer, texts)
+    del model
+    MD.cleanup()
 
-# The adapter config points at models/sft-merged, so this loads SFT + DPO.
-model, tokenizer = MD.load_model(DPO_ADAPTER)
-dpo_out = MD.generate(model, tokenizer, texts)
-del model
-MD.cleanup()
+    # The adapter config points at models/sft-merged, so this loads SFT + DPO.
+    model, tokenizer = MD.load_model(DPO_ADAPTER)
+    dpo_out = MD.generate(model, tokenizer, texts)
+    del model
+    MD.cleanup()
 
-records = [{**p, "sft": s, "dpo": d} for p, s, d in zip(PROMPTS, sft_out, dpo_out)]
-# New outputs invalidate the old summary; saved verdicts record which outputs they judged.
-(C.EVAL_DIR / "judge_summary.json").unlink(missing_ok=True)
-with open(C.EVAL_DIR / "side_by_side.jsonl", "w", encoding="utf-8") as f:
-    for r in records:
-        f.write(json.dumps(r, ensure_ascii=False) + "\n")
-OUTPUTS_SHA = hashlib.sha256((C.EVAL_DIR / "side_by_side.jsonl").read_bytes()).hexdigest()
-print(f"mean chars  SFT {sum(map(len, sft_out)) / len(sft_out):.0f}   DPO {sum(map(len, dpo_out)) / len(dpo_out):.0f}")
-
+    records = [{**p, "sft": s, "dpo": d} for p, s, d in zip(PROMPTS, sft_out, dpo_out)]
+    # New outputs invalidate the old summary; saved verdicts record which outputs they judged.
+    (C.EVAL_DIR / "judge_summary.json").unlink(missing_ok=True)
+    with open(C.EVAL_DIR / "side_by_side.jsonl", "w", encoding="utf-8") as f:
+        for r in records:
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    OUTPUTS_SHA = hashlib.sha256((C.EVAL_DIR / "side_by_side.jsonl").read_bytes()).hexdigest()
+    print(f"mean chars  SFT {sum(map(len, sft_out)) / len(sft_out):.0f}   DPO {sum(map(len, dpo_out)) / len(dpo_out):.0f}")
 # %% [markdown]
 # ## 2. Bảng 8 câu hỏi cố định (sản phẩm nộp `04-side-by-side-table.png`)
 
@@ -165,29 +175,38 @@ if provider != "rm" and not J.has_judge_key(provider):
 
 sanity, per_judge = {}, {}
 if provider == "rm":
-    for name in C.JUDGE_RM_MODELS:
-        score = J.make_rm_scorer(name)
-        sanity[name] = J.sanity_accuracy(score)
-        print(f"{name}: Vietnamese sanity {sanity[name]:.0%} of {len(J.SANITY_PAIRS)} obvious pairs")
-        per_judge[name] = [{**r, **J.rm_judge_pair(r["prompt"], r["sft"], r["dpo"], score)} for r in records]
-        del score
-        MD.cleanup()
-    panel = [n for n in per_judge if sanity[n] >= 0.8] or list(per_judge)
-    if len(panel) < len(per_judge):
-        print(f"Dropped from the panel (sanity < 80%): {sorted(set(per_judge) - set(panel))}")
-    if min(sanity[n] for n in panel) < 0.8:
-        print("WARNING: no reward model passes the Vietnamese sanity set; treat verdicts with caution.")
-    judged = [
-        {**r, **J.panel_record([per_judge[n][i] for n in panel])} for i, r in enumerate(records)
-    ]
-    judge_name, kind = "rm-panel:" + "+".join(panel), "rm"
+    # Unsloth patches model classes globally. Reward models must run in a fresh
+    # interpreter so FP32 CPU offload cannot enter patched policy CUDA kernels.
+    import subprocess
+    import uuid
+    judge_dir = ROOT / ".cache" / ("nb4-judge-" + uuid.uuid4().hex)
+    child = subprocess.Popen(
+        [sys.executable, "-u", str(ROOT / "scripts/rejudge_outputs.py"),
+         "--outputs", str(C.EVAL_DIR / "side_by_side.jsonl"), "--output-dir", str(judge_dir)],
+        cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+    )
+    for line in child.stdout:
+        print(line, end="", flush=True)
+    assert child.wait() == 0, "Isolated reward-model judge failed; keep the child log"
+    rm_payload = json.loads((judge_dir / "judge_results_rm.json").read_text())
+    child_summary = json.loads((judge_dir / "judge_summary.json").read_text())
+    recheck = json.loads((judge_dir / "recheck.json").read_text())
+    assert recheck["outputs_sha256"] == rm_payload["outputs_sha256"] == OUTPUTS_SHA
+    assert recheck["both_judges_pass"] and all(v >= 0.8 for v in child_summary["sanity"].values())
+    (C.REPO_ROOT / "submission/evidence/nb4-isolated-judge.json").write_text(
+        json.dumps(recheck, indent=2) + "\n", encoding="utf-8",
+    )
+    sanity, per_judge = child_summary["sanity"], rm_payload["per_judge"]
+    panel = [name for name in per_judge if sanity[name] >= 0.8]
+    judged = rm_payload["records"]
+    judge_name, kind = rm_payload["judge"], "rm"
 else:
     call = J.make_caller(provider, C.JUDGE_MODEL)
     judged = [{**r, **J.judge_pair(r["prompt"], r["sft"], r["dpo"], call)} for r in records]
     judge_name, kind = f"{provider}:{C.JUDGE_MODEL}", "api"
 (C.EVAL_DIR / f"judge_results_{kind}.json").write_text(
     json.dumps(
-        {"judge": judge_name, "outputs_sha256": OUTPUTS_SHA, "records": judged, "per_judge": per_judge},
+        {**(rm_payload if kind == "rm" else {}), "judge": judge_name, "outputs_sha256": OUTPUTS_SHA, "records": judged, "per_judge": per_judge},
         ensure_ascii=False,
         indent=2,
     )
