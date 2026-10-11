@@ -6,10 +6,12 @@ Lab cho học phần **AICB-P2T3 · Ngày 22 · DPO/ORPO Alignment — từ SFT 
 
 - Đặc tả triển khai: [`IMPLEMENTATION_PROMPT.md`](IMPLEMENTATION_PROMPT.md).
 - Phản tư và kết quả đo: [`submission/REFLECTION.md`](submission/REFLECTION.md).
-- Tái lập trên máy local 4 GiB: [`submission/REPRODUCE.md`](submission/REPRODUCE.md).
+- Tái lập Qwen3-4B trên T4: [`submission/REPRODUCE.md`](submission/REPRODUCE.md).
 - Checklist theo bằng chứng: [`submission/CHECKLIST.md`](submission/CHECKLIST.md).
-- Pipeline local dùng Qwen3-0.6B và hai reward model NF4, không phải kết quả của Qwen3-4B mặc định. Notebook NB0–NB4 có output ở `notebooks/`; log/cấu hình nằm trong `submission/evidence/`.
-- Kết quả: win rate DPO held-out 57%, CI95% [47%, 67%], chưa đủ bằng chứng thắng SFT. Judge Qwen trượt sanity (7/12) và bị loại; judge Llama (12/12) chấm kết quả chính. Xem phản tư để đọc các hạn chế thay vì chỉ nhìn loss.
+- Kết quả chính: **Qwen3-4B / Tesla T4 ngày 2026-10-11**, đủ NB0–NB4 với phục hồi NB4 được ghi rõ; giữ lịch sử thất bại.
+- Hội đồng hai judge đạt **12/12 sanity mỗi model**; DPO held-out **44.00%, CI95% [37.00%; 50.00%]**. Chưa đủ bằng chứng DPO tốt hơn SFT.
+- 1.000 SFT, 800/100 preference, 100 bước DPO, 58 câu chấm thật; weights giữ riêng. Xem [`submission/T4_RUN_REVIEW.md`](submission/T4_RUN_REVIEW.md) và [`submission/COLAB_CLEAN.md`](submission/COLAB_CLEAN.md).
+- Dùng launcher mới [`colab/Lab22_T4_CLEAN_RUN.ipynb`](colab/Lab22_T4_CLEAN_RUN.ipynb) để tái lập; không Run all notebook Drive cũ có cell lịch sử. Reward model chạy subprocess riêng, không import Unsloth.
 
 > Bản K4 cập nhật tháng 10/2026 (xem [`CHANGELOG.md`](CHANGELOG.md)). Mọi thời gian trong tài liệu này là
 > ước tính trên Colab T4 miễn phí; máy của bạn có thể nhanh hoặc chậm hơn.
@@ -49,21 +51,21 @@ Việt để huấn luyện và 100 cặp để kiểm tra.
 
 ## 1. Chuẩn bị (Colab, không cần cài gì)
 
-1. Tải file [`colab/Lab22_DPO_T4.ipynb`](colab/Lab22_DPO_T4.ipynb) về máy, rồi mở [Google Colab](https://colab.research.google.com)
+1. Tải file [`colab/Lab22_T4_CLEAN_RUN.ipynb`](colab/Lab22_T4_CLEAN_RUN.ipynb) về máy, rồi mở [Google Colab](https://colab.research.google.com)
    → **Tệp → Tải sổ tay lên** → chọn file vừa tải.
 2. Chọn GPU: **Thời gian chạy → Thay đổi loại thời gian chạy → T4 GPU → Lưu**.
-3. Chạy các cell đầu tiên (phần cài đặt). Chúng đặt cấu hình (cell đầu tiên, gọi là **cell cài đặt**), cài thư
-   viện, tạo thư mục làm việc `/content/lab22` và ghi các file mã nguồn của lab vào đó. Bạn không cần tải repo về.
-4. Chạy lần lượt các cell **từ trên xuống**, không bỏ cell nào. Phần bắt buộc kết thúc ở **NB4**; các phần sau là bonus.
-   Nếu gặp lỗi không có GPU, quay lại bước 2.
+3. Chọn **Chạy tất cả** cho ba cell code: setup, pipeline NB0–NB4, xuất bằng chứng. Setup tạo workspace
+   sạch `/content/day22-clean-t4`, môi trường Python 3.12 riêng và kiểm cả hai judge trước huấn luyện.
+4. Đợi pipeline hoàn tất; giữ đủ 1.000 SFT, 800/100 preference và 100 bước DPO. Launcher chạy phần bắt buộc,
+   không tự chạy bonus. Notebook tổng hợp gốc vẫn ở [`colab/Lab22_DPO_T4.ipynb`](colab/Lab22_DPO_T4.ipynb).
+5. Sau NB3, trình duyệt được yêu cầu tải bản sao LoRA riêng; sau pipeline, tải ZIP bằng chứng không chứa
+   trọng số. Giữ notebook đã thực thi bằng **Tệp → Tải xuống → .ipynb**.
 
-> **Quan trọng — Colab xoá mọi file khi hết phiên.** Trước khi đóng tab hoặc hết giờ GPU, mở bảng **Tệp**
-> (biểu tượng thư mục bên trái), vào `/content/lab22` và tải về máy:
-> - thư mục `submission/screenshots/` (các ảnh biểu đồ),
-> - thư mục `data/eval/` (kết quả chấm),
-> - các file `.json` trong `adapters/dpo/` (số liệu huấn luyện; **không** cần tải file trọng số `.safetensors`).
->
-> Nếu mất phiên giữa chừng, bạn phải chạy lại từ NB1.
+> **Colab xoá file khi mất phiên.** Kiểm tra tải xuống đã hoàn tất. Bản sao `day22-training-checkpoint-*.zip`
+> chứa hai LoRA adapter và chat template để khôi phục, nên giữ riêng ở máy và không commit. Nó không chứa
+> merged weights: cần tải lại base model, nạp SFT LoRA và tạo lại merged reference trước khi nạp DPO.
+> `day22-t4-evidence.zip` giữ notebook có output, biểu đồ, dữ liệu, metrics và hash; không chứa trọng số.
+> Nếu chưa có bản sao checkpoint, phiên GPU mới phải chạy lại phần huấn luyện.
 
 Muốn chạy trên laptop/máy chủ có GPU ≥ 12 GB, hoặc dùng A100/L4: xem [`docs/reference.md`](docs/reference.md).
 

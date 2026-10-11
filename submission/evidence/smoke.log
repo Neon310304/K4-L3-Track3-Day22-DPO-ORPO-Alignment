@@ -1,28 +1,21 @@
 ==> Smoke check (imports, GPU, sources)
 
   ✓ torch 2.7.0+cu118
-  ✓ CUDA NVIDIA GeForce RTX 3050 Ti Laptop GPU (4.3 GB)
+  ✓ CUDA Tesla T4 (15.6 GB)
 🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+  ✓ unsloth 2026.10.2
   ✓ trl 1.13.0
   ✓ transformers 5.17.0
+  ✓ peft 0.21.2
   ✓ bitsandbytes 0.50.2
   ✓ datasets 4.8.5
+  ✓ lm_eval 0.4.13
   ✓ matplotlib 3.11.2
 
-COMPUTE_TIER=T4 base=Qwen/Qwen3-0.6B max_len=768 seed=42
+COMPUTE_TIER=T4 base=unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit max_len=768 seed=42
 SFT saillab/alpaca-vietnamese-cleaned[:1000]  PREF sailor2/sea-ultrafeedback-onpolicy (Vietnamese) train=800 eval=100
 DPO beta=0.1 lr=5e-06 epochs=1.0 loss=['sigmoid']
 
-✗ Smoke check FAILED:
-  - unsloth import failed: UnslothTorchTooOldError: module 'torch' has no attribute 'float4_e2m1fn_x2'
-
-Unsloth: torchao==0.18.0 uses torch.float4_e2m1fn_x2, and the installed torch==2.7.0+cu118 does not have it, so this environment pairs a torchao with a torch that cannot serve it.
-torch.float4_e2m1fn_x2 first appears in torch 2.7.0, so this torch is the older half.
-
-Upgrade torch, which leaves torchao where it is:
-    pip install --upgrade "torch>=2.7.0" "torchvision"
-    That takes the default build from PyPI. This torch is a cu118 build, and each https://download.pytorch.org/whl/ index carries only the releases built for it, so pick the CUDA index for the release you are moving to at https://pytorch.org/get-started/locally/ and pass it as --index-url.
-
-Installing a torchao that matches this torch works too. Pip allowed the pair because torchao declares a lower torch floor than its own modules actually touch, so there was nothing for the resolver to reject.
-  - peft import failed: ModuleNotFoundError: Could not import module 'BloomPreTrainedModel'. Are this object's requirements defined correctly?
-  - lm_eval import failed: ModuleNotFoundError: No module named 'lm_eval'
+✓ Smoke check passed. Next: `make pipeline`.
+[unsloth_zoo.log|WARNING]Unsloth: triton==3.3.0 miscompiles the cut cross entropy kernel for cuda:0 (sm_75), so it is disabled and the standard loss is used instead, at a higher memory cost. torch 2.6.0, which carries triton 3.2.0, restores it. torch 2.8.0 and later carry a triton that compiles the kernel, but do NOT restore it here: unsloth_zoo sets UNSLOTH_ENABLE_CCE=0 for torch 2.8 and above over a separate shared memory failure, and both compiled branches require that flag as well as HAS_CUT_CROSS_ENTROPY. Leaving it enabled aborts the process with 'LLVM ERROR: Unsupported rounding mode for conversion'.

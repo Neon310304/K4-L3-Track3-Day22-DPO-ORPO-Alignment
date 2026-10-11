@@ -1,0 +1,14 @@
+{
+  "archive_name": "day22-training-checkpoint-20261011T010258Z.zip",
+  "created_utc": "2026-10-11T01:02:58.724082+00:00",
+  "bytes": 301890306,
+  "sha256": "a08ea843b628c79fa2c157797a70df5548e4a3a2950ecab39e37022fc0b3c595",
+  "files": 46,
+  "crc_passed": true,
+  "all_backup_hashes_match": true,
+  "contains_lora_weights": true,
+  "contains_merged_weights": false,
+  "complete_submission": false,
+  "weights_published": false,
+  "recovery_note": "Reload the pinned base model and SFT LoRA with the recorded environment, then recreate merged_16bit before loading DPO. This archive alone is not a merged policy checkpoint."
+}

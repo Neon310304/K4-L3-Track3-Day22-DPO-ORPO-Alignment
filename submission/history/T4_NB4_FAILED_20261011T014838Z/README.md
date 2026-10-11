@@ -1,0 +1,1 @@
+The original fresh run completed NB0-NB3 and generated the saved answers. NB4 then failed in Unsloth-patched reward inference. The raw make exit code and log are preserved here. The original NB4 notebook was created by jupytext; nbconvert did not save its failed execution. It is not a successful executed notebook.

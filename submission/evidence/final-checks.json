@@ -1,0 +1,82 @@
+{
+  "checked_utc": "2026-10-11T02:05:18.983504+00:00",
+  "checks": [
+    {
+      "name": "verify",
+      "command": [
+        "docker",
+        "exec",
+        "-w",
+        "/content/day22-clean-t4",
+        "day22-lab",
+        "make",
+        "PY=/opt/day22-venv/bin/python",
+        "verify"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "audit",
+      "command": [
+        "docker",
+        "exec",
+        "-w",
+        "/content/day22-clean-t4",
+        "day22-lab",
+        "/opt/day22-venv/bin/python",
+        "scripts/audit_submission.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "build_colab",
+      "command": [
+        "docker",
+        "exec",
+        "-w",
+        "/content/day22-clean-t4",
+        "day22-lab",
+        "/opt/day22-venv/bin/python",
+        "scripts/build_colab.py",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "build_clean_colab",
+      "command": [
+        "docker",
+        "exec",
+        "-w",
+        "/content/day22-clean-t4",
+        "day22-lab",
+        "/opt/day22-venv/bin/python",
+        "scripts/build_clean_colab.py",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "build_rejudge_colab",
+      "command": [
+        "docker",
+        "exec",
+        "-w",
+        "/content/day22-clean-t4",
+        "day22-lab",
+        "/opt/day22-venv/bin/python",
+        "scripts/build_rejudge_colab.py",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "all_passed": true,
+  "log_sha256": {
+    "verify.log": "8ac90c14f195e9ed6ffb40bd6a0970544473a6aa7671fec05fc9c4fc396173cc",
+    "audit.log": "84a46bff88a0f23cd81c36d670cd7a7b22c42d10cf0c79055fb80fdd3cacd86d",
+    "build_colab-check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build_clean_colab-check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "build_rejudge_colab-check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

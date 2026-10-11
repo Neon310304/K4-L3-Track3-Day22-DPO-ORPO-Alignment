@@ -14,6 +14,10 @@ Ngay khi NB3 ghi xong notebook, launcher tạo và yêu cầu tải `day22-train
 
 ## Chỉ sửa và chấm lại NB4, không train lại
 
+NB4 hiện nạp hai reward model trong subprocess Transformers riêng, tránh các lớp model đã bị Unsloth sửa trong kernel sinh câu trả lời. Lượt ngày 2026-10-11 ban đầu lỗi `CUDA illegal memory access` khi chấm trong kernel Unsloth, sau khi NB0–NB3 và sinh 58 câu đã hoàn tất. Lệnh `python scripts/resume_nb4.py` giữ nguyên SHA-256 câu trả lời, lưu manifest/log thất bại vào `submission/history/T4_NB4_FAILED_*`, rồi chạy `make eval` với chế độ phục hồi. Manifest cuối ghi cả lượt `make pipeline` ban đầu và lượt phục hồi; không gọi đó là một lượt sạch không gián đoạn.
+
+Launcher chờ stdout bằng `asyncio.to_thread` để kernel còn phục vụ Comm tải tệp. Kiểm thử gửi một Comm thật qua Jupyter xác nhận callback chạy khi tiến trình con vẫn đang chờ; kiểm tra bản ZIP đã tải về vẫn là bước cần thiết.
+
 Trên **notebook T4 cũ đang giữ `/content/day22-clean-t4`**, thêm một cell code cuối, dán toàn bộ nội dung `colab/Lab22_REJUDGE_CELL.txt` và chỉ chạy cell mới. Không Run all hoặc xoá runtime. Bản chia ba cell để tham khảo là `colab/Lab22_REJUDGE_ONLY.ipynb`; mở notebook mới có thể tạo runtime khác không giữ workspace hiện tại. Scorer chạy trong subprocess Transformers vanilla, không import Unsloth. Nó giữ nguyên 58 prompt/answer, lưu JSON strict không NaN, kiểm sanity cùng 12 cặp và ngưỡng 80%, lưu dữ liệu mới vào `data/eval/rechecked/` thay vì ghi đè lượt trước.
 
 Model/judge cũ phải được giải phóng trước khi nạp reward model. Mỗi judge nạp lần lượt. FP32/offload dùng tối đa 10 GiB GPU và 6 GiB CPU; có thể chậm hơn FP16. Không đảm bảo cả hai judge qua trước khi đo. Nếu OOM hoặc lỗi số học, giữ log và dừng, không đổi ngưỡng để ép pass. Nếu thư mục rechecked đã tồn tại, dùng thư mục mới; không xoá bằng chứng lượt trước.

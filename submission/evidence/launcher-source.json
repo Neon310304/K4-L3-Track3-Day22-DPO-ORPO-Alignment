@@ -1,0 +1,5 @@
+{
+  "bootstrap_commit": "f560002",
+  "previous_runtime_workspace_present": false,
+  "recovery": "Recreate training artifacts on the new T4; no stale outputs reused."
+}

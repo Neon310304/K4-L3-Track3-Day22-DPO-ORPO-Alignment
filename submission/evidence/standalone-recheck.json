@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-10-11T01:31:34.097742+00:00",
+  "finished_utc": "2026-10-11T01:39:06.177482+00:00",
+  "outputs_sha256": "f37541d4f21577008cd6183e6a788522bfd95726de50d43d92b0d65a946fc78e",
+  "policy_retrained": false,
+  "answers_regenerated": false,
+  "judge_source_sha256": "bd4bdb026953a2100d4b8d681344afde7653c640378111b7f6bc014a1140d940",
+  "script_sha256": "19487c21eb6d97388778334fecc091f719bf47ddbeacab8d73575798f4fd0d09",
+  "sanity": {
+    "Skywork/Skywork-Reward-V2-Qwen3-4B": 1.0,
+    "Skywork/Skywork-Reward-V2-Llama-3.2-3B": 1.0
+  },
+  "both_judges_pass": true,
+  "environment": {
+    "JUDGE_RM_DTYPE": "float32",
+    "JUDGE_RM_DEVICE_MAP": "auto",
+    "JUDGE_RM_4BIT": "0",
+    "JUDGE_RM_MAX_LENGTH": "4096",
+    "JUDGE_RM_MAX_GPU_GIB": "11",
+    "JUDGE_RM_MAX_CPU_GIB": "6"
+  }
+}

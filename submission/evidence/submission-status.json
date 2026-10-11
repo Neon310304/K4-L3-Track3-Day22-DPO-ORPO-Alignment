@@ -1,0 +1,44 @@
+{
+  "checked_utc": "2026-10-11T02:06:12.676382+00:00",
+  "status": "mandatory_lab_complete_ready_for_publish",
+  "gpu": "Tesla T4",
+  "model": "unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit",
+  "execution": "NB0-NB3 original make pipeline; NB4 exact-answer make eval recovery",
+  "training_source_commit": "53a00376e779fbf06471dfeb42032027bfd56653",
+  "recovery_overlay_commit": "033bf86c680a8104d5cc1d52df811b204c445c11",
+  "heldout": {
+    "n": 50,
+    "n_failed": 0,
+    "dpo_wins": 3,
+    "sft_wins": 9,
+    "ties": 38,
+    "dpo_win_rate": 0.44,
+    "win_rate_ci95": [
+      0.37,
+      0.5
+    ],
+    "position_consistency": null,
+    "longer_answer_won_frac": 0.5,
+    "length_matched_n": 44,
+    "length_matched_win_rate": 0.4431818181818182,
+    "mean_chars_sft": 571.3,
+    "mean_chars_dpo": 574.66
+  },
+  "answers_sha256": "f37541d4f21577008cd6183e6a788522bfd95726de50d43d92b0d65a946fc78e",
+  "cpu_tests_passed": 86,
+  "final_gates_passed": true,
+  "final_artifact_validation_passed": true,
+  "lms_submitted": false,
+  "weights_in_submission": false,
+  "bonus_runs": [],
+  "repo_url": "https://github.com/Neon310304/K4-L3-Track3-Day22-DPO-ORPO-Alignment",
+  "receipt_sha256": {
+    "final-checks.json": "61b3c1531191a9d63bdf84925e598d849895aec10529e71cb701cd11df694261",
+    "audit.json": "d3280056cf6c380b9c55138329099163f55dc96a3833f24f679572a6ffd2e47d",
+    "final-export-validation.json": "e0babed3bee95dc192dc576746eb25efde1ccb068c13ff9b5a4e610b09f7a6e7",
+    "final-artifact-validation.json": "ea1ff78b367530d591696832f10199f9190c4b83c840f5475d2400cb85208388",
+    "tests-current-code.json": "83a887cf584131a61f6edcb439d4eda59c98156afb60c9993f38536dccf3a0b9",
+    "private-backup-receipt.json": "630f2cc8d3bb576d55de34838282e26e6cbe915bd67484e652629fc75430e264"
+  },
+  "publication_note": "Push confirmation is recorded in the final delivery receipt after the actual push."
+}

@@ -22,19 +22,20 @@
     "judge_records_preserve_answers": true,
     "judge_summary_recomputed": true,
     "two_real_judges_recorded": true,
+    "reward_model_scores_are_finite": true,
     "panel_obeys_sanity_filter": true,
     "rm_verdicts_match_saved_scores": true,
     "per_judge_summary_recomputed": true,
     "judge_agreement_recomputed": true
   },
   "artifacts_sha256": {
-    "adapters/sft-mini/sft_metrics.json": "f28a8704ee9f4cd4af0dda50e6fb5e12682d98b45ab73ef596ece0547654fb49",
-    "adapters/dpo/dpo_metrics.json": "831b806c06568975f90f40702222a6e5653c4e304510d243aefabb1a0fa8ea37",
-    "adapters/dpo/split.json": "e2f6c3e0274793bae3b6b1d1ecfdbd0c608569a7646002d36fedd981c8873454",
-    "data/pref/train.parquet": "7ae95172dc55471194568ac353fc6d69ae9b2c14db70166f680f1a360f2d227b",
-    "data/pref/eval.parquet": "f63853289b01c4b396109312cb7a1e95b5bfe5409c14f2f113f76b6875c623de",
-    "data/eval/side_by_side.jsonl": "d0d9353595a10b88f3a4a31ce33b36ad8069b60ef0c284c2b0703707ba134af5",
-    "data/eval/judge_results_rm.json": "8c8ee907f0743bc01966b227c26c227434dead0e37bbfccf4997640dc21a26fa",
-    "data/eval/judge_summary.json": "7477284463aab70435c96cb524206c24eb8a779cd13a835f8db999a616e90298"
+    "adapters/sft-mini/sft_metrics.json": "b8b7668b02997599cc507180e071c244519af5cc20b544388b4f9d513c5be01a",
+    "adapters/dpo/dpo_metrics.json": "398d31f6fe7b92628703c45266f46edb76c24d8499e74c3dbb736c9cd049640b",
+    "adapters/dpo/split.json": "1a0f4a4acd202092c56d3ae9faeac00364f3c8d42d0c4af2c3f2e15485f2d518",
+    "data/pref/train.parquet": "38333a9c29ef3e0fe6932190d200ab1b5af94baf2c69386c83930f88655217cc",
+    "data/pref/eval.parquet": "23133d5919935c969cce73ca921d039ecb3d80ca80461605877d2d231326a7b0",
+    "data/eval/side_by_side.jsonl": "f37541d4f21577008cd6183e6a788522bfd95726de50d43d92b0d65a946fc78e",
+    "data/eval/judge_results_rm.json": "f9505c21263ab2d117b3f938e8a57b512b59ddad833c4f05d5da1cd8402eaacd",
+    "data/eval/judge_summary.json": "13a831a9b04f02743be0d0bfe4087dc3629b19b16009ab3f0bf58e52c184e856"
   }
 }

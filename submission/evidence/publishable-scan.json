@@ -1,10 +1,12 @@
-﻿{
-    "files_checked":  107,
-    "secret_findings":  [
-
-                        ],
-    "forbidden_paths":  [
-
-                        ],
-    "passed":  true
+{
+  "checked_utc": "2026-10-11T02:06:37.680554+00:00",
+  "scanned_index_tree": "11e68a4c6b6848194201e9e7e01d493531d18c2a",
+  "tracked_files_scanned": 173,
+  "tracked_bytes": 6224284,
+  "forbidden_paths": [],
+  "suspicious_credential_paths": [],
+  "files_over_25_mib": [],
+  "env_content_read": false,
+  "passed": true,
+  "scope": "Entire staged Git index before this generated receipt is added; local caches and private downloads are excluded."
 }

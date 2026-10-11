@@ -1,0 +1,581 @@
+[jupytext] Reading notebooks/00_dpo_loss_from_scratch.py in format py
+[jupytext] Writing notebooks/00_dpo_loss_from_scratch.ipynb
+[NbConvertApp] Converting notebook notebooks/00_dpo_loss_from_scratch.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 12868 bytes to notebooks/00_dpo_loss_from_scratch.ipynb
+[jupytext] Reading notebooks/01_sft_mini.py in format py
+[jupytext] Writing notebooks/01_sft_mini.ipynb
+[NbConvertApp] Converting notebook notebooks/01_sft_mini.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[NbConvertApp] Writing 75461 bytes to notebooks/01_sft_mini.ipynb
+[jupytext] Reading notebooks/02_preference_data.py in format py
+[jupytext] Writing notebooks/02_preference_data.ipynb
+[NbConvertApp] Converting notebook notebooks/02_preference_data.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 50372 bytes to notebooks/02_preference_data.ipynb
+[jupytext] Reading notebooks/03_dpo_train.py in format py
+[jupytext] Writing notebooks/03_dpo_train.ipynb
+[NbConvertApp] Converting notebook notebooks/03_dpo_train.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 386560 bytes to notebooks/03_dpo_train.ipynb
+[jupytext] Reading notebooks/04_compare_and_eval.py in format py
+[jupytext] Writing notebooks/04_compare_and_eval.ipynb
+[NbConvertApp] Converting notebook notebooks/04_compare_and_eval.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Traceback (most recent call last):
+  File "/content/day22-venv/bin/jupyter-nbconvert", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/content/day22-venv/lib/python3.12/site-packages/traitlets/config/application.py", line 1080, in launch_instance
+    app.start()
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/content/day22-venv/lib/python3.12/site-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/content/day22-venv/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/content/day22-venv/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+provider = C.JUDGE_PROVIDER
+if provider != "rm" and not J.has_judge_key(provider):
+    print(f"JUDGE_PROVIDER={provider} but its API key is missing → local reward-model panel.")
+    provider = "rm"
+
+sanity, per_judge = {}, {}
+if provider == "rm":
+    for name in C.JUDGE_RM_MODELS:
+        score = J.make_rm_scorer(name)
+        sanity[name] = J.sanity_accuracy(score)
+        print(f"{name}: Vietnamese sanity {sanity[name]:.0%} of {len(J.SANITY_PAIRS)} obvious pairs")
+        per_judge[name] = [{**r, **J.rm_judge_pair(r["prompt"], r["sft"], r["dpo"], score)} for r in records]
+        del score
+        MD.cleanup()
+    panel = [n for n in per_judge if sanity[n] >= 0.8] or list(per_judge)
+    if len(panel) < len(per_judge):
+        print(f"Dropped from the panel (sanity < 80%): {sorted(set(per_judge) - set(panel))}")
+    if min(sanity[n] for n in panel) < 0.8:
+        print("WARNING: no reward model passes the Vietnamese sanity set; treat verdicts with caution.")
+    judged = [
+        {**r, **J.panel_record([per_judge[n][i] for n in panel])} for i, r in enumerate(records)
+    ]
+    judge_name, kind = "rm-panel:" + "+".join(panel), "rm"
+else:
+    call = J.make_caller(provider, C.JUDGE_MODEL)
+    judged = [{**r, **J.judge_pair(r["prompt"], r["sft"], r["dpo"], call)} for r in records]
+    judge_name, kind = f"{provider}:{C.JUDGE_MODEL}", "api"
+(C.EVAL_DIR / f"judge_results_{kind}.json").write_text(
+    json.dumps(
+        {"judge": judge_name, "outputs_sha256": OUTPUTS_SHA, "records": judged, "per_judge": per_judge},
+        ensure_ascii=False,
+        indent=2,
+    )
+)
+------------------
+
+----- stderr -----
+
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]
+----- stderr -----
+
+Loading weights:   0%|          | 1/399 [00:07<46:41,  7.04s/it]
+----- stderr -----
+
+Loading weights:  10%|▉         | 38/399 [00:07<00:51,  6.95it/s]
+----- stderr -----
+
+Loading weights:  12%|█▏        | 47/399 [00:07<00:41,  8.48it/s]
+----- stderr -----
+
+Loading weights:  13%|█▎        | 51/399 [00:08<00:39,  8.73it/s]
+----- stderr -----
+
+Loading weights:  15%|█▍        | 58/399 [00:08<00:34,  9.96it/s]
+----- stderr -----
+
+Loading weights:  15%|█▌        | 61/399 [00:09<00:35,  9.65it/s]
+----- stderr -----
+
+Loading weights:  17%|█▋        | 69/399 [00:09<00:28, 11.61it/s]
+----- stderr -----
+
+Loading weights:  18%|█▊        | 71/399 [00:09<00:31, 10.29it/s]
+----- stderr -----
+
+Loading weights:  20%|██        | 80/399 [00:10<00:24, 12.95it/s]
+----- stderr -----
+
+Loading weights:  21%|██        | 82/399 [00:10<00:28, 11.04it/s]
+----- stderr -----
+
+Loading weights:  23%|██▎       | 91/399 [00:11<00:22, 13.74it/s]
+----- stderr -----
+
+Loading weights:  23%|██▎       | 93/399 [00:11<00:26, 11.36it/s]
+----- stderr -----
+
+Loading weights:  26%|██▌       | 102/399 [00:11<00:20, 14.51it/s]
+----- stderr -----
+
+Loading weights:  26%|██▌       | 104/399 [00:12<00:24, 11.83it/s]
+----- stderr -----
+
+Loading weights:  28%|██▊       | 113/399 [00:12<00:19, 14.38it/s]
+----- stderr -----
+
+Loading weights:  29%|██▉       | 115/399 [00:13<00:24, 11.64it/s]
+----- stderr -----
+
+Loading weights:  31%|███       | 124/399 [00:13<00:18, 14.49it/s]
+----- stderr -----
+
+Loading weights:  32%|███▏      | 126/399 [00:14<00:22, 11.88it/s]
+----- stderr -----
+
+Loading weights:  34%|███▍      | 135/399 [00:14<00:17, 14.73it/s]
+----- stderr -----
+
+Loading weights:  34%|███▍      | 137/399 [00:14<00:21, 12.00it/s]
+----- stderr -----
+
+Loading weights:  37%|███▋      | 146/399 [00:15<00:16, 14.96it/s]
+----- stderr -----
+
+Loading weights:  37%|███▋      | 148/399 [00:15<00:21, 11.74it/s]
+----- stderr -----
+
+Loading weights:  39%|███▉      | 157/399 [00:16<00:17, 13.63it/s]
+----- stderr -----
+
+Loading weights:  40%|███▉      | 159/399 [00:16<00:22, 10.87it/s]
+----- stderr -----
+
+Loading weights:  42%|████▏     | 168/399 [00:17<00:18, 12.25it/s]
+----- stderr -----
+
+Loading weights:  43%|████▎     | 170/399 [00:17<00:23,  9.78it/s]
+----- stderr -----
+
+Loading weights:  45%|████▍     | 179/399 [00:18<00:18, 12.05it/s]
+----- stderr -----
+
+Loading weights:  45%|████▌     | 181/399 [00:18<00:22,  9.63it/s]
+----- stderr -----
+
+Loading weights:  48%|████▊     | 190/399 [00:19<00:17, 12.04it/s]
+----- stderr -----
+
+Loading weights:  48%|████▊     | 192/399 [00:19<00:19, 10.35it/s]
+----- stderr -----
+
+Loading weights:  50%|█████     | 201/399 [00:20<00:14, 13.29it/s]
+----- stderr -----
+
+Loading weights:  51%|█████     | 203/399 [00:20<00:17, 11.06it/s]
+----- stderr -----
+
+Loading weights:  53%|█████▎    | 212/399 [00:20<00:13, 14.02it/s]
+----- stderr -----
+
+Loading weights:  54%|█████▎    | 214/399 [00:21<00:15, 11.60it/s]
+----- stderr -----
+
+Loading weights:  56%|█████▌    | 223/399 [00:21<00:12, 14.57it/s]
+----- stderr -----
+
+Loading weights:  56%|█████▋    | 225/399 [00:22<00:14, 11.98it/s]
+----- stderr -----
+
+Loading weights:  59%|█████▊    | 234/399 [00:22<00:11, 14.89it/s]
+----- stderr -----
+
+Loading weights:  59%|█████▉    | 236/399 [00:22<00:13, 12.07it/s]
+----- stderr -----
+
+Loading weights:  61%|██████▏   | 245/399 [00:23<00:10, 14.64it/s]
+----- stderr -----
+
+Loading weights:  62%|██████▏   | 247/399 [00:23<00:12, 11.86it/s]
+----- stderr -----
+
+Loading weights:  64%|██████▍   | 256/399 [00:24<00:09, 14.52it/s]
+----- stderr -----
+
+Loading weights:  65%|██████▍   | 258/399 [00:24<00:11, 11.81it/s]
+----- stderr -----
+
+Loading weights:  67%|██████▋   | 267/399 [00:25<00:08, 14.95it/s]
+----- stderr -----
+
+Loading weights:  67%|██████▋   | 269/399 [00:25<00:10, 12.09it/s]
+----- stderr -----
+
+Loading weights:  70%|██████▉   | 278/399 [00:25<00:07, 15.49it/s]
+----- stderr -----
+
+Loading weights:  70%|███████   | 280/399 [00:26<00:09, 12.36it/s]
+----- stderr -----
+
+Loading weights:  72%|███████▏  | 289/399 [00:26<00:07, 15.37it/s]
+----- stderr -----
+
+Loading weights:  73%|███████▎  | 291/399 [00:26<00:08, 12.21it/s]
+----- stderr -----
+
+Loading weights:  75%|███████▌  | 300/399 [00:27<00:06, 15.16it/s]
+----- stderr -----
+
+Loading weights:  76%|███████▌  | 302/399 [00:27<00:08, 12.08it/s]
+----- stderr -----
+
+Loading weights:  78%|███████▊  | 311/399 [00:28<00:05, 15.13it/s]
+----- stderr -----
+
+Loading weights:  78%|███████▊  | 313/399 [00:28<00:07, 12.12it/s]
+----- stderr -----
+
+Loading weights:  81%|████████  | 322/399 [00:29<00:05, 14.94it/s]
+----- stderr -----
+
+Loading weights:  81%|████████  | 324/399 [00:29<00:06, 11.25it/s]
+----- stderr -----
+
+Loading weights:  83%|████████▎ | 333/399 [00:30<00:04, 13.27it/s]
+----- stderr -----
+
+Loading weights:  84%|████████▍ | 335/399 [00:30<00:06, 10.11it/s]
+----- stderr -----
+
+Loading weights:  86%|████████▌ | 344/399 [00:31<00:04, 12.25it/s]
+----- stderr -----
+
+Loading weights:  87%|████████▋ | 346/399 [00:31<00:05,  9.75it/s]
+----- stderr -----
+
+Loading weights:  89%|████████▉ | 355/399 [00:32<00:03, 12.44it/s]
+----- stderr -----
+
+Loading weights:  89%|████████▉ | 357/399 [00:32<00:03, 10.54it/s]
+----- stderr -----
+
+Loading weights:  92%|█████████▏| 366/399 [00:32<00:02, 13.84it/s]
+----- stderr -----
+
+Loading weights:  92%|█████████▏| 368/399 [00:33<00:02, 11.56it/s]
+----- stderr -----
+
+Loading weights:  94%|█████████▍| 377/399 [00:33<00:01, 14.69it/s]
+----- stderr -----
+
+Loading weights:  95%|█████████▍| 379/399 [00:34<00:01, 11.95it/s]
+----- stderr -----
+
+Loading weights:  97%|█████████▋| 388/399 [00:34<00:00, 14.86it/s]
+----- stderr -----
+
+Loading weights:  98%|█████████▊| 390/399 [00:34<00:00, 11.96it/s]
+----- stderr -----
+
+Loading weights: 100%|██████████| 399/399 [00:34<00:00, 11.44it/s]
+----- stderr -----
+
+WARNING:accelerate.big_modeling:Some parameters are on the meta device because they were offloaded to the cpu.
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mRuntimeError[39m                              Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 10[39m
+[32m      6[39m sanity, per_judge = {}, {}
+[32m      7[39m [38;5;28;01mif[39;00m provider == [33m"rm"[39m:
+[32m      8[39m     [38;5;28;01mfor[39;00m name [38;5;28;01min[39;00m C.JUDGE_RM_MODELS:
+[32m      9[39m         score = J.make_rm_scorer(name)
+[32m---> [39m[32m10[39m         sanity[name] = J.sanity_accuracy(score)
+[32m     11[39m         print(f"{name}: Vietnamese sanity {sanity[name]:.0%} of {len(J.SANITY_PAIRS)} obvious pairs")
+[32m     12[39m         per_judge[name] = [{**r, **J.rm_judge_pair(r[[33m"prompt"[39m], r[[33m"sft"[39m], r[[33m"dpo"[39m], score)} [38;5;28;01mfor[39;00m r [38;5;28;01min[39;00m records]
+[32m     13[39m         [38;5;28;01mdel[39;00m score
+
+[36mFile [39m[32m/content/day22-clean-t4/lab22/judge.py:290[39m, in [36msanity_accuracy[39m[34m(score)[39m
+[32m    288[39m correct = [32m0[39m
+[32m    289[39m [38;5;28;01mfor[39;00m prompt, good, bad [38;5;129;01min[39;00m SANITY_PAIRS:
+[32m--> [39m[32m290[39m     good_score, bad_score = [30;43mscore[39;49m[30;43m([39;49m[30;43mprompt[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mgood[39;49m[30;43m)[39;49m, score(prompt, bad)
+[32m    291[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m math.isfinite(good_score) [38;5;129;01mor[39;00m [38;5;129;01mnot[39;00m math.isfinite(bad_score):
+[32m    292[39m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33m"[39m[33mNonfinite reward score in sanity check; this is not a valid judge verdict[39m[33m"[39m)
+
+[36mFile [39m[32m/content/day22-clean-t4/lab22/judge.py:343[39m, in [36mmake_rm_scorer.<locals>.score[39m[34m(prompt, answer)[39m
+[32m    341[39m batch = tok(text, return_tensors=[33m"[39m[33mpt[39m[33m"[39m, truncation=[38;5;28;01mTrue[39;00m, max_length=max_length).to(rm.device)
+[32m    342[39m [38;5;28;01mwith[39;00m torch.no_grad():
+[32m--> [39m[32m343[39m     value = [38;5;28mfloat[39m([30;43mrm[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mbatch[39;49m[30;43m)[39;49m.logits[[32m0[39m][[32m0[39m])
+[32m    344[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m math.isfinite(value):
+[32m    345[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33mf[39m[33m"[39m[38;5;132;01m{[39;00mname[38;5;132;01m}[39;00m[33m: nonfinite reward score with [39m[38;5;132;01m{[39;00mdtype[38;5;132;01m}[39;00m[33m; do not count it as a tie[39m[33m"[39m)
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1751[39m, in [36mModule._wrapped_call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1749[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._compiled_call_impl(*args, **kwargs)  [38;5;66;03m# type: ignore[misc][39;00m
+[32m   1750[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1751[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43m_call_impl[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1762[39m, in [36mModule._call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1757[39m [38;5;66;03m# If we don't have any hooks, we want to skip the rest of the logic in[39;00m
+[32m   1758[39m [38;5;66;03m# this function, and just call forward.[39;00m
+[32m   1759[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;28mself[39m._backward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._backward_pre_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_pre_hooks
+[32m   1760[39m         [38;5;129;01mor[39;00m _global_backward_pre_hooks [38;5;129;01mor[39;00m _global_backward_hooks
+[32m   1761[39m         [38;5;129;01mor[39;00m _global_forward_hooks [38;5;129;01mor[39;00m _global_forward_pre_hooks):
+[32m-> [39m[32m1762[39m     [38;5;28;01mreturn[39;00m [30;43mforward_call[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m   1764[39m result = [38;5;28;01mNone[39;00m
+[32m   1765[39m called_always_called_hooks = [38;5;28mset[39m()
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/accelerate/hooks.py:192[39m, in [36madd_hook_to_module.<locals>.new_forward[39m[34m(module, *args, **kwargs)[39m
+[32m    190[39m         output = module._old_forward(*args, **kwargs)
+[32m    191[39m [38;5;28;01melse[39;00m:
+[32m--> [39m[32m192[39m     output = [30;43mmodule[39;49m[30;43m.[39;49m[30;43m_old_forward[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m    193[39m [38;5;28;01mreturn[39;00m module._hf_hook.post_forward(module, output)
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/transformers/utils/generic.py:939[39m, in [36mcan_return_tuple.<locals>.wrapper[39m[34m(self, *args, **kwargs)[39m
+[32m    937[39m [38;5;28;01mif[39;00m return_dict_passed [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[32m    938[39m     return_dict = return_dict_passed
+[32m--> [39m[32m939[39m output = [30;43mfunc[39;49m[30;43m([39;49m[30;43mself[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m    940[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m return_dict [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(output, [38;5;28mtuple[39m):
+[32m    941[39m     output = output.to_tuple()
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/transformers/modeling_layers.py:139[39m, in [36mGenericForSequenceClassification.forward[39m[34m(self, input_ids, attention_mask, position_ids, past_key_values, inputs_embeds, labels, use_cache, **kwargs)[39m
+[32m    126[39m [38;5;129m@can_return_tuple[39m
+[32m    127[39m [38;5;129m@auto_docstring[39m
+[32m    128[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mforward[39m(
+[32m   (...)[39m[32m    137[39m     **kwargs: Unpack[TransformersKwargs],
+[32m    138[39m ) -> SequenceClassifierOutputWithPast:
+[32m--> [39m[32m139[39m     transformer_outputs: BaseModelOutputWithPast = [30;43mgetattr[39;49m[30;43m([39;49m[30;43mself[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mbase_model_prefix[39;49m[30;43m)[39;49m[30;43m([39;49m
+[32m    140[39m [30;43m        [39;49m[30;43minput_ids[39;49m[30;43m,[39;49m
+[32m    141[39m [30;43m        [39;49m[30;43mattention_mask[39;49m[30;43m=[39;49m[30;43mattention_mask[39;49m[30;43m,[39;49m
+[32m    142[39m [30;43m        [39;49m[30;43mposition_ids[39;49m[30;43m=[39;49m[30;43mposition_ids[39;49m[30;43m,[39;49m
+[32m    143[39m [30;43m        [39;49m[30;43mpast_key_values[39;49m[30;43m=[39;49m[30;43mpast_key_values[39;49m[30;43m,[39;49m
+[32m    144[39m [30;43m        [39;49m[30;43minputs_embeds[39;49m[30;43m=[39;49m[30;43minputs_embeds[39;49m[30;43m,[39;49m
+[32m    145[39m [30;43m        [39;49m[30;43muse_cache[39;49m[30;43m=[39;49m[30;43muse_cache[39;49m[30;43m,[39;49m
+[32m    146[39m [30;43m        [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m,[39;49m
+[32m    147[39m [30;43m    [39;49m[30;43m)[39;49m
+[32m    148[39m     hidden_states = transformer_outputs.last_hidden_state
+[32m    149[39m     logits = [38;5;28mself[39m.score(hidden_states)
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1751[39m, in [36mModule._wrapped_call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1749[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._compiled_call_impl(*args, **kwargs)  [38;5;66;03m# type: ignore[misc][39;00m
+[32m   1750[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1751[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43m_call_impl[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1762[39m, in [36mModule._call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1757[39m [38;5;66;03m# If we don't have any hooks, we want to skip the rest of the logic in[39;00m
+[32m   1758[39m [38;5;66;03m# this function, and just call forward.[39;00m
+[32m   1759[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;28mself[39m._backward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._backward_pre_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_pre_hooks
+[32m   1760[39m         [38;5;129;01mor[39;00m _global_backward_pre_hooks [38;5;129;01mor[39;00m _global_backward_hooks
+[32m   1761[39m         [38;5;129;01mor[39;00m _global_forward_hooks [38;5;129;01mor[39;00m _global_forward_pre_hooks):
+[32m-> [39m[32m1762[39m     [38;5;28;01mreturn[39;00m [30;43mforward_call[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m   1764[39m result = [38;5;28;01mNone[39;00m
+[32m   1765[39m called_always_called_hooks = [38;5;28mset[39m()
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/unsloth/models/llama.py:1276[39m, in [36mLlamaModel_fast_forward[39m[34m(self, input_ids, causal_mask, attention_mask, position_ids, past_key_values, inputs_embeds, use_cache, output_attentions, output_hidden_states, return_dict, *args, **kwargs)[39m
+[32m   1273[39m     hidden_states = layer_outputs[[32m0[39m]
+[32m   1275[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1276[39m     layer_outputs = [30;43mdecoder_layer[39;49m[30;43m([39;49m
+[32m   1277[39m [30;43m        [39;49m[30;43mhidden_states[39;49m[30;43m,[39;49m
+[32m   1278[39m [30;43m        [39;49m[30;43mcausal_mask[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mmask[39;49m[30;43m,[39;49m
+[32m   1279[39m [30;43m        [39;49m[30;43mattention_mask[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mattention_mask[39;49m[30;43m,[39;49m
+[32m   1280[39m [30;43m        [39;49m[30;43mposition_ids[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mposition_ids[39;49m[30;43m,[39;49m
+[32m   1281[39m [30;43m        [39;49m[30;43mpast_key_value[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mpast_key_value[39;49m[30;43m,[39;49m
+[32m   1282[39m [30;43m        [39;49m[30;43moutput_attentions[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43moutput_attentions[39;49m[30;43m,[39;49m
+[32m   1283[39m [30;43m        [39;49m[30;43muse_cache[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43muse_cache[39;49m[30;43m,[39;49m
+[32m   1284[39m [30;43m        [39;49m[30;43mpadding_mask[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mpadding_mask[39;49m[30;43m,[39;49m
+[32m   1285[39m [30;43m        [39;49m[30;43mposition_embeddings[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mposition_embeddings[39;49m[30;43m,[39;49m
+[32m   1286[39m [30;43m        [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m,[39;49m
+[32m   1287[39m [30;43m    [39;49m[30;43m)[39;49m
+[32m   1288[39m     hidden_states = layer_outputs[[32m0[39m]
+[32m   1290[39m [38;5;28;01mif[39;00m use_cache:
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/unsloth_zoo/temporary_patches/misc.py:2164[39m, in [36mpatch_GradientCheckpointingLayer_keyword_inputs.<locals>.__call__[39m[34m(self, *args, **kwargs)[39m
+[32m   2162[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m__call__[39m([38;5;28mself[39m, *args, **kwargs):
+[32m   2163[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;28mself[39m.gradient_checkpointing [38;5;129;01mand[39;00m [38;5;28mself[39m.training):
+[32m-> [39m[32m2164[39m         [38;5;28;01mreturn[39;00m [30;43moriginal[39;49m[30;43m([39;49m[30;43mself[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m   2165[39m     keys = [38;5;28mtuple[39m(k [38;5;28;01mfor[39;00m k, v [38;5;129;01min[39;00m kwargs.items() [38;5;28;01mif[39;00m torch.is_tensor(v) [38;5;129;01mand[39;00m v.requires_grad)
+[32m   2166[39m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m keys:
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/transformers/modeling_layers.py:109[39m, in [36mGradientCheckpointingLayer.__call__[39m[34m(self, *args, **kwargs)[39m
+[32m    106[39m         logger.warning_once(message)
+[32m    108[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._gradient_checkpointing_func(partial([38;5;28msuper[39m().[34m__call__[39m, **kwargs), *args)
+[32m--> [39m[32m109[39m [38;5;28;01mreturn[39;00m [30;43msuper[39;49m[30;43m([39;49m[30;43m)[39;49m[30;43m.[39;49m[30;43m__call__[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1751[39m, in [36mModule._wrapped_call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1749[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._compiled_call_impl(*args, **kwargs)  [38;5;66;03m# type: ignore[misc][39;00m
+[32m   1750[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1751[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43m_call_impl[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1762[39m, in [36mModule._call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1757[39m [38;5;66;03m# If we don't have any hooks, we want to skip the rest of the logic in[39;00m
+[32m   1758[39m [38;5;66;03m# this function, and just call forward.[39;00m
+[32m   1759[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;28mself[39m._backward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._backward_pre_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_pre_hooks
+[32m   1760[39m         [38;5;129;01mor[39;00m _global_backward_pre_hooks [38;5;129;01mor[39;00m _global_backward_hooks
+[32m   1761[39m         [38;5;129;01mor[39;00m _global_forward_hooks [38;5;129;01mor[39;00m _global_forward_pre_hooks):
+[32m-> [39m[32m1762[39m     [38;5;28;01mreturn[39;00m [30;43mforward_call[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m   1764[39m result = [38;5;28;01mNone[39;00m
+[32m   1765[39m called_always_called_hooks = [38;5;28mset[39m()
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/accelerate/hooks.py:192[39m, in [36madd_hook_to_module.<locals>.new_forward[39m[34m(module, *args, **kwargs)[39m
+[32m    190[39m         output = module._old_forward(*args, **kwargs)
+[32m    191[39m [38;5;28;01melse[39;00m:
+[32m--> [39m[32m192[39m     output = [30;43mmodule[39;49m[30;43m.[39;49m[30;43m_old_forward[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m    193[39m [38;5;28;01mreturn[39;00m module._hf_hook.post_forward(module, output)
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/unsloth/models/llama.py:920[39m, in [36mLlamaDecoderLayer_fast_forward[39m[34m(self, hidden_states, causal_mask, attention_mask, position_ids, past_key_value, output_attentions, use_cache, padding_mask, position_embeddings, *args, **kwargs)[39m
+[32m    918[39m residual = hidden_states
+[32m    919[39m hidden_states = fast_rms_layernorm([38;5;28mself[39m.input_layernorm, hidden_states)
+[32m--> [39m[32m920[39m hidden_states, self_attn_weights, present_key_value = [30;43mself[39;49m[30;43m.[39;49m[30;43mself_attn[39;49m[30;43m([39;49m
+[32m    921[39m [30;43m    [39;49m[30;43mhidden_states[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mhidden_states[39;49m[30;43m,[39;49m
+[32m    922[39m [30;43m    [39;49m[30;43mcausal_mask[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mcausal_mask[39;49m[30;43m,[39;49m
+[32m    923[39m [30;43m    [39;49m[30;43mattention_mask[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mattention_mask[39;49m[30;43m,[39;49m
+[32m    924[39m [30;43m    [39;49m[30;43mposition_ids[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mposition_ids[39;49m[30;43m,[39;49m
+[32m    925[39m [30;43m    [39;49m[30;43mpast_key_value[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mpast_key_value[39;49m[30;43m,[39;49m
+[32m    926[39m [30;43m    [39;49m[30;43moutput_attentions[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43moutput_attentions[39;49m[30;43m,[39;49m
+[32m    927[39m [30;43m    [39;49m[30;43muse_cache[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43muse_cache[39;49m[30;43m,[39;49m
+[32m    928[39m [30;43m    [39;49m[30;43mpadding_mask[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mpadding_mask[39;49m[30;43m,[39;49m
+[32m    929[39m [30;43m    [39;49m[30;43mposition_embeddings[39;49m[30;43m [39;49m[30;43m=[39;49m[30;43m [39;49m[30;43mposition_embeddings[39;49m[30;43m,[39;49m
+[32m    930[39m [30;43m    [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m,[39;49m
+[32m    931[39m [30;43m[39;49m[30;43m)[39;49m
+[32m    932[39m hidden_states = residual + hidden_states
+[32m    934[39m residual = hidden_states
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1751[39m, in [36mModule._wrapped_call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1749[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._compiled_call_impl(*args, **kwargs)  [38;5;66;03m# type: ignore[misc][39;00m
+[32m   1750[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1751[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43m_call_impl[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1762[39m, in [36mModule._call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1757[39m [38;5;66;03m# If we don't have any hooks, we want to skip the rest of the logic in[39;00m
+[32m   1758[39m [38;5;66;03m# this function, and just call forward.[39;00m
+[32m   1759[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;28mself[39m._backward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._backward_pre_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_pre_hooks
+[32m   1760[39m         [38;5;129;01mor[39;00m _global_backward_pre_hooks [38;5;129;01mor[39;00m _global_backward_hooks
+[32m   1761[39m         [38;5;129;01mor[39;00m _global_forward_hooks [38;5;129;01mor[39;00m _global_forward_pre_hooks):
+[32m-> [39m[32m1762[39m     [38;5;28;01mreturn[39;00m [30;43mforward_call[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m   1764[39m result = [38;5;28;01mNone[39;00m
+[32m   1765[39m called_always_called_hooks = [38;5;28mset[39m()
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/accelerate/hooks.py:192[39m, in [36madd_hook_to_module.<locals>.new_forward[39m[34m(module, *args, **kwargs)[39m
+[32m    190[39m         output = module._old_forward(*args, **kwargs)
+[32m    191[39m [38;5;28;01melse[39;00m:
+[32m--> [39m[32m192[39m     output = [30;43mmodule[39;49m[30;43m.[39;49m[30;43m_old_forward[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m    193[39m [38;5;28;01mreturn[39;00m module._hf_hook.post_forward(module, output)
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/unsloth/models/qwen3.py:96[39m, in [36mQwen3Attention_fast_forward[39m[34m(self, hidden_states, causal_mask, attention_mask, position_ids, past_key_value, output_attentions, use_cache, padding_mask, position_embeddings, *args, **kwargs)[39m
+[32m     93[39m head_dim = [38;5;28mself[39m.head_dim
+[32m     94[39m [38;5;28;01massert[39;00m n_kv_heads * n_groups == n_heads
+[32m---> [39m[32m96[39m Q, K, V = [30;43mgetattr[39;49m[30;43m([39;49m[30;43mself[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m"[39;49m[30;43mapply_qkv[39;49m[30;43m"[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43moriginal_apply_qkv[39;49m[30;43m)[39;49m[30;43m([39;49m[30;43mself[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mhidden_states[39;49m[30;43m)[39;49m
+[32m     97[39m Q = Q.view(bsz, q_len, n_heads, head_dim)
+[32m     98[39m K = K.view(bsz, q_len, n_kv_heads, head_dim)
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/unsloth/models/llama.py:190[39m, in [36moriginal_apply_qkv[39m[34m(self, X)[39m
+[32m    189[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34moriginal_apply_qkv[39m([38;5;28mself[39m, X):
+[32m--> [39m[32m190[39m     Q = [30;43mself[39;49m[30;43m.[39;49m[30;43mq_proj[39;49m[30;43m([39;49m[30;43mX[39;49m[30;43m)[39;49m
+[32m    191[39m     K = [38;5;28mself[39m.k_proj(X)
+[32m    192[39m     V = [38;5;28mself[39m.v_proj(X)
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1751[39m, in [36mModule._wrapped_call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1749[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._compiled_call_impl(*args, **kwargs)  [38;5;66;03m# type: ignore[misc][39;00m
+[32m   1750[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1751[39m     [38;5;28;01mreturn[39;00m [30;43mself[39;49m[30;43m.[39;49m[30;43m_call_impl[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1762[39m, in [36mModule._call_impl[39m[34m(self, *args, **kwargs)[39m
+[32m   1757[39m [38;5;66;03m# If we don't have any hooks, we want to skip the rest of the logic in[39;00m
+[32m   1758[39m [38;5;66;03m# this function, and just call forward.[39;00m
+[32m   1759[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;28mself[39m._backward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._backward_pre_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_hooks [38;5;129;01mor[39;00m [38;5;28mself[39m._forward_pre_hooks
+[32m   1760[39m         [38;5;129;01mor[39;00m _global_backward_pre_hooks [38;5;129;01mor[39;00m _global_backward_hooks
+[32m   1761[39m         [38;5;129;01mor[39;00m _global_forward_hooks [38;5;129;01mor[39;00m _global_forward_pre_hooks):
+[32m-> [39m[32m1762[39m     [38;5;28;01mreturn[39;00m [30;43mforward_call[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m   1764[39m result = [38;5;28;01mNone[39;00m
+[32m   1765[39m called_always_called_hooks = [38;5;28mset[39m()
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/accelerate/hooks.py:187[39m, in [36madd_hook_to_module.<locals>.new_forward[39m[34m(module, *args, **kwargs)[39m
+[32m    186[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mnew_forward[39m(module, *args, **kwargs):
+[32m--> [39m[32m187[39m     args, kwargs = [30;43mmodule[39;49m[30;43m.[39;49m[30;43m_hf_hook[39;49m[30;43m.[39;49m[30;43mpre_forward[39;49m[30;43m([39;49m[30;43mmodule[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m    188[39m     [38;5;28;01mif[39;00m module._hf_hook.no_grad:
+[32m    189[39m         [38;5;28;01mwith[39;00m torch.no_grad():
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/accelerate/hooks.py:50[39m, in [36m_compiler_disable.<locals>.wrapper[39m[34m(*args, **kwargs)[39m
+[32m     48[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mhasattr[39m(wrapper, [33m"[39m[33m_compiled_fn[39m[33m"[39m):
+[32m     49[39m     wrapper._compiled_fn = torch.compiler.disable(fn)
+[32m---> [39m[32m50[39m [38;5;28;01mreturn[39;00m [30;43mwrapper[39;49m[30;43m.[39;49m[30;43m_compiled_fn[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:838[39m, in [36mDisableContext.__call__.<locals>._fn[39m[34m(*args, **kwargs)[39m
+[32m    836[39m _maybe_set_eval_frame(_callback_from_stance([38;5;28mself[39m.callback))
+[32m    837[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m838[39m     [38;5;28;01mreturn[39;00m [30;43mfn[39;49m[30;43m([39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m    839[39m [38;5;28;01mfinally[39;00m:
+[32m    840[39m     set_eval_frame([38;5;28;01mNone[39;00m)
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/accelerate/hooks.py:388[39m, in [36mAlignDevicesHook.pre_forward[39m[34m(self, module, *args, **kwargs)[39m
+[32m    380[39m         [38;5;28;01mif[39;00m (
+[32m    381[39m             value [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[32m    382[39m             [38;5;129;01mand[39;00m [38;5;28mself[39m.tied_params_map [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[32m    383[39m             [38;5;129;01mand[39;00m value.data_ptr() [38;5;129;01min[39;00m [38;5;28mself[39m.tied_params_map
+[32m    384[39m             [38;5;129;01mand[39;00m [38;5;28mself[39m.execution_device [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m [38;5;28mself[39m.tied_params_map[value.data_ptr()]
+[32m    385[39m         ):
+[32m    386[39m             [38;5;28mself[39m.tied_pointers_to_remove.add((value.data_ptr(), [38;5;28mself[39m.execution_device))
+[32m--> [39m[32m388[39m         [30;43mset_module_tensor_to_device[39;49m[30;43m([39;49m
+[32m    389[39m [30;43m            [39;49m[30;43mmodule[39;49m[30;43m,[39;49m
+[32m    390[39m [30;43m            [39;49m[30;43mname[39;49m[30;43m,[39;49m
+[32m    391[39m [30;43m            [39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mexecution_device[39;49m[30;43m,[39;49m
+[32m    392[39m [30;43m            [39;49m[30;43mvalue[39;49m[30;43m=[39;49m[30;43mvalue[39;49m[30;43m,[39;49m
+[32m    393[39m [30;43m            [39;49m[30;43mfp16_statistics[39;49m[30;43m=[39;49m[30;43mfp16_statistics[39;49m[30;43m,[39;49m
+[32m    394[39m [30;43m            [39;49m[30;43mtied_params_map[39;49m[30;43m=[39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mtied_params_map[39;49m[30;43m,[39;49m
+[32m    395[39m [30;43m        [39;49m[30;43m)[39;49m
+[32m    397[39m [38;5;28;01mreturn[39;00m send_to_device(args, [38;5;28mself[39m.execution_device), send_to_device(
+[32m    398[39m     kwargs, [38;5;28mself[39m.execution_device, skip_keys=[38;5;28mself[39m.skip_keys
+[32m    399[39m )
+
+[36mFile [39m[32m/content/day22-venv/lib/python3.12/site-packages/accelerate/utils/modeling.py:353[39m, in [36mset_module_tensor_to_device[39m[34m(module, tensor_name, device, value, dtype, fp16_statistics, tied_params_map, non_blocking, clear_cache)[39m
+[32m    351[39m             module._parameters[tensor_name] = param_cls(new_value, requires_grad=old_value.requires_grad)
+[32m    352[39m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(value, torch.Tensor):
+[32m--> [39m[32m353[39m     new_value = [30;43mvalue[39;49m[30;43m.[39;49m[30;43mto[39;49m[30;43m([39;49m[30;43mdevice[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mnon_blocking[39;49m[30;43m=[39;49m[30;43mnon_blocking[39;49m[30;43m)[39;49m
+[32m    354[39m [38;5;28;01melse[39;00m:
+[32m    355[39m     new_value = torch.tensor(value, device=device)
+
+[31mRuntimeError[39m: CUDA error: an illegal memory access was encountered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+make: *** [Makefile:66: eval] Error 1

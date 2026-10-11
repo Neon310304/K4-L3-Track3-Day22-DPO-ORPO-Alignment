@@ -1,5 +1,0 @@
-[jupytext] Reading /lab/notebooks/02_preference_data.py in format py
-[jupytext] Writing /lab/notebooks/02_preference_data.ipynb
-[NbConvertApp] Converting notebook /lab/notebooks/02_preference_data.ipynb to notebook
-[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
-[NbConvertApp] Writing 32248 bytes to /lab/notebooks/02_preference_data.ipynb

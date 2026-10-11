@@ -1,0 +1,34 @@
+{
+  "checked_utc": "2026-10-11T02:05:04.932533+00:00",
+  "checks": {
+    "thirteen_core_source_hashes_match": true,
+    "original_make_failure_preserved": true,
+    "original_manifest_hash_preserved": true,
+    "training_stages_unchanged_by_recovery": true,
+    "no_policy_retraining_or_answer_regeneration": true,
+    "exact_answer_hash_recovered": true,
+    "recovery_explicit_in_entrypoint": true,
+    "recovery_notebook_is_actual_execution": true,
+    "reflection_depth": true,
+    "reports_contain_no_template_placeholders": true
+  },
+  "passed": true,
+  "notebook_code_cells": {
+    "00_dpo_loss_from_scratch.ipynb": 9,
+    "01_sft_mini.ipynb": 7,
+    "02_preference_data.ipynb": 5,
+    "03_dpo_train.ipynb": 6,
+    "04_compare_and_eval.ipynb": 5
+  },
+  "reflection_word_counts": {
+    "3": 241,
+    "6": 304
+  },
+  "screenshots_sha256": {
+    "02-sft-loss.png": "3f0069d4b014b89589447a611d1c78156e9a0ec2315389066bfcd374a7d13ecf",
+    "02b-pref-length.png": "5b1df41a8448aa1b6410be9d2a3288c9f9bd8eb96a33a63354c5a61264707277",
+    "03-dpo-reward-curves.png": "0ff4f5cd4aaba0713f328d802a2721c705d96e58346c47dc3d83a65cb07bbd8c",
+    "04-side-by-side-table.png": "0a7da3b2e36caf33d00ee6fa11fe09edb74e19271065396094bad668c942b33f"
+  },
+  "visual_review": "All four original pipeline PNGs inspected: loss, length distribution, train/heldout reward and fixed-answer excerpt table. Full answers remain in raw JSONL."
+}

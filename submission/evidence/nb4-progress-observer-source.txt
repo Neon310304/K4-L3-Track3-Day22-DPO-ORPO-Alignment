@@ -1,0 +1,26 @@
+import time, queue
+from pathlib import Path
+from jupyter_client import BlockingKernelClient
+connection='/tmp/tmp4npn4l2i.json'
+k=BlockingKernelClient(connection_file=connection)
+k.load_connection_file()
+k.start_channels(shell=False,iopub=True,stdin=False,hb=False,control=False)
+end=time.monotonic()+120*60
+log=Path('/content/day22-clean-t4/submission/evidence/nb4-progress.log')
+try:
+ with log.open('w',encoding='utf-8') as f:
+  f.write('Read-only IOPub subscription to the NB4 kernel; no execution requests sent.\n'); f.flush()
+  while time.monotonic()<end and Path(connection).exists():
+   try: m=k.get_iopub_msg(timeout=1)
+   except queue.Empty: continue
+   if m.get('msg_type')=='stream':
+    f.write(m.get('content',{}).get('text','')); f.flush()
+   elif m.get('msg_type')=='execute_input':
+    c=m.get('content',{}); code=c.get('code','')
+    phase='judge' if 'make_rm_scorer' in code else 'generation' if 'MD.generate' in code else 'summary' if 'summary = {' in code else 'other'
+    f.write('\nCELL_BEGIN '+str(c.get('execution_count'))+': '+phase+'\n'); f.flush()
+   elif m.get('msg_type')=='error':
+    c=m.get('content',{}); f.write(str(c.get('ename'))+': '+str(c.get('evalue'))+'\n'); f.flush()
+  f.write('\nRead-only observer ended.\n')
+finally:
+ k.stop_channels()

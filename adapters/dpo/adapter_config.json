@@ -7,7 +7,7 @@
     "parent_library": "transformers.models.qwen3.modeling_qwen3",
     "unsloth_fixed": true
   },
-  "base_model_name_or_path": "/lab/models/sft-merged",
+  "base_model_name_or_path": "/content/day22-clean-t4/models/sft-merged",
   "bias": "none",
   "corda_config": null,
   "ensure_weight_tying": false,
@@ -36,13 +36,13 @@
   "rank_pattern": {},
   "revision": null,
   "target_modules": [
-    "up_proj",
-    "v_proj",
-    "o_proj",
-    "q_proj",
     "gate_proj",
     "k_proj",
-    "down_proj"
+    "v_proj",
+    "o_proj",
+    "down_proj",
+    "q_proj",
+    "up_proj"
   ],
   "target_parameters": null,
   "task_type": "CAUSAL_LM",

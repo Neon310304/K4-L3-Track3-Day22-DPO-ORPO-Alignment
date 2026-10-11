@@ -1,0 +1,22 @@
+from pathlib import Path
+import time
+from jupyter_client import BlockingKernelClient
+connection = Path('/tmp/tmp66o_oeqo.json')
+log = Path('/content/day22-clean-t4/submission/evidence/nb4-recovery-progress.log')
+client = BlockingKernelClient(connection_file=str(connection))
+client.load_connection_file()
+client.start_channels(shell=False, stdin=False, hb=False, control=False)
+try:
+    deadline=time.monotonic()+1800
+    with log.open('a',encoding='utf-8') as stream:
+        while connection.exists() and time.monotonic()<deadline:
+            try: message=client.get_iopub_msg(timeout=5)
+            except Exception: continue
+            if message['msg_type']=='stream':
+                text=message['content']['text']
+                if any(word in text for word in ('scored','sanity','Saved','COMPLETE','Recovered')):
+                    stream.write(text);stream.flush()
+            elif message['msg_type']=='error':
+                stream.write(message['content']['ename']+': '+message['content']['evalue']+'\n');stream.flush()
+finally:
+    client.stop_channels()

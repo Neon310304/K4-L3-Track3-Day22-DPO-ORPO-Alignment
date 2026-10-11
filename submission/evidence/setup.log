@@ -1,0 +1,644 @@
+Collecting uv
+  Downloading uv-0.13.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Downloading uv-0.13.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.9/17.9 MB 95.8 MB/s eta 0:00:00
+Installing collected packages: uv
+Successfully installed uv-0.13.0
+warning: The `--system` flag has no effect, `uv venv` always ignores virtual environments when finding a Python interpreter; did you mean `--no-managed-python`?
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment with seed packages at: /content/day22-venv
+ + pip==26.2.1
+Activate with: source /content/day22-venv/bin/activate
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu118
+Collecting xformers @ https://download.pytorch.org/whl/cu118/xformers-0.0.30-cp312-cp312-manylinux_2_28_x86_64.whl
+  Downloading xformers-0.0.30-cp312-cp312-manylinux_2_28_x86_64.whl (16.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.5/16.5 MB 25.2 MB/s  0:00:00
+Collecting torch==2.7.0+cu118
+  Downloading torch-2.7.0%2Bcu118-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (28 kB)
+Collecting torchvision==0.22.0+cu118
+  Downloading torchvision-0.22.0%2Bcu118-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.1 kB)
+Collecting torchao==0.13.0
+  Downloading torchao-0.13.0-1-cp39-abi3-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (19 kB)
+Collecting unsloth==2026.10.2
+  Downloading unsloth-2026.10.2-py3-none-any.whl.metadata (82 kB)
+Collecting unsloth_zoo==2026.10.2
+  Downloading unsloth_zoo-2026.10.2-py3-none-any.whl.metadata (33 kB)
+Collecting trl==1.13.0
+  Downloading trl-1.13.0-py3-none-any.whl.metadata (12 kB)
+Collecting transformers==5.17.0
+  Downloading transformers-5.17.0-py3-none-any.whl.metadata (32 kB)
+Collecting peft<1,>=0.18
+  Downloading peft-0.21.2-py3-none-any.whl.metadata (15 kB)
+Collecting accelerate<2,>=1.10
+  Downloading accelerate-1.15.0-py3-none-any.whl.metadata (19 kB)
+Collecting bitsandbytes<1,>=0.48
+  Downloading bitsandbytes-0.50.2-py3-none-manylinux_2_24_x86_64.whl.metadata (10 kB)
+Collecting datasets<5,>=4.7
+  Downloading datasets-4.8.5-py3-none-any.whl.metadata (19 kB)
+Collecting matplotlib<4,>=3.9
+  Downloading matplotlib-3.11.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+Collecting pandas<4,>=2.2
+  Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+Collecting pyarrow>=17
+  Downloading pyarrow-26.0.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting jupytext<2,>=1.16
+  Downloading jupytext-1.19.6-py3-none-any.whl.metadata (15 kB)
+Collecting nbconvert<8,>=7
+  Downloading nbconvert-7.17.1-py3-none-any.whl.metadata (8.4 kB)
+Collecting ipykernel<8,>=6
+  Downloading ipykernel-7.4.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting pytest<10,>=8.3
+  Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting lm-eval==0.4.13 (from lm-eval[ifeval,math]==0.4.13)
+  Downloading lm_eval-0.4.13-py3-none-any.whl.metadata (64 kB)
+Collecting numpy (from xformers @ https://download.pytorch.org/whl/cu118/xformers-0.0.30-cp312-cp312-manylinux_2_28_x86_64.whl)
+  Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting filelock (from torch==2.7.0+cu118)
+  Downloading filelock-4.1.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch==2.7.0+cu118)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting setuptools (from torch==2.7.0+cu118)
+  Downloading setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting sympy>=1.13.3 (from torch==2.7.0+cu118)
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx (from torch==2.7.0+cu118)
+  Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+Collecting jinja2 (from torch==2.7.0+cu118)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec (from torch==2.7.0+cu118)
+  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting nvidia-cuda-nvrtc-cu11==11.8.89 (from torch==2.7.0+cu118)
+  Downloading nvidia_cuda_nvrtc_cu11-11.8.89-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cuda-runtime-cu11==11.8.89 (from torch==2.7.0+cu118)
+  Downloading nvidia_cuda_runtime_cu11-11.8.89-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cuda-cupti-cu11==11.8.87 (from torch==2.7.0+cu118)
+  Downloading nvidia_cuda_cupti_cu11-11.8.87-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cudnn-cu11==9.1.0.70 (from torch==2.7.0+cu118)
+  Downloading nvidia_cudnn_cu11-9.1.0.70-py3-none-manylinux2014_x86_64.whl (663.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 663.9/663.9 MB 36.4 MB/s  0:00:09
+Collecting nvidia-cublas-cu11==11.11.3.6 (from torch==2.7.0+cu118)
+  Downloading nvidia_cublas_cu11-11.11.3.6-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cufft-cu11==10.9.0.58 (from torch==2.7.0+cu118)
+  Downloading nvidia_cufft_cu11-10.9.0.58-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-curand-cu11==10.3.0.86 (from torch==2.7.0+cu118)
+  Downloading nvidia_curand_cu11-10.3.0.86-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-cusolver-cu11==11.4.1.48 (from torch==2.7.0+cu118)
+  Downloading nvidia_cusolver_cu11-11.4.1.48-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
+Collecting nvidia-cusparse-cu11==11.7.5.86 (from torch==2.7.0+cu118)
+  Downloading nvidia_cusparse_cu11-11.7.5.86-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting nvidia-nccl-cu11==2.21.5 (from torch==2.7.0+cu118)
+  Downloading nvidia_nccl_cu11-2.21.5-py3-none-manylinux2014_x86_64.whl (147.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 147.8/147.8 MB 68.3 MB/s  0:00:02
+Collecting nvidia-nvtx-cu11==11.8.86 (from torch==2.7.0+cu118)
+  Downloading nvidia_nvtx_cu11-11.8.86-py3-none-manylinux2014_x86_64.whl.metadata (1.7 kB)
+Collecting triton==3.3.0 (from torch==2.7.0+cu118)
+  Downloading triton-3.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.5 kB)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.22.0+cu118)
+  Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting wheel>=0.42.0 (from unsloth==2026.10.2)
+  Downloading wheel-0.48.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting packaging (from unsloth==2026.10.2)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting tqdm (from unsloth==2026.10.2)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting psutil (from unsloth==2026.10.2)
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting tyro (from unsloth==2026.10.2)
+  Downloading tyro-1.0.16-py3-none-any.whl.metadata (12 kB)
+Collecting protobuf (from unsloth==2026.10.2)
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting sentencepiece>=0.2.0 (from unsloth==2026.10.2)
+  Downloading sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
+Collecting huggingface_hub>=0.34.0 (from unsloth==2026.10.2)
+  Downloading huggingface_hub-2.2.0-py3-none-any.whl.metadata (16 kB)
+Collecting hf_transfer (from unsloth==2026.10.2)
+  Downloading hf_transfer-0.1.9-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.7 kB)
+Collecting diffusers (from unsloth==2026.10.2)
+  Downloading diffusers-0.41.0-py3-none-any.whl.metadata (20 kB)
+Collecting typer>=0.19.0 (from unsloth==2026.10.2)
+  Downloading typer-0.27.3-py3-none-any.whl.metadata (16 kB)
+Collecting rich (from unsloth==2026.10.2)
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting pydantic (from unsloth==2026.10.2)
+  Downloading pydantic-2.14.0-py3-none-any.whl.metadata (131 kB)
+Collecting pyyaml (from unsloth==2026.10.2)
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting nest-asyncio (from unsloth==2026.10.2)
+  Downloading nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting structlog>=24.1.0 (from unsloth==2026.10.2)
+  Downloading structlog-26.1.0-py3-none-any.whl.metadata (9.7 kB)
+Collecting click>=8.0 (from unsloth==2026.10.2)
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting huggingface_hub>=0.34.0 (from unsloth==2026.10.2)
+  Downloading huggingface_hub-1.33.0-py3-none-any.whl.metadata (16 kB)
+Collecting regex>=2025.10.22 (from transformers==5.17.0)
+  Downloading regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting tokenizers<0.24.0,>=0.23.1 (from transformers==5.17.0)
+  Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
+Collecting safetensors>=0.8.0 (from transformers==5.17.0)
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting cut_cross_entropy (from unsloth_zoo==2026.10.2)
+  Downloading cut_cross_entropy-25.1.1-py3-none-any.whl.metadata (9.3 kB)
+Collecting msgspec (from unsloth_zoo==2026.10.2)
+  Downloading msgspec-0.22.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (6.0 kB)
+Collecting requests (from unsloth_zoo==2026.10.2)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting evaluate>=0.4.0 (from lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading evaluate-0.4.6-py3-none-any.whl.metadata (9.5 kB)
+Collecting pytablewriter (from lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading pytablewriter-1.2.1-py3-none-any.whl.metadata (38 kB)
+Collecting rouge-score>=0.0.4 (from lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading rouge_score-0.1.2.tar.gz (17 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting sacrebleu>=1.5.0 (from lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading sacrebleu-2.6.0-py3-none-any.whl.metadata (39 kB)
+Collecting scikit-learn>=0.24.1 (from lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+Collecting sqlitedict (from lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading sqlitedict-2.1.0.tar.gz (21 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting dill (from lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+Collecting word2number (from lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading word2number-1.1.zip (9.7 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting more_itertools (from lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading more_itertools-11.1.0-py3-none-any.whl.metadata (41 kB)
+Collecting langdetect (from lm-eval[ifeval,math]==0.4.13)
+  Downloading langdetect-1.0.9.tar.gz (981 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 981.5/981.5 kB 13.2 MB/s  0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting immutabledict (from lm-eval[ifeval,math]==0.4.13)
+  Downloading immutabledict-4.3.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting nltk>=3.9.1 (from lm-eval[ifeval,math]==0.4.13)
+  Downloading nltk-3.10.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting antlr4-python3-runtime==4.11 (from lm-eval[ifeval,math]==0.4.13)
+  Downloading antlr4_python3_runtime-4.11.0-py3-none-any.whl.metadata (291 bytes)
+Collecting math_verify[antlr4_11_0] (from lm-eval[ifeval,math]==0.4.13)
+  Downloading math_verify-0.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting httpx<1.0.0 (from datasets<5,>=4.7)
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting xxhash (from datasets<5,>=4.7)
+  Downloading xxhash-4.0.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (17 kB)
+Collecting multiprocess<0.70.20 (from datasets<5,>=4.7)
+  Downloading multiprocess-0.70.19-py312-none-any.whl.metadata (7.5 kB)
+Collecting fsspec (from torch==2.7.0+cu118)
+  Downloading fsspec-2026.2.0-py3-none-any.whl.metadata (10 kB)
+Collecting contourpy>=1.0.1 (from matplotlib<4,>=3.9)
+  Downloading contourpy-1.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting cycler>=0.10 (from matplotlib<4,>=3.9)
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.28.2 (from matplotlib<4,>=3.9)
+  Downloading fonttools-4.66.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (130 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib<4,>=3.9)
+  Downloading kiwisolver-1.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+Collecting pyparsing>=3 (from matplotlib<4,>=3.9)
+  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting python-dateutil>=2.7 (from matplotlib<4,>=3.9)
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting markdown-it-py>=1.0 (from jupytext<2,>=1.16)
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting mdit-py-plugins (from jupytext<2,>=1.16)
+  Downloading mdit_py_plugins-0.6.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting nbformat (from jupytext<2,>=1.16)
+  Downloading nbformat-5.11.1-py3-none-any.whl.metadata (3.7 kB)
+Collecting beautifulsoup4 (from nbconvert<8,>=7)
+  Downloading beautifulsoup4-4.15.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting bleach!=5.0.0 (from bleach[css]!=5.0.0->nbconvert<8,>=7)
+  Downloading bleach-6.4.0-py3-none-any.whl.metadata (32 kB)
+Collecting defusedxml (from nbconvert<8,>=7)
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting jupyter-core>=4.7 (from nbconvert<8,>=7)
+  Downloading jupyter_core-5.9.1-py3-none-any.whl.metadata (1.5 kB)
+Collecting jupyterlab-pygments (from nbconvert<8,>=7)
+  Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting markupsafe>=2.0 (from nbconvert<8,>=7)
+  Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting mistune<4,>=2.0.3 (from nbconvert<8,>=7)
+  Downloading mistune-3.3.4-py3-none-any.whl.metadata (1.9 kB)
+Collecting nbclient>=0.5.0 (from nbconvert<8,>=7)
+  Downloading nbclient-0.11.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting pandocfilters>=1.4.1 (from nbconvert<8,>=7)
+  Downloading pandocfilters-1.5.1-py2.py3-none-any.whl.metadata (9.0 kB)
+Collecting pygments>=2.4.1 (from nbconvert<8,>=7)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting traitlets>=5.1 (from nbconvert<8,>=7)
+  Downloading traitlets-5.16.1-py3-none-any.whl.metadata (10 kB)
+Collecting comm>=0.1.1 (from ipykernel<8,>=6)
+  Downloading comm-0.2.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting debugpy>=1.6.5 (from ipykernel<8,>=6)
+  Downloading debugpy-1.8.22-cp312-cp312-manylinux_2_34_x86_64.whl.metadata (1.4 kB)
+Collecting ipython>=7.23.1 (from ipykernel<8,>=6)
+  Downloading ipython-9.17.1-py3-none-any.whl.metadata (4.6 kB)
+Collecting jupyter-client>=8.9.0 (from ipykernel<8,>=6)
+  Downloading jupyter_client-8.10.0-py3-none-any.whl.metadata (8.5 kB)
+Collecting matplotlib-inline>=0.1 (from ipykernel<8,>=6)
+  Downloading matplotlib_inline-0.2.2-py3-none-any.whl.metadata (2.4 kB)
+Collecting nest-asyncio2>=1.7.0 (from ipykernel<8,>=6)
+  Downloading nest_asyncio2-1.7.4-py3-none-any.whl.metadata (7.0 kB)
+Collecting pyzmq>=25 (from ipykernel<8,>=6)
+  Downloading pyzmq-27.2.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting tornado>=6.5.7 (from ipykernel<8,>=6)
+  Downloading tornado-6.5.10-cp39-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (2.8 kB)
+Collecting iniconfig>=1.0.1 (from pytest<10,>=8.3)
+  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting pluggy<2,>=1.5 (from pytest<10,>=8.3)
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting aiohttp!=4.0.0a0,!=4.0.0a1 (from fsspec[http]<=2026.2.0,>=2023.1.0->datasets<5,>=4.7)
+  Downloading aiohttp-3.14.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+Collecting anyio (from httpx<1.0.0->datasets<5,>=4.7)
+  Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting certifi (from httpx<1.0.0->datasets<5,>=4.7)
+  Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting httpcore==1.* (from httpx<1.0.0->datasets<5,>=4.7)
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting idna (from httpx<1.0.0->datasets<5,>=4.7)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1.0.0->datasets<5,>=4.7)
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface_hub>=0.34.0->unsloth==2026.10.2)
+  Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets<5,>=4.7)
+  Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets<5,>=4.7)
+  Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting attrs>=17.3.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets<5,>=4.7)
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets<5,>=4.7)
+  Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets<5,>=4.7)
+  Downloading multidict-6.9.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets<5,>=4.7)
+  Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+Collecting yarl<2.0,>=1.25.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets<5,>=4.7)
+  Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+Collecting webencodings (from bleach!=5.0.0->bleach[css]!=5.0.0->nbconvert<8,>=7)
+  Downloading webencodings-0.6.1-py3-none-any.whl.metadata (3.4 kB)
+Collecting tinycss2>=1.1.0 (from bleach[css]!=5.0.0->nbconvert<8,>=7)
+  Downloading tinycss2-1.5.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting ipython-pygments-lexers>=1.0.0 (from ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading ipython_pygments_lexers-1.1.1-py3-none-any.whl.metadata (1.1 kB)
+Collecting jedi>=0.18.2 (from ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading jedi-0.20.0-py2.py3-none-any.whl.metadata (23 kB)
+Collecting pexpect>4.6 (from ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading pexpect-4.9.0-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting prompt_toolkit<3.1.0,>=3.0.41 (from ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading prompt_toolkit-3.0.53-py3-none-any.whl.metadata (6.4 kB)
+Collecting stack_data>=0.6.0 (from ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading stack_data-0.6.3-py3-none-any.whl.metadata (18 kB)
+Collecting wcwidth>=0.1.4 (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading wcwidth-0.9.2-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (23 kB)
+Collecting parso<0.9.0,>=0.8.6 (from jedi>=0.18.2->ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading parso-0.8.7-py2.py3-none-any.whl.metadata (8.2 kB)
+Collecting platformdirs>=2.5 (from jupyter-core>=4.7->nbconvert<8,>=7)
+  Downloading platformdirs-4.12.4-py3-none-any.whl.metadata (5.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=1.0->jupytext<2,>=1.16)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting fastjsonschema>=2.15 (from nbformat->jupytext<2,>=1.16)
+  Downloading fastjsonschema-2.22.2-py3-none-any.whl.metadata (2.1 kB)
+Collecting jsonschema>=2.6 (from nbformat->jupytext<2,>=1.16)
+  Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=2.6->nbformat->jupytext<2,>=1.16)
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=2.6->nbformat->jupytext<2,>=1.16)
+  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.25.0 (from jsonschema>=2.6->nbformat->jupytext<2,>=1.16)
+  Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting joblib (from nltk>=3.9.1->lm-eval[ifeval,math]==0.4.13)
+  Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting ptyprocess>=0.5 (from pexpect>4.6->ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib<4,>=3.9)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting charset_normalizer<4,>=2 (from requests->unsloth_zoo==2026.10.2)
+  Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+Collecting urllib3<3,>=1.26 (from requests->unsloth_zoo==2026.10.2)
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting absl-py (from rouge-score>=0.0.4->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading absl_py-2.5.1-py3-none-any.whl.metadata (3.3 kB)
+Collecting portalocker (from sacrebleu>=1.5.0->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading portalocker-4.4.0-py3-none-any.whl.metadata (10 kB)
+Collecting tabulate>=0.8.9 (from sacrebleu>=1.5.0->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
+Collecting colorama (from sacrebleu>=1.5.0->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting lxml (from sacrebleu>=1.5.0->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting scipy>=1.10.0 (from scikit-learn>=0.24.1->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn>=0.24.1->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading narwhals-2.27.1-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn>=0.24.1->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+Collecting cloudpickle>=3.0 (from joblib->nltk>=3.9.1->lm-eval[ifeval,math]==0.4.13)
+  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Collecting executing>=1.2.0 (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading executing-2.3.0-py3-none-any.whl.metadata (9.1 kB)
+Collecting asttokens>=2.1.0 (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading asttokens-3.0.2-py3-none-any.whl.metadata (5.7 kB)
+Collecting pure-eval (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel<8,>=6)
+  Downloading pure_eval-0.2.4-py3-none-any.whl.metadata (6.4 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.7.0+cu118)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting shellingham>=1.3.0 (from typer>=0.19.0->unsloth==2026.10.2)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting annotated-doc>=0.0.2 (from typer>=0.19.0->unsloth==2026.10.2)
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting soupsieve>=1.6.1 (from beautifulsoup4->nbconvert<8,>=7)
+  Downloading soupsieve-3.0.1-py3-none-any.whl.metadata (4.4 kB)
+Collecting importlib_metadata (from diffusers->unsloth==2026.10.2)
+  Downloading importlib_metadata-9.0.1-py3-none-any.whl.metadata (4.5 kB)
+Collecting zipp>=3.20 (from importlib_metadata->diffusers->unsloth==2026.10.2)
+  Downloading zipp-4.1.1-py3-none-any.whl.metadata (3.6 kB)
+Collecting latex2sympy2_extended==1.11.0 (from math_verify[antlr4_11_0]; extra == "math"->lm-eval[ifeval,math]==0.4.13)
+  Downloading latex2sympy2_extended-1.11.0-py3-none-any.whl.metadata (5.3 kB)
+Collecting annotated-types>=0.6.0 (from pydantic->unsloth==2026.10.2)
+  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.50.0 (from pydantic->unsloth==2026.10.2)
+  Downloading pydantic_core-2.50.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.5 kB)
+Collecting typing-inspection>=0.4.4 (from pydantic->unsloth==2026.10.2)
+  Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting DataProperty<2,>=1.1.0 (from pytablewriter->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading dataproperty-1.1.1-py3-none-any.whl.metadata (12 kB)
+Collecting mbstrdecoder<2,>=1.0.0 (from pytablewriter->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading mbstrdecoder-1.1.5-py3-none-any.whl.metadata (4.3 kB)
+Collecting pathvalidate<4,>=2.3.0 (from pytablewriter->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading pathvalidate-3.3.1-py3-none-any.whl.metadata (12 kB)
+Collecting tabledata<2,>=1.3.1 (from pytablewriter->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading tabledata-1.3.5-py3-none-any.whl.metadata (4.0 kB)
+Collecting tcolorpy<1,>=0.0.5 (from pytablewriter->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading tcolorpy-0.1.7-py3-none-any.whl.metadata (6.3 kB)
+Collecting typepy<2,>=1.3.2 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading typepy-1.3.5-py3-none-any.whl.metadata (9.6 kB)
+Collecting chardet<7,>=3.0.4 (from mbstrdecoder<2,>=1.0.0->pytablewriter->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading chardet-6.0.0.post1-py3-none-any.whl.metadata (3.3 kB)
+Collecting pytz>=2018.9 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval==0.4.13->lm-eval[ifeval,math]==0.4.13)
+  Downloading pytz-2026.5-py2.py3-none-any.whl.metadata (22 kB)
+Collecting docstring-parser>=0.16 (from tyro->unsloth==2026.10.2)
+  Downloading docstring_parser-0.18.0-py3-none-any.whl.metadata (3.5 kB)
+Collecting typeguard>=4.0.0 (from tyro->unsloth==2026.10.2)
+  Downloading typeguard-4.6.0-py3-none-any.whl.metadata (3.7 kB)
+Downloading torch-2.7.0%2Bcu118-cp312-cp312-manylinux_2_28_x86_64.whl (955.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 955.5/955.5 MB 18.3 MB/s  0:00:19
+Downloading torchvision-0.22.0%2Bcu118-cp312-cp312-manylinux_2_28_x86_64.whl (6.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.7/6.7 MB 115.0 MB/s  0:00:00
+Downloading torchao-0.13.0-1-cp39-abi3-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 34.0 MB/s  0:00:00
+Downloading unsloth-2026.10.2-py3-none-any.whl (28.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 28.4/28.4 MB 97.4 MB/s  0:00:00
+Downloading trl-1.13.0-py3-none-any.whl (1.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 60.3 MB/s  0:00:00
+Downloading transformers-5.17.0-py3-none-any.whl (12.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 113.8 MB/s  0:00:00
+Downloading unsloth_zoo-2026.10.2-py3-none-any.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 90.9 MB/s  0:00:00
+Downloading lm_eval-0.4.13-py3-none-any.whl (9.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.1/9.1 MB 95.1 MB/s  0:00:00
+Downloading antlr4_python3_runtime-4.11.0-py3-none-any.whl (144 kB)
+Downloading nvidia_cublas_cu11-11.11.3.6-py3-none-manylinux2014_x86_64.whl (417.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 417.9/417.9 MB 24.2 MB/s  0:00:12
+Downloading nvidia_cuda_cupti_cu11-11.8.87-py3-none-manylinux2014_x86_64.whl (13.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 31.3 MB/s  0:00:00
+Downloading nvidia_cuda_nvrtc_cu11-11.8.89-py3-none-manylinux2014_x86_64.whl (23.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.2/23.2 MB 38.5 MB/s  0:00:00
+Downloading nvidia_cuda_runtime_cu11-11.8.89-py3-none-manylinux2014_x86_64.whl (875 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 875.6/875.6 kB 25.4 MB/s  0:00:00
+Downloading nvidia_cufft_cu11-10.9.0.58-py3-none-manylinux2014_x86_64.whl (168.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 168.4/168.4 MB 37.8 MB/s  0:00:04
+Downloading nvidia_curand_cu11-10.3.0.86-py3-none-manylinux2014_x86_64.whl (58.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.1/58.1 MB 38.3 MB/s  0:00:01
+Downloading nvidia_cusolver_cu11-11.4.1.48-py3-none-manylinux2014_x86_64.whl (128.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 128.2/128.2 MB 39.1 MB/s  0:00:03
+Downloading nvidia_cusparse_cu11-11.7.5.86-py3-none-manylinux2014_x86_64.whl (204.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 204.1/204.1 MB 15.9 MB/s  0:00:12
+Downloading nvidia_nvtx_cu11-11.8.86-py3-none-manylinux2014_x86_64.whl (99 kB)
+Downloading triton-3.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (156.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 156.5/156.5 MB 61.3 MB/s  0:00:02
+Downloading peft-0.21.2-py3-none-any.whl (835 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 835.4/835.4 kB 21.4 MB/s  0:00:00
+Downloading accelerate-1.15.0-py3-none-any.whl (394 kB)
+Downloading bitsandbytes-0.50.2-py3-none-manylinux_2_24_x86_64.whl (43.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.1/43.1 MB 28.4 MB/s  0:00:01
+Downloading datasets-4.8.5-py3-none-any.whl (528 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 529.0/529.0 kB 15.0 MB/s  0:00:00
+Downloading matplotlib-3.11.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 38.9 MB/s  0:00:00
+Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 41.9 MB/s  0:00:00
+Downloading jupytext-1.19.6-py3-none-any.whl (230 kB)
+Downloading nbconvert-7.17.1-py3-none-any.whl (261 kB)
+Downloading ipykernel-7.4.0-py3-none-any.whl (123 kB)
+Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+Downloading dill-0.4.1-py3-none-any.whl (120 kB)
+Downloading fsspec-2026.2.0-py3-none-any.whl (202 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading huggingface_hub-1.33.0-py3-none-any.whl (846 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 846.4/846.4 kB 24.8 MB/s  0:00:00
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 42.0 MB/s  0:00:00
+Downloading mistune-3.3.4-py3-none-any.whl (66 kB)
+Downloading multiprocess-0.70.19-py312-none-any.whl (150 kB)
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 41.7 MB/s  0:00:00
+Downloading pyarrow-26.0.0-cp312-cp312-manylinux_2_28_x86_64.whl (53.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.9/53.9 MB 38.2 MB/s  0:00:01
+Downloading aiohttp-3.14.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 43.0 MB/s  0:00:00
+Downloading multidict-6.9.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (336 kB)
+Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Downloading bleach-6.4.0-py3-none-any.whl (165 kB)
+Downloading comm-0.2.3-py3-none-any.whl (7.3 kB)
+Downloading contourpy-1.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (383 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading debugpy-1.8.22-cp312-cp312-manylinux_2_34_x86_64.whl (4.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.0/4.0 MB 52.1 MB/s  0:00:00
+Downloading evaluate-0.4.6-py3-none-any.whl (84 kB)
+Downloading filelock-4.1.0-py3-none-any.whl (133 kB)
+Downloading fonttools-4.66.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 55.2 MB/s  0:00:00
+Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Downloading ipython-9.17.1-py3-none-any.whl (639 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 639.0/639.0 kB 23.9 MB/s  0:00:00
+Downloading prompt_toolkit-3.0.53-py3-none-any.whl (392 kB)
+Downloading ipython_pygments_lexers-1.1.1-py3-none-any.whl (8.1 kB)
+Downloading jedi-0.20.0-py2.py3-none-any.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 51.2 MB/s  0:00:00
+Downloading parso-0.8.7-py2.py3-none-any.whl (107 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading jupyter_client-8.10.0-py3-none-any.whl (110 kB)
+Downloading jupyter_core-5.9.1-py3-none-any.whl (29 kB)
+Downloading kiwisolver-1.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 37.8 MB/s  0:00:00
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading matplotlib_inline-0.2.2-py3-none-any.whl (9.5 kB)
+Downloading nbclient-0.11.0-py3-none-any.whl (25 kB)
+Downloading nbformat-5.11.1-py3-none-any.whl (79 kB)
+Downloading fastjsonschema-2.22.2-py3-none-any.whl (27 kB)
+Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Downloading nest_asyncio2-1.7.4-py3-none-any.whl (8.5 kB)
+Downloading nltk-3.10.3-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 38.8 MB/s  0:00:00
+Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 56.7 MB/s  0:00:00
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pandocfilters-1.5.1-py2.py3-none-any.whl (8.7 kB)
+Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 55.2 MB/s  0:00:00
+Downloading platformdirs-4.12.4-py3-none-any.whl (32 kB)
+Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 40.2 MB/s  0:00:00
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 28.9 MB/s  0:00:00
+Downloading pyzmq-27.2.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (872 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 872.3/872.3 kB 31.2 MB/s  0:00:00
+Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+Downloading regex-2026.9.29-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.8/807.8 kB 27.5 MB/s  0:00:00
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (371 kB)
+Downloading sacrebleu-2.6.0-py3-none-any.whl (100 kB)
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.2/9.2 MB 54.3 MB/s  0:00:00
+Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Downloading narwhals-2.27.1-py3-none-any.whl (483 kB)
+Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 32.9 MB/s  0:00:01
+Downloading sentencepiece-0.2.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 45.0 MB/s  0:00:00
+Using cached setuptools-84.0.0-py3-none-any.whl (818 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+Downloading asttokens-3.0.2-py3-none-any.whl (28 kB)
+Downloading executing-2.3.0-py3-none-any.whl (29 kB)
+Downloading structlog-26.1.0-py3-none-any.whl (73 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 66.2 MB/s  0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 25.1 MB/s  0:00:00
+Downloading tabulate-0.10.0-py3-none-any.whl (39 kB)
+Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+Downloading tinycss2-1.5.1-py3-none-any.whl (28 kB)
+Downloading tornado-6.5.10-cp39-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (467 kB)
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading traitlets-5.16.1-py3-none-any.whl (86 kB)
+Downloading typer-0.27.3-py3-none-any.whl (123 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading wcwidth-0.9.2-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (769 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 769.8/769.8 kB 30.0 MB/s  0:00:00
+Downloading webencodings-0.6.1-py3-none-any.whl (8.7 kB)
+Downloading wheel-0.48.0-py3-none-any.whl (33 kB)
+Downloading absl_py-2.5.1-py3-none-any.whl (137 kB)
+Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)
+Downloading soupsieve-3.0.1-py3-none-any.whl (41 kB)
+Downloading cut_cross_entropy-25.1.1-py3-none-any.whl (22 kB)
+Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading diffusers-0.41.0-py3-none-any.whl (6.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.1/6.1 MB 67.3 MB/s  0:00:00
+Downloading hf_transfer-0.1.9-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 62.1 MB/s  0:00:00
+Downloading immutabledict-4.3.1-py3-none-any.whl (5.0 kB)
+Downloading importlib_metadata-9.0.1-py3-none-any.whl (27 kB)
+Downloading zipp-4.1.1-py3-none-any.whl (10 kB)
+Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl (15 kB)
+Downloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 55.4 MB/s  0:00:00
+Downloading math_verify-0.9.0-py3-none-any.whl (29 kB)
+Downloading latex2sympy2_extended-1.11.0-py3-none-any.whl (209 kB)
+Downloading mdit_py_plugins-0.6.1-py3-none-any.whl (66 kB)
+Downloading more_itertools-11.1.0-py3-none-any.whl (72 kB)
+Downloading msgspec-0.22.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (230 kB)
+Downloading nest_asyncio-1.6.0-py3-none-any.whl (5.2 kB)
+Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 52.6 MB/s  0:00:00
+Downloading portalocker-4.4.0-py3-none-any.whl (129 kB)
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+Downloading pure_eval-0.2.4-py3-none-any.whl (11 kB)
+Downloading pydantic-2.14.0-py3-none-any.whl (487 kB)
+Downloading pydantic_core-2.50.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 54.3 MB/s  0:00:00
+Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Downloading pytablewriter-1.2.1-py3-none-any.whl (91 kB)
+Downloading dataproperty-1.1.1-py3-none-any.whl (27 kB)
+Downloading mbstrdecoder-1.1.5-py3-none-any.whl (8.0 kB)
+Downloading chardet-6.0.0.post1-py3-none-any.whl (627 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 627.2/627.2 kB 25.6 MB/s  0:00:00
+Downloading pathvalidate-3.3.1-py3-none-any.whl (24 kB)
+Downloading tabledata-1.3.5-py3-none-any.whl (11 kB)
+Downloading tcolorpy-0.1.7-py3-none-any.whl (8.1 kB)
+Downloading typepy-1.3.5-py3-none-any.whl (31 kB)
+Downloading pytz-2026.5-py2.py3-none-any.whl (506 kB)
+Downloading tyro-1.0.16-py3-none-any.whl (216 kB)
+Downloading docstring_parser-0.18.0-py3-none-any.whl (22 kB)
+Downloading typeguard-4.6.0-py3-none-any.whl (36 kB)
+Downloading xxhash-4.0.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (261 kB)
+Building wheels for collected packages: rouge-score, langdetect, sqlitedict, word2number
+  Building wheel for rouge-score (pyproject.toml): started
+  Building wheel for rouge-score (pyproject.toml): finished with status 'done'
+  Created wheel for rouge-score: filename=rouge_score-0.1.2-py3-none-any.whl size=24987 sha256=b74bccb1fa53d98b4ce2143e38e12e581734137fe0a4f637920302c6162d19c4
+  Stored in directory: /root/.cache/pip/wheels/85/9d/af/01feefbe7d55ef5468796f0c68225b6788e85d9d0a281e7a70
+  Building wheel for langdetect (pyproject.toml): started
+  Building wheel for langdetect (pyproject.toml): finished with status 'done'
+  Created wheel for langdetect: filename=langdetect-1.0.9-py3-none-any.whl size=993332 sha256=382c590d57cf8fbf0cdc018410126a7ee0405f7886cc55d202670c691770a5ae
+  Stored in directory: /root/.cache/pip/wheels/c1/67/88/e844b5b022812e15a52e4eaa38a1e709e99f06f6639d7e3ba7
+  Building wheel for sqlitedict (pyproject.toml): started
+  Building wheel for sqlitedict (pyproject.toml): finished with status 'done'
+  Created wheel for sqlitedict: filename=sqlitedict-2.1.0-py3-none-any.whl size=16958 sha256=b7bf58c493ccc4371ade994988432e08f1dd617abb49e08de8ca324e9cd39f0d
+  Stored in directory: /root/.cache/pip/wheels/7a/6f/21/fc016aef45ffcabe27129a2252f061387cbf278d2086225a64
+  Building wheel for word2number (pyproject.toml): started
+  Building wheel for word2number (pyproject.toml): finished with status 'done'
+  Created wheel for word2number: filename=word2number-1.1-py3-none-any.whl size=5658 sha256=0e1837e05775962c3187a85ccce5a8405628e496d9640bf4ae0e95116e1c1eae
+  Stored in directory: /root/.cache/pip/wheels/5b/79/fb/d25928e599c7e11fe4e00d32048cd74933f34a74c633d2aea6
+Successfully built rouge-score langdetect sqlitedict word2number
+Installing collected packages: word2number, torchao, sqlitedict, pytz, pure-eval, ptyprocess, mpmath, antlr4-python3-runtime, zipp, xxhash, webencodings, wcwidth, urllib3, typing-extensions, traitlets, tqdm, tornado, threadpoolctl, tcolorpy, tabulate, sympy, structlog, soupsieve, six, shellingham, setuptools, sentencepiece, safetensors, rpds-py, regex, pyzmq, pyyaml, pyparsing, pygments, pyarrow, psutil, protobuf, propcache, portalocker, pluggy, platformdirs, pillow, pexpect, pathvalidate, parso, pandocfilters, packaging, nvidia-nvtx-cu11, nvidia-nccl-cu11, nvidia-cusparse-cu11, nvidia-curand-cu11, nvidia-cufft-cu11, nvidia-cuda-runtime-cu11, nvidia-cuda-nvrtc-cu11, nvidia-cuda-cupti-cu11, nvidia-cublas-cu11, numpy, networkx, nest-asyncio2, nest-asyncio, narwhals, multidict, msgspec, more_itertools, mistune, mdurl, markupsafe, lxml, kiwisolver, jupyterlab-pygments, iniconfig, immutabledict, idna, hf-xet, hf_transfer, h11, fsspec, frozenlist, fonttools, filelock, fastjsonschema, executing, docstring-parser, dill, defusedxml, debugpy, cycler, comm, colorama, cloudpickle, click, charset_normalizer, chardet, certifi, attrs, asttokens, annotated-types, annotated-doc, aiohappyeyeballs, absl-py, yarl, wheel, typing-inspection, typeguard, triton, tinycss2, stack_data, scipy, sacrebleu, requests, referencing, python-dateutil, pytest, pydantic-core, prompt_toolkit, nvidia-cusolver-cu11, nvidia-cudnn-cu11, multiprocess, mbstrdecoder, matplotlib-inline, markdown-it-py, latex2sympy2_extended, langdetect, jupyter-core, joblib, jinja2, jedi, ipython-pygments-lexers, importlib_metadata, httpcore, contourpy, bleach, beautifulsoup4, anyio, aiosignal, tyro, typepy, torch, scikit-learn, rich, pydantic, pandas, nltk, mdit-py-plugins, matplotlib, math_verify, jupyter-client, jsonschema-specifications, ipython, httpx, aiohttp, xformers, typer, torchvision, rouge-score, jsonschema, ipykernel, huggingface_hub, cut_cross_entropy, bitsandbytes, tokenizers, nbformat, diffusers, datasets, DataProperty, accelerate, transformers, tabledata, nbclient, jupytext, evaluate, trl, pytablewriter, peft, nbconvert, unsloth_zoo, lm-eval, unsloth
+
+Successfully installed DataProperty-1.1.1 absl-py-2.5.1 accelerate-1.15.0 aiohappyeyeballs-2.7.1 aiohttp-3.14.4 aiosignal-1.4.0 annotated-doc-0.0.5 annotated-types-0.8.0 antlr4-python3-runtime-4.11.0 anyio-4.15.1 asttokens-3.0.2 attrs-26.1.0 beautifulsoup4-4.15.0 bitsandbytes-0.50.2 bleach-6.4.0 certifi-2026.7.22 chardet-6.0.0.post1 charset_normalizer-3.5.2 click-8.5.0 cloudpickle-3.1.2 colorama-0.4.6 comm-0.2.3 contourpy-1.4.0 cut_cross_entropy-25.1.1 cycler-0.12.1 datasets-4.8.5 debugpy-1.8.22 defusedxml-0.7.1 diffusers-0.41.0 dill-0.4.1 docstring-parser-0.18.0 evaluate-0.4.6 executing-2.3.0 fastjsonschema-2.22.2 filelock-4.1.0 fonttools-4.66.1 frozenlist-1.8.0 fsspec-2026.2.0 h11-0.16.0 hf-xet-1.7.0 hf_transfer-0.1.9 httpcore-1.0.9 httpx-0.28.1 huggingface_hub-1.33.0 idna-3.20 immutabledict-4.3.1 importlib_metadata-9.0.1 iniconfig-2.3.1 ipykernel-7.4.0 ipython-9.17.1 ipython-pygments-lexers-1.1.1 jedi-0.20.0 jinja2-3.1.6 joblib-1.6.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 jupyter-client-8.10.0 jupyter-core-5.9.1 jupyterlab-pygments-0.3.0 jupytext-1.19.6 kiwisolver-1.5.1 langdetect-1.0.9 latex2sympy2_extended-1.11.0 lm-eval-0.4.13 lxml-6.1.3 markdown-it-py-4.2.0 markupsafe-3.0.4 math_verify-0.9.0 matplotlib-3.11.2 matplotlib-inline-0.2.2 mbstrdecoder-1.1.5 mdit-py-plugins-0.6.1 mdurl-0.1.2 mistune-3.3.4 more_itertools-11.1.0 mpmath-1.3.0 msgspec-0.22.0 multidict-6.9.1 multiprocess-0.70.19 narwhals-2.27.1 nbclient-0.11.0 nbconvert-7.17.1 nbformat-5.11.1 nest-asyncio-1.6.0 nest-asyncio2-1.7.4 networkx-3.7 nltk-3.10.3 numpy-2.5.4 nvidia-cublas-cu11-11.11.3.6 nvidia-cuda-cupti-cu11-11.8.87 nvidia-cuda-nvrtc-cu11-11.8.89 nvidia-cuda-runtime-cu11-11.8.89 nvidia-cudnn-cu11-9.1.0.70 nvidia-cufft-cu11-10.9.0.58 nvidia-curand-cu11-10.3.0.86 nvidia-cusolver-cu11-11.4.1.48 nvidia-cusparse-cu11-11.7.5.86 nvidia-nccl-cu11-2.21.5 nvidia-nvtx-cu11-11.8.86 packaging-26.3 pandas-3.0.6 pandocfilters-1.5.1 parso-0.8.7 pathvalidate-3.3.1 peft-0.21.2 pexpect-4.9.0 pillow-12.3.0 platformdirs-4.12.4 pluggy-1.6.0 portalocker-4.4.0 prompt_toolkit-3.0.53 propcache-0.5.4 protobuf-7.36.2 psutil-7.2.2 ptyprocess-0.7.0 pure-eval-0.2.4 pyarrow-26.0.0 pydantic-2.14.0 pydantic-core-2.50.0 pygments-2.21.0 pyparsing-3.3.3 pytablewriter-1.2.1 pytest-9.1.1 python-dateutil-2.9.0.post0 pytz-2026.5 pyyaml-6.0.3 pyzmq-27.2.0 referencing-0.37.0 regex-2026.9.29 requests-2.34.2 rich-15.0.0 rouge-score-0.1.2 rpds-py-2026.9.1 sacrebleu-2.6.0 safetensors-0.8.0 scikit-learn-1.9.1 scipy-1.18.1 sentencepiece-0.2.2 setuptools-84.0.0 shellingham-1.5.4 six-1.17.0 soupsieve-3.0.1 sqlitedict-2.1.0 stack_data-0.6.3 structlog-26.1.0 sympy-1.14.0 tabledata-1.3.5 tabulate-0.10.0 tcolorpy-0.1.7 threadpoolctl-3.7.0 tinycss2-1.5.1 tokenizers-0.23.3 torch-2.7.0+cu118 torchao-0.13.0 torchvision-0.22.0+cu118 tornado-6.5.10 tqdm-4.70.1 traitlets-5.16.1 transformers-5.17.0 triton-3.3.0 trl-1.13.0 typeguard-4.6.0 typepy-1.3.5 typer-0.27.3 typing-extensions-4.16.0 typing-inspection-0.4.4 tyro-1.0.16 unsloth-2026.10.2 unsloth_zoo-2026.10.2 urllib3-2.8.0 wcwidth-0.9.2 webencodings-0.6.1 wheel-0.48.0 word2number-1.1 xformers-0.0.30 xxhash-4.0.1 yarl-1.25.1 zipp-4.1.1
+Installed kernelspec python3 in /content/day22-venv/share/jupyter/kernels/python3
+T4 interpreter: /content/day22-venv/bin/python

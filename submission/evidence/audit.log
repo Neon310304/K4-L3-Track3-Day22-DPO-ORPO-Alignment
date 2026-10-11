@@ -19,7 +19,14 @@ OK judge_matches_exact_outputs
 OK judge_records_preserve_answers
 OK judge_summary_recomputed
 OK two_real_judges_recorded
+OK reward_model_scores_are_finite
 OK panel_obeys_sanity_filter
 OK rm_verdicts_match_saved_scores
 OK per_judge_summary_recomputed
 OK judge_agreement_recomputed
+
+Generating train split: 0 examples [00:00, ? examples/s]
+Generating train split: 800 examples [00:00, 15035.37 examples/s]
+
+Generating train split: 0 examples [00:00, ? examples/s]
+Generating train split: 100 examples [00:00, 7430.78 examples/s]

@@ -1,0 +1,5 @@
+{
+  "commit": "c48d70b877e4dc108894e4a38d7b45ae7dec5283",
+  "sha256": "8c5cf29313d25ff41aa1cd4150a8788ba1d197b60696d58c09f4c2621feb8ffb",
+  "purpose": "Preserve templates and hash exact copied bytes while NB4 logs grow; training core unchanged"
+}

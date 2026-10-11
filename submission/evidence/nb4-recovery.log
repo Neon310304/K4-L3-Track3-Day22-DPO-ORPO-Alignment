@@ -1,0 +1,5 @@
+[jupytext] Reading notebooks/04_compare_and_eval.py in format py
+[jupytext] Writing notebooks/04_compare_and_eval.ipynb (destination file updated)
+[NbConvertApp] Converting notebook notebooks/04_compare_and_eval.ipynb to notebook
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+[NbConvertApp] Writing 188864 bytes to notebooks/04_compare_and_eval.ipynb

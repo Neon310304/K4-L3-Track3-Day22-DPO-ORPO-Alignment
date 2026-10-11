@@ -1,0 +1,56 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+Fetching 2 files:  50%|█████     | 1/2 [00:35<00:35, 35.10s/it]
+Fetching 2 files: 100%|██████████| 2/2 [01:02<00:00, 30.39s/it]
+Fetching 2 files: 100%|██████████| 2/2 [01:02<00:00, 31.10s/it]
+
+Loading weights:   0%|          | 0/255 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/255 [00:05<25:03,  5.92s/it]
+Loading weights:  23%|██▎       | 58/255 [00:06<00:14, 13.57it/s]
+Loading weights:  35%|███▌      | 90/255 [00:06<00:08, 18.78it/s]
+Loading weights:  43%|████▎     | 109/255 [00:08<00:08, 16.27it/s]
+Loading weights:  47%|████▋     | 121/255 [00:09<00:09, 14.46it/s]
+Loading weights:  51%|█████     | 129/255 [00:10<00:09, 13.57it/s]
+Loading weights:  53%|█████▎    | 135/255 [00:10<00:08, 13.87it/s]
+Loading weights:  55%|█████▍    | 140/255 [00:11<00:09, 11.82it/s]
+Loading weights:  58%|█████▊    | 147/255 [00:12<00:08, 12.65it/s]
+Loading weights:  59%|█████▉    | 150/255 [00:12<00:08, 11.75it/s]
+Loading weights:  61%|██████    | 156/255 [00:12<00:08, 12.36it/s]
+Loading weights:  62%|██████▏   | 158/255 [00:13<00:09, 10.72it/s]
+Loading weights:  65%|██████▍   | 165/255 [00:13<00:07, 12.33it/s]
+Loading weights:  65%|██████▌   | 167/255 [00:14<00:08, 10.55it/s]
+Loading weights:  68%|██████▊   | 174/255 [00:14<00:06, 11.70it/s]
+Loading weights:  69%|██████▉   | 176/255 [00:15<00:08,  9.45it/s]
+Loading weights:  72%|███████▏  | 183/255 [00:15<00:06, 11.40it/s]
+Loading weights:  73%|███████▎  | 185/255 [00:15<00:06, 10.86it/s]
+Loading weights:  74%|███████▍  | 189/255 [00:15<00:05, 12.65it/s]
+Loading weights:  75%|███████▌  | 192/255 [00:16<00:05, 10.85it/s]
+Loading weights:  76%|███████▌  | 194/255 [00:16<00:06,  8.74it/s]
+Loading weights:  79%|███████▉  | 201/255 [00:17<00:04, 11.33it/s]
+Loading weights:  80%|███████▉  | 203/255 [00:17<00:05,  9.76it/s]
+Loading weights:  82%|████████▏ | 210/255 [00:17<00:03, 12.00it/s]
+Loading weights:  83%|████████▎ | 212/255 [00:18<00:04, 10.01it/s]
+Loading weights:  86%|████████▌ | 219/255 [00:18<00:02, 12.36it/s]
+Loading weights:  87%|████████▋ | 221/255 [00:19<00:03, 10.14it/s]
+Loading weights:  89%|████████▉ | 228/255 [00:19<00:02, 12.43it/s]
+Loading weights:  90%|█████████ | 230/255 [00:19<00:02, 10.24it/s]
+Loading weights:  93%|█████████▎| 237/255 [00:20<00:01, 12.49it/s]
+Loading weights:  94%|█████████▎| 239/255 [00:20<00:01, 10.19it/s]
+Loading weights:  96%|█████████▋| 246/255 [00:21<00:00, 12.36it/s]
+Loading weights:  97%|█████████▋| 248/255 [00:21<00:00, 10.13it/s]
+Loading weights: 100%|██████████| 255/255 [00:21<00:00, 11.88it/s]
+Some parameters are on the meta device because they were offloaded to the cpu.
+sanity 1/12: correct=True
+sanity 2/12: correct=True
+sanity 3/12: correct=True
+sanity 4/12: correct=True
+sanity 5/12: correct=True
+sanity 6/12: correct=True
+sanity 7/12: correct=True
+sanity 8/12: correct=True
+sanity 9/12: correct=True
+sanity 10/12: correct=True
+sanity 11/12: correct=True
+sanity 12/12: correct=True
+Sanity accuracy: 100.0%; passed=True

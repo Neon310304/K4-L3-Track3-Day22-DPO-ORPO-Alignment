@@ -1,0 +1,255 @@
+Loading Skywork/Skywork-Reward-V2-Qwen3-4B
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:   0%|          | 1/399 [00:06<44:42,  6.74s/it]Loading weights:  10%|▉         | 38/399 [00:07<00:50,  7.21it/s]Loading weights:  12%|█▏        | 47/399 [00:07<00:40,  8.74it/s]Loading weights:  13%|█▎        | 51/399 [00:07<00:38,  9.03it/s]Loading weights:  15%|█▍        | 58/399 [00:08<00:33, 10.22it/s]Loading weights:  15%|█▌        | 61/399 [00:08<00:34,  9.88it/s]Loading weights:  17%|█▋        | 69/399 [00:09<00:28, 11.77it/s]Loading weights:  18%|█▊        | 71/399 [00:09<00:31, 10.36it/s]Loading weights:  20%|██        | 80/399 [00:10<00:24, 13.22it/s]Loading weights:  21%|██        | 82/399 [00:10<00:28, 11.26it/s]Loading weights:  23%|██▎       | 91/399 [00:10<00:22, 13.82it/s]Loading weights:  23%|██▎       | 93/399 [00:11<00:26, 11.59it/s]Loading weights:  26%|██▌       | 102/399 [00:11<00:20, 14.64it/s]Loading weights:  26%|██▌       | 104/399 [00:11<00:24, 12.09it/s]Loading weights:  28%|██▊       | 113/399 [00:12<00:19, 14.92it/s]Loading weights:  29%|██▉       | 115/399 [00:12<00:23, 12.13it/s]Loading weights:  31%|███       | 124/399 [00:13<00:18, 14.87it/s]Loading weights:  32%|███▏      | 126/399 [00:13<00:22, 12.09it/s]Loading weights:  34%|███▍      | 135/399 [00:14<00:17, 14.90it/s]Loading weights:  34%|███▍      | 137/399 [00:14<00:21, 12.06it/s]Loading weights:  37%|███▋      | 146/399 [00:14<00:16, 14.97it/s]Loading weights:  37%|███▋      | 148/399 [00:15<00:21, 11.77it/s]Loading weights:  39%|███▉      | 157/399 [00:15<00:18, 12.89it/s]Loading weights:  40%|███▉      | 159/399 [00:16<00:24,  9.95it/s]Loading weights:  42%|████▏     | 168/399 [00:16<00:19, 12.13it/s]Loading weights:  43%|████▎     | 170/399 [00:17<00:23,  9.91it/s]Loading weights:  45%|████▍     | 179/399 [00:17<00:17, 12.50it/s]Loading weights:  45%|████▌     | 181/399 [00:18<00:20, 10.71it/s]Loading weights:  48%|████▊     | 190/399 [00:18<00:15, 13.74it/s]Loading weights:  48%|████▊     | 192/399 [00:19<00:18, 11.37it/s]Loading weights:  50%|█████     | 201/399 [00:19<00:13, 14.34it/s]Loading weights:  51%|█████     | 203/399 [00:19<00:16, 11.83it/s]Loading weights:  53%|█████▎    | 212/399 [00:20<00:12, 14.80it/s]Loading weights:  54%|█████▎    | 214/399 [00:20<00:15, 12.21it/s]Loading weights:  56%|█████▌    | 223/399 [00:21<00:11, 14.95it/s]Loading weights:  56%|█████▋    | 225/399 [00:21<00:14, 12.21it/s]Loading weights:  59%|█████▊    | 234/399 [00:21<00:10, 15.05it/s]Loading weights:  59%|█████▉    | 236/399 [00:22<00:13, 12.11it/s]Loading weights:  61%|██████▏   | 245/399 [00:22<00:10, 14.89it/s]Loading weights:  62%|██████▏   | 247/399 [00:23<00:12, 12.12it/s]Loading weights:  64%|██████▍   | 256/399 [00:23<00:09, 14.85it/s]Loading weights:  65%|██████▍   | 258/399 [00:23<00:11, 12.18it/s]Loading weights:  67%|██████▋   | 267/399 [00:24<00:08, 15.28it/s]Loading weights:  67%|██████▋   | 269/399 [00:24<00:10, 12.25it/s]Loading weights:  70%|██████▉   | 278/399 [00:25<00:07, 15.26it/s]Loading weights:  70%|███████   | 280/399 [00:25<00:09, 12.15it/s]Loading weights:  72%|███████▏  | 289/399 [00:25<00:07, 15.07it/s]Loading weights:  73%|███████▎  | 291/399 [00:26<00:08, 12.04it/s]Loading weights:  75%|███████▌  | 300/399 [00:26<00:06, 15.19it/s]Loading weights:  76%|███████▌  | 302/399 [00:27<00:08, 12.10it/s]Loading weights:  78%|███████▊  | 311/399 [00:27<00:05, 14.99it/s]Loading weights:  78%|███████▊  | 313/399 [00:28<00:07, 11.17it/s]Loading weights:  81%|████████  | 322/399 [00:28<00:05, 13.15it/s]Loading weights:  81%|████████  | 324/399 [00:29<00:07, 10.27it/s]Loading weights:  83%|████████▎ | 333/399 [00:29<00:05, 12.75it/s]Loading weights:  84%|████████▍ | 335/399 [00:30<00:06, 10.15it/s]Loading weights:  86%|████████▌ | 344/399 [00:30<00:04, 13.27it/s]Loading weights:  87%|████████▋ | 346/399 [00:30<00:04, 11.21it/s]Loading weights:  89%|████████▉ | 355/399 [00:31<00:03, 14.61it/s]Loading weights:  89%|████████▉ | 357/399 [00:31<00:03, 11.81it/s]Loading weights:  92%|█████████▏| 366/399 [00:32<00:02, 14.88it/s]Loading weights:  92%|█████████▏| 368/399 [00:32<00:02, 11.92it/s]Loading weights:  94%|█████████▍| 377/399 [00:32<00:01, 14.93it/s]Loading weights:  95%|█████████▍| 379/399 [00:33<00:01, 11.99it/s]Loading weights:  97%|█████████▋| 388/399 [00:33<00:00, 14.94it/s]Loading weights:  98%|█████████▊| 390/399 [00:34<00:00, 12.07it/s]Loading weights: 100%|██████████| 399/399 [00:34<00:00, 11.70it/s]
+Some parameters are on the meta device because they were offloaded to the cpu.
+Skywork/Skywork-Reward-V2-Qwen3-4B: sanity 100.0%; threshold unchanged at 80%
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 1/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 2/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 3/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 4/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 5/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 6/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 7/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 8/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 9/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 10/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 11/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 12/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 13/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 14/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 15/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 16/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 17/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 18/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 19/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 20/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 21/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 22/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 23/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 24/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 25/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 26/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 27/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 28/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 29/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 30/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 31/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 32/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 33/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 34/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 35/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 36/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 37/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 38/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 39/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 40/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 41/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 42/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 43/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 44/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 45/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 46/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 47/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 48/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 49/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 50/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 51/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 52/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 53/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 54/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 55/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 56/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 57/58
+Skywork/Skywork-Reward-V2-Qwen3-4B: scored 58/58
+Loading Skywork/Skywork-Reward-V2-Llama-3.2-3B
+Loading weights:   0%|          | 0/255 [00:00<?, ?it/s]Loading weights:   0%|          | 1/255 [00:06<27:13,  6.43s/it]Loading weights:  14%|█▎        | 35/255 [00:06<00:29,  7.44it/s]Loading weights:  19%|█▉        | 48/255 [00:07<00:25,  8.17it/s]Loading weights:  22%|██▏       | 56/255 [00:08<00:21,  9.20it/s]Loading weights:  24%|██▍       | 62/255 [00:09<00:22,  8.53it/s]Loading weights:  26%|██▌       | 66/255 [00:09<00:22,  8.35it/s]Loading weights:  27%|██▋       | 69/255 [00:10<00:23,  8.07it/s]Loading weights:  29%|██▉       | 75/255 [00:10<00:19,  9.25it/s]Loading weights:  30%|███       | 77/255 [00:11<00:20,  8.49it/s]Loading weights:  33%|███▎      | 84/255 [00:11<00:16, 10.60it/s]Loading weights:  34%|███▎      | 86/255 [00:11<00:17,  9.46it/s]Loading weights:  36%|███▋      | 93/255 [00:12<00:14, 11.45it/s]Loading weights:  37%|███▋      | 95/255 [00:12<00:16,  9.71it/s]Loading weights:  40%|████      | 102/255 [00:13<00:13, 11.77it/s]Loading weights:  41%|████      | 104/255 [00:13<00:15,  9.97it/s]Loading weights:  44%|████▎     | 111/255 [00:13<00:12, 12.00it/s]Loading weights:  44%|████▍     | 113/255 [00:14<00:14, 10.10it/s]Loading weights:  47%|████▋     | 120/255 [00:14<00:11, 12.14it/s]Loading weights:  48%|████▊     | 122/255 [00:15<00:13, 10.08it/s]Loading weights:  51%|█████     | 129/255 [00:15<00:10, 12.25it/s]Loading weights:  51%|█████▏    | 131/255 [00:15<00:12, 10.26it/s]Loading weights:  54%|█████▍    | 138/255 [00:16<00:09, 12.14it/s]Loading weights:  55%|█████▍    | 140/255 [00:16<00:11, 10.16it/s]Loading weights:  58%|█████▊    | 147/255 [00:17<00:08, 12.10it/s]Loading weights:  58%|█████▊    | 149/255 [00:17<00:10, 10.20it/s]Loading weights:  61%|██████    | 156/255 [00:17<00:08, 12.25it/s]Loading weights:  62%|██████▏   | 158/255 [00:18<00:09, 10.08it/s]Loading weights:  65%|██████▍   | 165/255 [00:18<00:07, 12.18it/s]Loading weights:  65%|██████▌   | 167/255 [00:19<00:08, 10.22it/s]Loading weights:  68%|██████▊   | 174/255 [00:19<00:06, 12.19it/s]Loading weights:  69%|██████▉   | 176/255 [00:19<00:07, 10.20it/s]Loading weights:  72%|███████▏  | 183/255 [00:20<00:05, 12.01it/s]Loading weights:  73%|███████▎  | 185/255 [00:20<00:07,  9.40it/s]Loading weights:  75%|███████▌  | 192/255 [00:21<00:05, 10.54it/s]Loading weights:  76%|███████▌  | 194/255 [00:21<00:07,  8.67it/s]Loading weights:  79%|███████▉  | 201/255 [00:22<00:05,  9.89it/s]Loading weights:  80%|███████▉  | 203/255 [00:22<00:06,  8.38it/s]Loading weights:  82%|████████▏ | 210/255 [00:23<00:04, 10.66it/s]Loading weights:  83%|████████▎ | 212/255 [00:23<00:04,  9.18it/s]Loading weights:  86%|████████▌ | 219/255 [00:24<00:03, 11.63it/s]Loading weights:  87%|████████▋ | 221/255 [00:24<00:03,  9.87it/s]Loading weights:  89%|████████▉ | 228/255 [00:24<00:02, 12.28it/s]Loading weights:  90%|█████████ | 230/255 [00:25<00:02, 10.03it/s]Loading weights:  93%|█████████▎| 237/255 [00:25<00:01, 12.19it/s]Loading weights:  94%|█████████▎| 239/255 [00:26<00:01, 10.02it/s]Loading weights:  96%|█████████▋| 246/255 [00:26<00:00, 12.19it/s]Loading weights:  97%|█████████▋| 248/255 [00:26<00:00,  9.96it/s]Loading weights: 100%|██████████| 255/255 [00:26<00:00,  9.49it/s]
+Some parameters are on the meta device because they were offloaded to the cpu.
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: sanity 100.0%; threshold unchanged at 80%
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 1/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 2/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 3/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 4/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 5/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 6/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 7/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 8/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 9/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 10/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 11/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 12/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 13/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 14/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 15/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 16/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 17/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 18/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 19/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 20/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 21/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 22/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 23/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 24/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 25/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 26/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 27/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 28/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 29/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 30/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 31/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 32/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 33/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 34/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 35/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 36/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 37/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 38/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 39/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 40/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 41/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 42/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 43/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 44/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 45/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 46/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 47/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 48/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 49/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 50/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 51/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 52/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 53/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 54/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 55/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 56/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 57/58
+Skywork/Skywork-Reward-V2-Llama-3.2-3B: scored 58/58
+{
+  "judge": "rm-panel:Skywork/Skywork-Reward-V2-Qwen3-4B+Skywork/Skywork-Reward-V2-Llama-3.2-3B",
+  "sanity_accuracy": 1.0,
+  "sanity": {
+    "Skywork/Skywork-Reward-V2-Qwen3-4B": 1.0,
+    "Skywork/Skywork-Reward-V2-Llama-3.2-3B": 1.0
+  },
+  "overall": {
+    "n": 58,
+    "n_failed": 0,
+    "dpo_wins": 5,
+    "sft_wins": 9,
+    "ties": 44,
+    "dpo_win_rate": 0.46551724137931033,
+    "win_rate_ci95": [
+      0.4051724137931034,
+      0.5258620689655172
+    ],
+    "position_consistency": null,
+    "longer_answer_won_frac": 0.5,
+    "length_matched_n": 51,
+    "length_matched_win_rate": 0.46078431372549017,
+    "mean_chars_sft": 571.051724137931,
+    "mean_chars_dpo": 578.0689655172414
+  },
+  "heldout": {
+    "n": 50,
+    "n_failed": 0,
+    "dpo_wins": 3,
+    "sft_wins": 9,
+    "ties": 38,
+    "dpo_win_rate": 0.44,
+    "win_rate_ci95": [
+      0.37,
+      0.5
+    ],
+    "position_consistency": null,
+    "longer_answer_won_frac": 0.5,
+    "length_matched_n": 44,
+    "length_matched_win_rate": 0.4431818181818182,
+    "mean_chars_sft": 571.3,
+    "mean_chars_dpo": 574.66
+  },
+  "helpfulness": {
+    "n": 4,
+    "n_failed": 0,
+    "dpo_wins": 1,
+    "sft_wins": 0,
+    "ties": 3,
+    "dpo_win_rate": 0.625,
+    "win_rate_ci95": [
+      0.5,
+      0.875
+    ],
+    "position_consistency": null,
+    "longer_answer_won_frac": 1.0,
+    "length_matched_n": 3,
+    "length_matched_win_rate": 0.5,
+    "mean_chars_sft": 684.5,
+    "mean_chars_dpo": 751.25
+  },
+  "safety": {
+    "n": 4,
+    "n_failed": 0,
+    "dpo_wins": 1,
+    "sft_wins": 0,
+    "ties": 3,
+    "dpo_win_rate": 0.625,
+    "win_rate_ci95": [
+      0.5,
+      0.875
+    ],
+    "position_consistency": null,
+    "longer_answer_won_frac": 0.0,
+    "length_matched_n": 4,
+    "length_matched_win_rate": 0.625,
+    "mean_chars_sft": 454.5,
+    "mean_chars_dpo": 447.5
+  },
+  "per_judge": {
+    "Skywork/Skywork-Reward-V2-Qwen3-4B": {
+      "n": 50,
+      "n_failed": 0,
+      "dpo_wins": 4,
+      "sft_wins": 12,
+      "ties": 34,
+      "dpo_win_rate": 0.42,
+      "win_rate_ci95": [
+        0.35,
+        0.49
+      ],
+      "position_consistency": null,
+      "longer_answer_won_frac": 0.375,
+      "length_matched_n": 44,
+      "length_matched_win_rate": 0.4318181818181818,
+      "mean_chars_sft": 571.3,
+      "mean_chars_dpo": 574.66,
+      "score_length_spearman": -0.13871316256518887
+    },
+    "Skywork/Skywork-Reward-V2-Llama-3.2-3B": {
+      "n": 50,
+      "n_failed": 0,
+      "dpo_wins": 6,
+      "sft_wins": 10,
+      "ties": 34,
+      "dpo_win_rate": 0.46,
+      "win_rate_ci95": [
+        0.38,
+        0.54
+      ],
+      "position_consistency": null,
+      "longer_answer_won_frac": 0.625,
+      "length_matched_n": 44,
+      "length_matched_win_rate": 0.45454545454545453,
+      "mean_chars_sft": 571.3,
+      "mean_chars_dpo": 574.66,
+      "score_length_spearman": -0.012322189552435322
+    }
+  },
+  "judge_agreement": {
+    "judges": [
+      "Skywork/Skywork-Reward-V2-Qwen3-4B",
+      "Skywork/Skywork-Reward-V2-Llama-3.2-3B"
+    ],
+    "n": 58,
+    "agreement": 0.896551724137931
+  },
+  "outputs_sha256": "f37541d4f21577008cd6183e6a788522bfd95726de50d43d92b0d65a946fc78e"
+}
+Saved data/eval/recovery-20261011 without retraining or editing any answer.

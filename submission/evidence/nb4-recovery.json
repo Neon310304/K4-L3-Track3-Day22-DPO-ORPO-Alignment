@@ -1,0 +1,16 @@
+{
+  "started_utc": "2026-10-11T01:48:38.908286+00:00",
+  "finished_utc": "2026-10-11T01:56:42.420274+00:00",
+  "seconds": 483.51651610499994,
+  "exit_code": 0,
+  "entrypoint": "make eval",
+  "policy_retrained": false,
+  "answers_regenerated": false,
+  "outputs_sha256": "f37541d4f21577008cd6183e6a788522bfd95726de50d43d92b0d65a946fc78e",
+  "original_pipeline_sha256": "ceefeb9a96f7c38182b7b7ab46f88352e8375c2b95ab8219522b838ccbee5c93",
+  "original_history": "submission/history/T4_NB4_FAILED_20261011T014838Z",
+  "source_commit": "53a00376e779fbf06471dfeb42032027bfd56653",
+  "overlay_source_commit": "033bf86c680a8104d5cc1d52df811b204c445c11",
+  "nb4_source_sha256": "d7b01282a0802bf9f194fe88f6b14d0c75d02fdf09912c74bdb7e981a93bdbfa",
+  "script_sha256": "6fe84060825cba257928ac6217af8dea0e31d7d7e304eaf74dc53fdc4a48ef18"
+}

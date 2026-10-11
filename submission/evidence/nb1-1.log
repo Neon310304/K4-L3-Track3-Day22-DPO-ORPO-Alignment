@@ -1,6 +1,0 @@
-[jupytext] Reading /lab/notebooks/01_sft_mini.py in format py
-[jupytext] Writing /lab/notebooks/01_sft_mini.ipynb
-[NbConvertApp] Converting notebook /lab/notebooks/01_sft_mini.ipynb to notebook
-[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-[NbConvertApp] Writing 43862 bytes to /lab/notebooks/01_sft_mini.ipynb
