@@ -39,6 +39,10 @@ def test_clean_colab_uses_4b_unquantized_judges_and_exports_no_weights():
     assert '[LAB_PY, "-u", "scripts/run_clean_pipeline.py"]' in cells[1]
     assert '"JUDGE_RM_DTYPE": "float32"' in cells[0]
     assert 'assert preflight[name] >= 0.8' in cells[0]
+    assert "scripts/export_training_checkpoint.py" in cells[0]
+    assert "to notebooks/03_dpo_train.ipynb" in cells[1]
+    assert "day22-training-checkpoint-" in cells[1]
+    assert "files.download(str(checkpoint))" in cells[1]
 
 
 def test_clean_colab_file_matches_generator():

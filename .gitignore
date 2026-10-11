@@ -45,6 +45,8 @@ wandb/
 # HuggingFace cache
 .cache/
 hf_cache/
+# Private recovery ZIPs contain LoRA weights; they are not submission artifacts.
+day22-training-checkpoint*.zip
 
 # Env / secrets
 .env
